@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.vod.VodRelatedItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="107px"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/poster_layout"
+        android:layout_width="match_parent"
+        android:layout_height="162px"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/vod_poster_default" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="42px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/vod_related_item_title_bg"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="8px"
+            android:paddingRight="8px"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="19px"
+            android:visibility="gone"
+            dvb:ttf="fzltch.TTF" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/poster_inverted"
+        android:layout_width="match_parent"
+        android:layout_height="53px"
+        android:layout_below="@id/poster_layout"
+        android:alpha="0.3"
+        android:drawingCacheQuality="low"
+        android:focusable="false"
+        android:scaleType="fitXY" />
+
+</com.joysee.dvb.vod.VodRelatedItemView>

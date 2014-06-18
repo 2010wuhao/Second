@@ -1,0 +1,125 @@
+<resources>
+
+    <string name="app_name">JoySettings</string>
+    <string name="carrier_name">北京歌华有线电视运营商</string>
+
+    <!-- Settings Buttons Text -->
+
+    <string name="main_button_network_connected">已连接</string>
+    <string name="main_button_network_unconnected">未连接</string>
+    <string name="main_button_about">关于</string>
+    <string name="main_button_apps">应用管理</string>
+    <string name="main_button_common">通用设置</string>
+    <string name="main_button_image_sound">图像与声音</string>
+    <string name="main_button_system_upgrade">系统升级</string>
+    <string name="jstyle_dialog_postive_bt">确定</string>
+    <string name="jstyle_dialog_negatvie_bt">取消</string>
+    <string name="user_define">自定义</string>
+
+    <!-- Title -->
+
+    <string name="title_common">通用设置</string>
+    <string name="title_common_description">电视系统的相关设置</string>
+    <string name="title_common_device_name">通用设置 > 设备名称</string>
+    <string name="title_common_device_name_description">命名您的设备</string>
+    <string name="title_common_pip">通用设置 > 画中画</string>
+    <string name="title_common_pip_description">画中画设置</string>
+    <string name="title_network">网络</string>
+    <string name="title_network_wired">有线网络</string>
+    <string name="title_network_wired_description">有线网络的相关设置</string>
+    <string name="title_network_wireless">无线网络</string>
+    <string name="title_network_wireless_detail">网络 > 无线网络</string>
+    <string name="title_network_wireless_description">无线网络的相关设置</string>
+    <string name="title_image_and_sound">图像与声音</string>
+    <string name="title_image_and_sound_description">电视图像和声音情景模式设置</string>
+    <string name="title_image_and_sound_user_define">图像自定义</string>
+    <string name="title_image_and_sound_description_user_define">电视图像自定义设置</string>
+    <string name="title_image_and_sound_model">情景模式</string>
+    <string name="title_image_and_sound_description_model">选择电视图像和声音情景模式</string>
+    <string name="title_image_and_sound_audio">图像与声音 > 音频设置</string>
+    <string name="title_image_and_sound_resolution">图像与声音 > 分辨率</string>
+    <string name="title_system_upgrade">系统升级</string>
+    <string name="title_system_upgrade_current_version">当前版本：</string>
+    <string name="title_system_upgrade_description_dummy">当前版本:11.11.11</string>
+    <string name="title_about_us">关于</string>
+    <string name="title_about_law_info">关于 > 法律信息</string>
+    <string name="title_about_law_info_complaint">关于 > 法律信息 > 版权保护投诉指引</string>
+    <string name="title_about_law_info_privacy_policy">关于 > 法律信息 > 隐私政策</string>
+    <string name="title_about_law_info_user_agreement">关于 > 法律信息 > 用户协议</string>
+    <string name="title_dialog_click_sound">按键音</string>
+    <string name="title_app_manager">应用管理</string>
+
+    <!-- Button -->
+
+    <string name="button_on">开</string>
+    <string name="button_off">关</string>
+    <string name="button_on_option">开启</string>
+    <string name="button_off_option">关闭</string>
+    <string name="button_network_submit">提交</string>
+    <string name="button_network_ignore">忽略此网络</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_retry">重试</string>
+    <string name="button_done">完成</string>
+    <string name="button_uninstall">卸载</string>
+    <string name="button_clear_cache">清除缓存</string>
+    <string name="button_clear_data">清除数据</string>
+
+    <!-- Netwrok -->
+
+    <string name="network_manual_config">手动配置</string>
+    <string name="network_auto_config">自动配置</string>
+    <string name="network_detail_address">地址</string>
+    <string name="network_detail_mask">掩码</string>
+    <string name="network_detail_bcast">网关</string>
+    <string name="network_detail_dns">DNS</string>
+    <string name="network_connecting">(正在链接...)</string>
+    <string name="network_wireless_password">无线密码</string>
+
+    <!-- Image and Sound -->
+
+
+    <!-- Law info -->
+
+    <string name="law_info_legal_disclaimer">法律声明</string>
+    <string name="law_info_legal_disclaimer_description">关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文</string>
+    <string name="law_info_copyright">版权所有</string>
+    <string name="law_info_copyright_description">该产品所有版权归北京佳视互动科技股份有限公司所有</string>
+    <string name="law_info_privacy_policy">隐私政策</string>
+    <string name="law_info_privacy_policy_description">关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文</string>
+    <string name="law_info_collection">我们收集的信息</string>
+    <string name="law_info_collection_description">该产品所有版权归北京佳视互动科技股份有限公司所有</string>
+    <string name="law_info_user_agreement">用户协议</string>
+    <string name="law_info_user_agreement_description">关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文关于该产品的法律声明条文</string>
+
+    <!-- About -->
+
+    <string name="about_system_version_check">检测升级</string>
+    <string name="about_system_version_update_now">立即更新</string>
+    <string name="about_system_version_update_continue">继续更新</string>
+    <string name="about_system_version_checking">正在检测中</string>
+    <string name="about_system_version_updating">正在更新系统</string>
+    <string name="about_system_version_updated">更新系统完毕</string>
+    <string name="about_system_version_new">检测出新版本</string>
+    <string name="about_system_version_good">赞哦，您现在使用的是最新的系统版本</string>
+    <string name="about_system_version_can_not_connect_server">无法链接到服务器</string>
+    <string name="about_system_version_can_download_fail">更新失败</string>
+    <string name="about_system_version_download_canceled">更新已经取消</string>
+    <string name="about_system_version">版本信息</string>
+    <string name="about_system_version_current">当前版本</string>
+    <string name="about_system_version_current_description">0.0.0</string>
+    <string name="about_system_version_fix">之前版本修复的问题</string>
+    <string name="about_system_version_fix_description">新增个人中心\n新增影视库\n新增排行榜\n新增高清电影\n优化系统性能</string>
+    <string name="about_contact_us">联系客服</string>
+    <string name="about_contact_tel">联系电话：400 000 000</string>
+    <string name="about_contact_other_way">其他联系方式</string>
+
+    <!-- App -->
+
+    <string name="app_manager_description">管理下载的应用</string>
+    <string name="app_manager_install_size">所占内存</string>
+    <string name="app_manager_data_size">应用数据</string>
+    <string name="app_manager_cache_size">缓存数据</string>
+    <string name="app_manager_uninstall_confirm">是否卸载该应用？</string>
+    <string name="app_manager_clear_data_confirm">是否该应用的所有数据？</string>
+
+</resources>

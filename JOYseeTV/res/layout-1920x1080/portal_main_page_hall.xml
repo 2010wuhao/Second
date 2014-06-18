@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.portal.widget.PortalPageItemBusinessHall xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:portal="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="100px"
+    android:paddingTop="100px" >
+
+    <!-- 1 565*817 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_businesshall_item_first"
+        android:layout_width="565px"
+        android:layout_height="817px"
+        android:layout_marginLeft="51px"
+        android:layout_marginTop="101px"
+        portal:focusType="565"
+        portal:isLeftEdge="true"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_third"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="467px"
+            android:layout_height="720px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test1" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 2 367*446 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_item_first_second"
+        android:layout_width="367px"
+        android:layout_height="446px"
+        android:layout_marginLeft="530px"
+        android:layout_marginTop="105px"
+        portal:focusType="367"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_third"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="277px"
+            android:layout_height="356px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test2" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 3 367*446 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="367px"
+        android:layout_height="446px"
+        android:layout_marginLeft="530px"
+        android:layout_marginTop="469px"
+        portal:focusType="367"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="277px"
+            android:layout_height="356px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test3" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 4 565*817 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_businesshall_item_fourth"
+        android:layout_width="565px"
+        android:layout_height="817px"
+        android:layout_marginLeft="810px"
+        android:layout_marginTop="101px"
+        android:nextFocusRight="@+id/portal_businesshall_item_fifth"
+        portal:focusType="565"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_third"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="467px"
+            android:layout_height="720px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test4" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 5 367*446 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_businesshall_item_fifth"
+        android:layout_width="367px"
+        android:layout_height="446px"
+        android:layout_marginLeft="1290px"
+        android:layout_marginTop="103px"
+        portal:focusType="367"
+        portal:isRightEdge="true"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_third"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="277px"
+            android:layout_height="356px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test5" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 6 367*446 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="367px"
+        android:layout_height="446px"
+        android:layout_marginLeft="1290px"
+        android:layout_marginTop="468px"
+        portal:focusType="367"
+        portal:isRightEdge="true"
+        portal:parentID="@integer/portal_page_third"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="277px"
+            android:layout_height="356px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_hall_test6" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+</com.joysee.dvb.portal.widget.PortalPageItemBusinessHall>

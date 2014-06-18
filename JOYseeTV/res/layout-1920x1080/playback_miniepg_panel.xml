@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.widget.MiniEpgPanel xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="1920px"
+    android:layout_height="1080px"
+    android:background="@drawable/miniepg_panel_bg"
+    android:visibility="visible" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_channelnum"
+        android:layout_width="176px"
+        android:layout_height="96px"
+        android:layout_marginLeft="56px"
+        android:layout_marginTop="43px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="68px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_channelname"
+        android:layout_width="wrap_content"
+        android:layout_height="62px"
+        android:layout_marginLeft="236px"
+        android:layout_marginTop="11px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="44px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_program_sourcetype"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_marginLeft="888px"
+        android:layout_marginTop="27px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="30px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_marginLeft="988px"
+        android:layout_marginTop="27px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="30px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <ProgressBar
+        android:id="@+id/miniepg_panel_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="844px"
+        android:layout_height="3px"
+        android:layout_marginLeft="235px"
+        android:layout_marginTop="78px"
+        android:max="100"
+        android:progress="50"
+        android:progressDrawable="@drawable/miniepg_progressbar_selector" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_program_1_starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="42px"
+        android:layout_marginLeft="235px"
+        android:layout_marginTop="88px"
+        android:gravity="center_vertical"
+        android:textColor="@color/blue_007aff"
+        android:textSize="32px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_program_1_name"
+        android:layout_width="750px"
+        android:layout_height="42px"
+        android:layout_marginLeft="345px"
+        android:layout_marginTop="88px"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textColor="@color/blue_007aff"
+        android:textSize="32px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_program_2_starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="42px"
+        android:layout_marginLeft="235px"
+        android:layout_marginTop="128px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="32px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/miniepg_panel_program_2_name"
+        android:layout_width="750px"
+        android:layout_height="42px"
+        android:layout_marginLeft="345px"
+        android:layout_marginTop="128px"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="32px"
+        dvb:ttf="fzltzh.TTF" />
+
+</com.joysee.dvb.widget.MiniEpgPanel>

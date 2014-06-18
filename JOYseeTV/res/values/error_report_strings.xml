@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- CA提示信息 -->
+    <string name="ca_message_cancel_type">取消当前的显示</string>
+    <string name="ca_message_badcard_type">无法识别卡</string>
+    <string name="ca_message_expicard_type">智能卡过期,请更换新卡</string>
+    <string name="ca_message_insertcard_type">加扰节目,请插入智能卡</string>
+    <string name="ca_message_nooper_type">卡中不存在节目运营商</string>
+    <string name="ca_message_blackout_type">条件禁播</string>
+    <string name="ca_message_outworktime_type">当前时段被设定为不能观看</string>
+    <string name="ca_message_watchlevel_type">节目级别高于设定的观看级别</string>
+    <string name="ca_message_pairing_type">智能卡与本机顶盒不对应</string>
+    <string name="ca_message_noentitle_type">没有授权</string>
+    <string name="ca_message_decryptfail_type">节目解密失败</string>
+    <string name="ca_message_nomoney_type">卡内金额不足</string>
+    <string name="ca_message_errregion_type">区域不正确</string>
+    <string name="ca_message_needfeed_type">子卡需要和母卡对应,请插入母卡</string>
+    <string name="ca_message_errcard_type">智能卡校验失败,请联系运营商</string>
+    <string name="ca_message_update_type">智能卡升级中,请不要拔卡或者关机</string>
+    <string name="ca_message_lowcardver_type">请升级智能卡</string>
+    <string name="ca_message_viewlock_type">请勿频繁切换频道</string>
+    <string name="ca_message_maxrestart_type">智能卡暂时休眠请5分钟后重新开机</string>
+    <string name="ca_message_freeze_type">智能卡已冻结,请联系运营商</string>
+    <string name="ca_message_callback_type">智能卡已暂停请回传收视记录给运营商</string>
+    <string name="ca_message_stblocked_type">请重启机顶盒</string>
+    <string name="ca_message_stbfreeze_type">机顶盒被冻结</string>
+    <string name="ca_charge_interval_year">"年"</string>
+    <string name="ca_charge_interval_month">"月"</string>
+    <string name="ca_charge_interval_day">"日"</string>
+
+    <string name="init_failed">初始化失败，需要重新启动服务</string>
+    <string name="nochannel_notify_message">无频道，是否现在搜索?</string>
+    <string name="nochannel_notify_point">无频道，是否现在搜索?</string>
+    <string name="nochannel_notify_cancle_btn">取消</string>
+    <string name="nochannel_notify_search_btn">搜索</string>
+    <string name="without_this_channel">无%1$s频道</string>
+    <string name="no_signal">有线电视无信号</string>
+    <string name="no_dongle">请接入高清数字电视盒</string>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.widget.DVBErrorReportView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="1px"
+    android:paddingBottom="34px"
+    android:background="@drawable/miniepg_panel_bg" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/error_report_view_errormsg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        dvb:ttf="fzltch.TTF"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="27px" />
+
+</com.joysee.dvb.widget.DVBErrorReportView>

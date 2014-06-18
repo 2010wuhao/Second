@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="407px" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/dialog_ca_content_view_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100px"
+        android:text="@string/ca_please_input_password"
+        android:textColor="#000000"
+        android:textSize="50px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JEditTextWithTTF
+        android:id="@+id/dialog_ca_content_view_edittext"
+        android:layout_width="400px"
+        android:layout_height="70px"
+        android:layout_below="@id/dialog_ca_content_view_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40px"
+        android:background="@drawable/dialog_input_bg"
+        android:gravity="center_vertical|left"
+        android:inputType="numberPassword|none"
+        android:maxLength="6"
+        android:paddingLeft="10px"
+        android:textColor="@android:color/black"
+        android:textSize="38px" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/dialog_ca_content_view_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_ca_content_view_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:textColor="#000000"
+        android:textSize="40px"
+        dvb:ttf="fzltch.TTF" />
+
+</RelativeLayout>

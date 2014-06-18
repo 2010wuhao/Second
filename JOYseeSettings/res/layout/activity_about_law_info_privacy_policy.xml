@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:joysee="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dvb_bg" >
+
+    <com.joysee.tvbox.settings.base.SettingsTitleView
+        android:id="@+id/settings_title_about_law_info_privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        joysee:description="@string/carrier_name"
+        joysee:text="@string/title_about_law_info_privacy_policy" >
+    </com.joysee.tvbox.settings.base.SettingsTitleView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/about_scroll_view_margin_top"
+        android:overScrollMode="always"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="@dimen/list_settings_item_width"
+            android:layout_height="@dimen/about_scroll_view_height"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/law_info_privacy_policy"
+                android:textSize="@dimen/text_size_view_item_name"
+                dvb:ttf="fzltzh.TTF" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/about_scroll_view_divider_margin_top"
+                android:background="@drawable/listex_divider"
+                android:paddingBottom="-1dp" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/about_scroll_view_text_margin_top"
+                android:text="@string/law_info_privacy_policy_description"
+                android:textSize="@dimen/text_size_about_text_description"
+                dvb:ttf="fzltzh.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/about_scroll_view_item_margin_top"
+                android:text="@string/law_info_collection"
+                android:textSize="@dimen/text_size_view_item_name"
+                dvb:ttf="fzltzh.TTF" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/about_scroll_view_divider_margin_top"
+                android:background="@drawable/listex_divider"
+                android:paddingBottom="-1dp" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/about_scroll_view_text_margin_top"
+                android:text="@string/law_info_collection_description"
+                android:textSize="@dimen/text_size_about_text_description"
+                dvb:ttf="fzltzh.TTF" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

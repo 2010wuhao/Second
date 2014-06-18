@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Size -->
+
+    <dimen name="text_size_view_settings_button">26sp</dimen>
+    <dimen name="text_size_view_settings_title">34sp</dimen>
+    <dimen name="text_size_view_settings_title_description">18sp</dimen>
+    <dimen name="text_size_view_item_name">28sp</dimen>
+    <dimen name="text_size_view_item_option">28sp</dimen>
+    <dimen name="text_size_view_item_detail">16sp</dimen>
+    <dimen name="text_size_view_item_option_right_of_name">20sp</dimen>
+    <dimen name="text_size_network_auto_config">18sp</dimen>
+    <dimen name="text_size_about_text_description">20sp</dimen>
+    <dimen name="text_size_view_update_result_string">28sp</dimen>
+    <dimen name="text_size_view_update_result_version">20sp</dimen>
+    <dimen name="text_size_view_app_number">24sp</dimen>
+    <dimen name="text_size_view_app_label">26sp</dimen>
+
+    <!-- View Dimension -->
+
+    <dimen name="view_settings_button_text_margin_top">35dp</dimen>
+    <dimen name="view_settings_title_text_margin_left">20dp</dimen>
+    <dimen name="view_settings_title_description_margin_left">31dp</dimen>
+    <dimen name="view_settings_title_margin_top">24dp</dimen>
+    <dimen name="view_settings_title_padding_left">28dp</dimen>
+    <dimen name="view_settings_title_description_margin_top">-6dp</dimen>
+    <dimen name="view_settings_title_narrow_padding_left">58dp</dimen>
+    <dimen name="view_settings_title_narrow_margin_top">94dp</dimen>
+    <dimen name="view_settings_title_narrow_text_margin_left">20dp</dimen>
+    <dimen name="view_settings_title_narrow_description_margin_left">31dp</dimen>
+    <dimen name="view_settings_title_narrow_description_margin_top">-6dp</dimen>
+
+    <!-- Settings List -->
+
+    <dimen name="list_settings_margin_top">168dp</dimen>
+    <dimen name="list_settings_width">1020dp</dimen>
+    <dimen name="list_settings_height">429dp</dimen>
+    <dimen name="list_settings_content_height">389dp</dimen>
+    <dimen name="list_settings_content_margin_top">17dp</dimen>
+    <dimen name="list_settings_item_width">950dp</dimen>
+    <dimen name="list_settings_item_height">65dp</dimen>
+    <dimen name="list_settings_cusor_width">1020dp</dimen>
+    <dimen name="list_settings_cusor_height">100dp</dimen>
+    <dimen name="list_settings_cusor_margin_top">-3dp</dimen>
+    <dimen name="list_settings_item_name_margin_left">30dp</dimen>
+    <dimen name="list_settings_item_option_right_of_name_margin_left">30dp</dimen>
+    <dimen name="list_settings_item_option_margin_right">30dp</dimen>
+    <dimen name="list_settings_item_option_width">155dp</dimen>
+    <dimen name="list_settings_item_detail_bottom_margin_top">-5dp</dimen>
+    <dimen name="list_settings_item_app_height">80dp</dimen>
+    <dimen name="list_settings_cusor_app_height">115dp</dimen>
+    <dimen name="list_settings_app_height">480dp</dimen>
+
+    <!-- Setings Narrow List -->
+
+    <dimen name="list_settings_narrow_margin_left">58dp</dimen>
+    <dimen name="list_settings_narrow_width">700dp</dimen>
+    <dimen name="list_settings_narrow_margin_top">228dp</dimen>
+    <dimen name="list_settings_cusor_narrow_width">700dp</dimen>
+    <dimen name="list_settings_item_narrow_width">630dp</dimen>
+    <dimen name="list_settings_item_narrow_name_margin_left">0dp</dimen>
+
+    <!-- Network List -->
+
+    <dimen name="network_config__detail_title_margin_top">156dp</dimen>
+    <dimen name="network_config_scroll_view_width">706dp</dimen>
+    <dimen name="network_config_scroll_view_height">391dp</dimen>
+    <dimen name="network_config_list_margin_top">230dp</dimen>
+    <dimen name="network_config_item_height">68dp</dimen>
+    <dimen name="network_config_item_width">706dp</dimen>
+    <dimen name="network_config_item_padding_top">0dp</dimen>
+    <dimen name="network_config_item_padding_bottom">0dp</dimen>
+    <dimen name="network_config_item_padding_left">0dp</dimen>
+    <dimen name="network_config_item_padding_right">0dp</dimen>
+    <dimen name="network_config_item_head_width">150dp</dimen>
+    <dimen name="network_config_item_content_margin_left">86dp</dimen>
+    <dimen name="network_config_item_content_width">450dp</dimen>
+    <dimen name="network_config_item_divider_width">1dp</dimen>
+    <dimen name="network_config_item_divider_height">45dp</dimen>
+    <dimen name="network_config_item_space">23dp</dimen>
+    <dimen name="network_text_detail_config_ssid_margin_left">240dp</dimen>
+    <dimen name="network_text_detail_config_ssid_width">487dp</dimen>
+    <dimen name="network_text_detail_config_off_margin_left">66dp</dimen>
+    <dimen name="network_text_detail_config_on_margin_left">28dp</dimen>
+    <dimen name="network_switch_network_config_auto_margin_left">28dp</dimen>
+    <dimen name="network_switch_network_config_auto_width">70dp</dimen>
+    <dimen name="network_config_button_height">108dp</dimen>
+    <dimen name="network_config_button_width">744dp</dimen>
+    <dimen name="network_config_wired_scroll_view_margin_top">128dp</dimen>
+    <dimen name="network_config_wired_scroll_view_height">450dp</dimen>
+    <dimen name="network_config_wireless_scroll_frame_margin_top">128dp</dimen>
+    <dimen name="network_config_wireless_scroll_view_top_blank_height">40dp</dimen>
+    <dimen name="network_config_wireless_scroll_view_height">431dp</dimen>
+
+    <!-- Screen -->
+
+    <dimen name="screen_width">1280dp</dimen>
+    <dimen name="screen_height">720dp</dimen>
+
+    <!-- About -->
+
+    <dimen name="about_scroll_view_height">400dp</dimen>
+    <dimen name="about_scroll_view_margin_top">200dp</dimen>
+    <dimen name="about_scroll_view_divider_margin_top">10dp</dimen>
+    <dimen name="about_scroll_view_text_margin_top">10dp</dimen>
+    <dimen name="about_scroll_view_item_margin_top">70dp</dimen>
+
+    <!-- Button -->
+
+    <dimen name="button_text_size">24sp</dimen>
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="button_height">100dp</dimen>
+    <dimen name="button_system_upgrade_margin_top">20dp</dimen>
+    <dimen name="button_area_margin">10dp</dimen>
+
+    <!-- Shadow Height -->
+
+    <dimen name="shadow_header_height">40dp</dimen>
+    <dimen name="shadow_footer_height">50dp</dimen>
+    <dimen name="shadow_network_config_wireless_width">706dp</dimen>
+    <dimen name="shadow_network_config_wireless_height">431dp</dimen>
+
+    <!-- App -->
+
+    <dimen name="app_settings_item_width">767dp</dimen>
+    <dimen name="app_settings_item_first_height">80dp</dimen>
+    <dimen name="app_settings_item_height">128dp</dimen>
+    <dimen name="app_settings_item_size_margin_left">88dp</dimen>
+    <dimen name="app_settings_item_size_margin_bottom">30dp</dimen>
+    <dimen name="app_settings_name_margin_top">15dp</dimen>
+
+</resources>

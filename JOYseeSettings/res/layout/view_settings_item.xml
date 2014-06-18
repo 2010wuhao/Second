@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingBottom="1dp" >
+
+    <LinearLayout
+        android:id="@+id/layout_title_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <ViewStub
+            android:id="@+id/stub_list_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout="@layout/viewstub_list_item_title" />
+
+        <ViewStub
+            android:id="@+id/stub_list_item_title_detail_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout="@layout/viewstub_list_item_title_detail_bottom" />
+
+        <ViewStub
+            android:id="@+id/stub_list_item_title_option_right_of_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout="@layout/viewstub_list_item_title_option_right_of_name" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_list_item_option_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/list_settings_item_option_margin_right"
+        android:src="@drawable/right_triangle" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/txt_settings_item_option"
+        android:layout_width="@dimen/list_settings_item_option_width"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/img_list_item_option_right"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_view_item_option"
+        dvb:ttf="fzltzh.TTF" />
+
+    <ImageView
+        android:id="@+id/img_list_item_option_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/txt_settings_item_option"
+        android:src="@drawable/left_triangle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listex_divider"
+        android:paddingBottom="-1dp" />
+
+</RelativeLayout>

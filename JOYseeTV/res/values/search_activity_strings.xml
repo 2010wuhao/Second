@@ -1,0 +1,79 @@
+<resources>
+
+    <string name="search_tv_title">电视搜台</string>
+	<string name="search_tv_mode_fast">快速搜台</string>
+    <string name="search_tv_mode_full">全频搜台</string>
+    <string name="search_tv_mode_manual">手动搜台</string>
+    <string name="search_tv_mode_net">网络搜台</string>
+    <string name="search_tv_mode_operator">运营商设置</string>
+    <string name="search_tv_mode_advance">快速搜索设置</string>
+    
+    <string name="search_bt_start">开始搜台</string>
+    <string name="search_bt_stop">停止搜索</string>
+    <string name="search_bt_advance">高级设置</string>
+    <string name="search_bt_area">区域设置</string>
+    <string name="search_bt_save">保存</string>
+	<string name="search_bt_play">观看</string>
+	<string name="search_bt_no">返回</string>
+	
+	<string name="search_tv_frequency">频率</string>
+	<string name="search_tv_qam">调制</string>
+	<string name="search_tv_symbol">符号率</string>
+	<string name="search_tv_qam_unit">QAM</string>
+	<string name="search_tv_frequency_unit">khz</string>
+	<string name="search_tv_symbol_unit">kbps</string>
+	
+	<string name="search_tv_current_tv_count">%1$s 个电视频道</string>
+	<string name="search_tv_current_br_count">%1$s 个广播频道</string>
+	<string name="search_tv_current_channel_count">个频道</string>
+	<string name="search_tv_current_progress">搜索进度：%1$s</string>
+	<string name="search_tv_current_quality">信号质量：%1$s</string>
+	<string name="search_tv_current_fre">当前频率：%1$s</string>
+	<string name="search_tv_current_streng">信号强度：%1$s</string>
+	
+	<string name="search_tv_channal_frequency">所在频率</string>
+	<string name="search_tv_channel_name">频道名称</string>
+	<string name="search_tv_channel_type">频道类型</string>
+	<string name="search_tv_channel_broast">广播</string>
+	<string name="search_tv_channel_tv">电视</string>
+	
+	<string name="search_tv_qam_64">64</string>
+	<string name="search_tv_qam_128">128</string>
+	<string name="search_tv_qam_256">256</string>
+	<string name="search_tv_qam_dtmb">DTMB</string>
+	
+	<string name="search_tv_area_province">省</string>
+	<string name="search_tv_area_city">市</string>
+	<string name="search_tv_zone_">区</string>
+	<string name="search_tv_operator">运营商</string>
+	
+	<string name="search_msg_search_complete_have_channel">搜索完成</string>
+	<string name="search_msg_search_complete_no_channal">未搜索到频道</string>
+	<string name="search_msg_no_operator">还没有设置运营商，马上去设置</string>
+	<string name="search_msg_area_setting_point">选择您所在地区的运营商，按[确认]键开始同步本地化数据</string>
+	<string name="search_msg_area_setting_point2">选择所在地区运营商，按[确认]键保存</string>
+	<string name="search_msg_area_setting_current_operator">当前没有保存运营商</string>
+	<string name="search_msg_net_search_current_operator">当前保存运营商为　</string>
+	<string name="search_msg_stop_search">确定结束搜台吗?</string>
+	<string name="search_msg_stop_search_point">结束搜台，将只保存当前搜索结果</string>
+	<string name="search_msg_button_point">按遥控器［菜单键］选择其它搜索方式</string>
+	<string name="search_msg_search_complete_no_channal_point">请尝试一下别的搜台方式 ^_^</string>
+	<string name="search_msg_search_is_cancel">搜索中止</string>
+	<string name="search_msg_search_is_cancle_point1">搜索到 </string>
+	<string name="search_msg_search_is_cancle_point2"> 个频道</string>
+	
+	<string name="dialog_title_about_product">关于产品</string>
+	<string name="dialog_content_title1">法律声明</string>
+	<string name="dialog_content_title2">版权所有</string>
+	<string name="dialog_content2">该产品所属版权归北京佳视互动科技股份有限公司所有</string>
+	
+	<string name="operator_sync_title">同步本地化数据</string>
+	<string name="operator_sync_checking">正在检测配置包</string>
+	<string name="operator_begin_sync">正在同步</string>
+	<string name="operator_sync_failed">同步失败</string>
+	<string name="opertaor_no_new_version">没有新版本</string>
+	<string name="operator_sync_success">同步完成</string>
+	
+	<string name="operator_current_no_operator_found">当前区域没有搜索到运营商</string>
+	
+</resources>

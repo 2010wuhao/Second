@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Activity -->
+
+    <integer name="activity_quit_anim_duration">200</integer>
+    <integer name="activity_start_anim_duration">200</integer>
+
+    <!-- Settings Button -->
+
+    <integer name="settings_button_anim_duration">400</integer>
+    <integer name="settings_button_translate_x">500</integer>
+    <integer name="settings_button_translate_y">500</integer>
+
+</resources>

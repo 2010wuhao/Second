@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.search.wheelview.WheelView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wheelview"
+    android:layout_width="164px"
+    android:layout_height="189px"
+    android:background="@android:color/white"
+    android:focusable="true" >
+
+</com.joysee.dvb.search.wheelview.WheelView>

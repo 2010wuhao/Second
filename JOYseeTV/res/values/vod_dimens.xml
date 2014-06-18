@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="vod_related_item_poster_w">107px</dimen>
+    <dimen name="vod_related_item_poster_h">162px</dimen>
+    <dimen name="vod_related_item_w">107px</dimen>
+    <dimen name="vod_related_item_h">215px</dimen>
+    <dimen name="vod_related_item_poster_inverted_w">107px</dimen>
+    <dimen name="vod_related_item_poster_inverted_h">53px</dimen>
+    <dimen name="vod_seekbar_h">352px</dimen>
+    <dimen name="vod_seekbar_progressbar_w">1093px</dimen>
+    <dimen name="vod_related_item_left_margin">13px</dimen>
+    <dimen name="vod_big_poster_inverted">45px</dimen>
+
+</resources>

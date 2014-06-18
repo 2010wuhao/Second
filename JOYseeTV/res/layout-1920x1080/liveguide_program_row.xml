@@ -1,0 +1,27 @@
+<com.joysee.dvb.liveguide.LiveGuideProgramRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1596px"
+    android:layout_height="297px"
+    android:clipChildren="false"
+    android:orientation="horizontal" >
+
+    <include
+        android:layout_width="399px"
+        android:layout_height="297px"
+        layout="@layout/liveguide_program_item" />
+
+    <include
+        android:layout_width="399px"
+        android:layout_height="297px"
+        layout="@layout/liveguide_program_item" />
+
+    <include
+        android:layout_width="399px"
+        android:layout_height="297px"
+        layout="@layout/liveguide_program_item" />
+
+    <include
+        android:layout_width="399px"
+        android:layout_height="297px"
+        layout="@layout/liveguide_program_item" />
+
+</com.joysee.dvb.liveguide.LiveGuideProgramRow>

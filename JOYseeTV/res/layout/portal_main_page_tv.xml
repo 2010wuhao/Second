@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.portal.widget.PortalPageItemTv xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:portal="http://schemas.android.com/apk/res/com.joysee.dvb"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/portal_page_item_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="67px"
+    android:paddingTop="67px" >
+
+    <!-- 1 684*385 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_tv"
+        android:layout_width="684px"
+        android:layout_height="385px"
+        android:layout_marginLeft="67px"
+        android:layout_marginTop="100px"
+        portal:activityName="com.joysee.dvb.activity.DvbPlaybackActivity"
+        portal:focusType="10000"
+        portal:isLeftEdge="true"
+        portal:isTopEdge="true"
+        portal:packageName="com.joysee.dvb"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb" >
+
+        <com.joysee.dvb.widget.DVBSurfaceViewParent
+            android:id="@+id/portal_surfaceview_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <View
+            android:id="@+id/portal_surface_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/portal_surface_mask"
+            android:visibility="invisible" />
+
+        <com.joysee.dvb.portal.widget.PortalDVBStatusView
+            android:id="@+id/portal_tv_item_tv_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/portal_tv_item_tv_status_view_msg"
+                style="@style/PortalHistoryText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                dvb:ttf="fzltch.TTF" />
+        </com.joysee.dvb.portal.widget.PortalDVBStatusView>
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_tv_normal" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- Hisory 227*150 begin -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_history1"
+        android:layout_width="227px"
+        android:layout_height="150px"
+        android:layout_marginLeft="36px"
+        android:layout_marginTop="460px"
+        android:nextFocusUp="@+id/portal_tv_item_tv"
+        portal:focusType="341"
+        portal:isLeftEdge="true"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_history"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="167px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_tv_history1" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/portal_not_history"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_history2"
+        android:layout_width="227px"
+        android:layout_height="150px"
+        android:layout_marginLeft="208px"
+        android:layout_marginTop="460px"
+        android:nextFocusUp="@+id/portal_tv_item_tv"
+        portal:focusType="341"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_history"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="167px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_tv_history2" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/portal_not_history"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_history3"
+        android:layout_width="227px"
+        android:layout_height="150px"
+        android:layout_marginLeft="380px"
+        android:layout_marginTop="460px"
+        android:nextFocusUp="@+id/portal_tv_item_tv"
+        portal:focusType="341"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_history"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="167px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_tv_history3" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/portal_not_history"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_history4"
+        android:layout_width="227px"
+        android:layout_height="150px"
+        android:layout_marginLeft="552px"
+        android:layout_marginTop="460px"
+        android:nextFocusUp="@+id/portal_tv_item_tv"
+        portal:focusType="341"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_history"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="167px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_tv_history4" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalHistoryText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/portal_not_history"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+    <!-- Hisory 227*150 end -->
+
+
+    <!-- 2 325*325  直播导视 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_item_first_second"
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="725px"
+        android:layout_marginTop="70px"
+        android:nextFocusLeft="@+id/portal_tv_item_tv"
+        portal:activityName="com.joysee.dvb.activity.LiveGuideActivity"
+        portal:focusType="325"
+        portal:isTopEdge="true"
+        portal:packageName="com.joysee.dvb"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_liveguide"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#90458f"
+            android:src="@drawable/portal_tv_guide_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="133px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_tv_text_live_guide"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 4 325*325 频道列表 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="725px"
+        android:layout_marginTop="231px"
+        android:nextFocusLeft="@+id/portal_tv_item_tv"
+        portal:activityName="com.joysee.dvb.activity.ChannelListActivity"
+        portal:focusType="325"
+        portal:packageName="com.joysee.dvb"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_channel_list"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#0068bc"
+            android:src="@drawable/portal_tv_channel_list_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="133px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_tv_text_channel_list"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 6 325*325 推荐 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_recommand1"
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="725px"
+        android:layout_marginTop="392px"
+        portal:focusType="325"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_recommand"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalRecomendImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#0068bc"
+            android:src="@drawable/portal_tv_recommend_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalRecomendViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="158px"
+            android:text="@string/portal_tv_text_recommend"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 3 325*325 节目单 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="886px"
+        android:layout_marginTop="70px"
+        portal:activityName="com.joysee.dvb.activity.EPGActivity"
+        portal:focusType="325"
+        portal:intentKey="intent_extra_dest_page"
+        portal:intentValue="EPG"
+        portal:isRightEdge="true"
+        portal:isTopEdge="true"
+        portal:packageName="com.joysee.dvb"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_program_list"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#d76310"
+            android:src="@drawable/portal_tv_programme_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="133px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_tv_text_program_list"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 7 325*325 推荐 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:id="@+id/portal_tv_item_recommand2"
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="886px"
+        android:layout_marginTop="392px"
+        portal:focusType="325"
+        portal:isRightEdge="true"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_recommand"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalRecomendImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#0e98b3"
+            android:src="@drawable/portal_tv_recommend_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/portal_scaleview_text"
+            style="@style/PortalRecomendViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="158px"
+            android:text="@string/portal_tv_text_recommend"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 5 325*325 回看 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="216px"
+        android:layout_height="216px"
+        android:layout_marginLeft="886px"
+        android:layout_marginTop="231px"
+        portal:focusType="325"
+        portal:isRightEdge="true"
+        portal:parentID="@integer/portal_page_first"
+        portal:resType="@integer/portal_res_type_dvb_lookback"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY"
+        portal:activityName="com.joysee.stb.tv.BackChannelActivity"
+        portal:packageName="com.joysee.stb.tv" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="156px"
+            android:layout_height="156px"
+            android:layout_gravity="center"
+            android:background="#0e98b3"
+            android:src="@drawable/portal_tv_lookback_icon" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="133px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_tv_text_look_back"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+</com.joysee.dvb.portal.widget.PortalPageItemTv>

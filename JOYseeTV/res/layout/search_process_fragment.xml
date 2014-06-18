@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30px"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="30px"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="22px"
+            android:alpha="50"
+            android:background="#222222" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/channel_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="22px"
+            android:textColor="@color/blue_007aff"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="11px"
+            android:text="@string/search_tv_current_channel_count"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="515px"
+        android:layout_below="@id/page_title"
+        android:layout_marginTop="54px" >
+
+        <LinearLayout
+            android:id="@+id/result_scroll_view"
+            android:layout_width="1145px"
+            android:layout_height="915px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-183px"
+            android:orientation="vertical" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/result_layout" >
+
+        <com.joysee.dvb.widget.ScanProgressBar
+            android:id="@+id/anim_progressbar"
+            android:layout_width="1213px"
+            android:layout_height="67px"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

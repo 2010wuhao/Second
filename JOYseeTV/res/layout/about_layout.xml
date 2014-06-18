@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="1280px"
+    android:layout_height="720px"
+    android:background="@drawable/dvb_bg" >
+
+    <LinearLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_marginTop="32px"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="11px"
+            android:layout_height="17px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/arrow_back" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="33px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15px"
+            android:alpha="0.6"
+            android:background="@android:color/white" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="18px"
+            android:gravity="center_vertical"
+            android:text="@string/about_tv_title"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="800px"
+        android:layout_height="293px"
+        android:layout_centerInParent="true"
+        android:divider="@color/gray_4f5659"
+        android:dividerHeight="1px"
+        android:listSelector="@drawable/dvb_button_default"
+        android:scrollbars="none" >
+    </ListView>
+
+</RelativeLayout>

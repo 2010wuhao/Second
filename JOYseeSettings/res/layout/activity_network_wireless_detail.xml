@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:joysee="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dvb_bg" >
+
+    <com.joysee.tvbox.settings.base.SettingsTitleView
+        android:id="@+id/settings_title_network_wireless_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        joysee:description="@string/title_network_wireless_description"
+        joysee:text="@string/title_network_wireless_detail" >
+    </com.joysee.tvbox.settings.base.SettingsTitleView>
+
+    <LinearLayout
+        android:id="@+id/network_detail_config_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/network_config__detail_title_margin_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/txt_network_detail_config_ssid"
+            android:layout_width="@dimen/network_text_detail_config_ssid_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/network_text_detail_config_ssid_margin_left"
+            android:gravity="center_vertical"
+            android:text="@string/network_auto_config"
+            android:textSize="@dimen/text_size_view_item_name"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/txt_network_detail_config_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/network_auto_config"
+            android:textSize="@dimen/text_size_network_auto_config"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/txt_network_detail_config_auto_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/network_text_detail_config_off_margin_left"
+            android:gravity="center"
+            android:text="@string/button_off"
+            android:textSize="@dimen/text_size_view_item_name"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.tvbox.settings.base.SlipButton
+            android:id="@+id/switch_network_config_auto"
+            android:layout_width="@dimen/network_switch_network_config_auto_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/network_switch_network_config_auto_margin_left"
+            android:focusable="true" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/txt_network_detail_config_auto_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/network_text_detail_config_on_margin_left"
+            android:gravity="center"
+            android:text="@string/button_on"
+            android:textSize="@dimen/text_size_view_item_name"
+            dvb:ttf="fzltzh.TTF" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/network_detail_wireless_shadow_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settings_title_network_wireless_detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/network_config_wireless_scroll_frame_margin_top" >
+
+        <ScrollView
+            android:id="@+id/network_detail_scroll_view"
+            android:layout_width="@dimen/network_config_scroll_view_width"
+            android:layout_height="@dimen/network_config_wireless_scroll_view_height"
+            android:overScrollMode="always"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/network_config_wireless_scroll_view_top_blank_height" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/network_config_item_width"
+                    android:layout_height="@dimen/network_config_item_height"
+                    android:background="@drawable/network_detail_config_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/network_config_item_padding_bottom"
+                    android:paddingLeft="@dimen/network_config_item_padding_left"
+                    android:paddingRight="@dimen/network_config_item_padding_right"
+                    android:paddingTop="@dimen/network_config_item_padding_top" >
+
+                    <com.joysee.common.widget.JTextViewWithTTF
+                        android:id="@+id/txt_network_detail_address"
+                        android:layout_width="@dimen/network_config_item_head_width"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/network_detail_address"
+                        android:textSize="@dimen/text_size_view_item_name"
+                        dvb:ttf="fzltzh.TTF" />
+
+                    <View
+                        android:layout_width="@dimen/network_config_item_divider_width"
+                        android:layout_height="@dimen/network_config_item_divider_height"
+                        android:background="@drawable/backgound_cross_vertical" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/edit_network_detail_address"
+                        android:layout_width="@dimen/network_config_item_content_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/network_config_item_content_margin_left"
+                        android:background="@null"
+                        android:digits="0123456789."
+                        android:inputType="none"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_view_item_name" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/network_config_item_space" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/network_config_item_width"
+                    android:layout_height="@dimen/network_config_item_height"
+                    android:background="@drawable/network_detail_config_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/network_config_item_padding_bottom"
+                    android:paddingLeft="@dimen/network_config_item_padding_left"
+                    android:paddingRight="@dimen/network_config_item_padding_right"
+                    android:paddingTop="@dimen/network_config_item_padding_top" >
+
+                    <com.joysee.common.widget.JTextViewWithTTF
+                        android:id="@+id/txt_network_detail_mask"
+                        android:layout_width="@dimen/network_config_item_head_width"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/network_detail_mask"
+                        android:textSize="@dimen/text_size_view_item_name"
+                        dvb:ttf="fzltzh.TTF" />
+
+                    <View
+                        android:layout_width="@dimen/network_config_item_divider_width"
+                        android:layout_height="@dimen/network_config_item_divider_height"
+                        android:background="@drawable/backgound_cross_vertical" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/edit_network_detail_mask"
+                        android:layout_width="@dimen/network_config_item_content_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/network_config_item_content_margin_left"
+                        android:background="@null"
+                        android:digits="0123456789."
+                        android:inputType="none"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_view_item_name" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/network_config_item_space" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/network_config_item_width"
+                    android:layout_height="@dimen/network_config_item_height"
+                    android:background="@drawable/network_detail_config_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/network_config_item_padding_bottom"
+                    android:paddingLeft="@dimen/network_config_item_padding_left"
+                    android:paddingRight="@dimen/network_config_item_padding_right"
+                    android:paddingTop="@dimen/network_config_item_padding_top" >
+
+                    <com.joysee.common.widget.JTextViewWithTTF
+                        android:id="@+id/txt_network_detail_bcast"
+                        android:layout_width="@dimen/network_config_item_head_width"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/network_detail_bcast"
+                        android:textSize="@dimen/text_size_view_item_name"
+                        dvb:ttf="fzltzh.TTF" />
+
+                    <View
+                        android:layout_width="@dimen/network_config_item_divider_width"
+                        android:layout_height="@dimen/network_config_item_divider_height"
+                        android:background="@drawable/backgound_cross_vertical" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/edit_network_detail_bcast"
+                        android:layout_width="@dimen/network_config_item_content_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/network_config_item_content_margin_left"
+                        android:background="@null"
+                        android:digits="0123456789."
+                        android:inputType="none"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_view_item_name" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/network_config_item_space" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/network_config_item_width"
+                    android:layout_height="@dimen/network_config_item_height"
+                    android:background="@drawable/network_detail_config_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/network_config_item_padding_bottom"
+                    android:paddingLeft="@dimen/network_config_item_padding_left"
+                    android:paddingRight="@dimen/network_config_item_padding_right"
+                    android:paddingTop="@dimen/network_config_item_padding_top" >
+
+                    <com.joysee.common.widget.JTextViewWithTTF
+                        android:id="@+id/txt_network_detail_dns"
+                        android:layout_width="@dimen/network_config_item_head_width"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/network_detail_dns"
+                        android:textSize="@dimen/text_size_view_item_name"
+                        dvb:ttf="fzltzh.TTF" />
+
+                    <View
+                        android:layout_width="@dimen/network_config_item_divider_width"
+                        android:layout_height="@dimen/network_config_item_divider_height"
+                        android:background="@drawable/backgound_cross_vertical" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/edit_network_detail_dns"
+                        android:layout_width="@dimen/network_config_item_content_width"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/network_config_item_content_margin_left"
+                        android:background="@null"
+                        android:digits="0123456789."
+                        android:inputType="none"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_size_view_item_name" />
+                </LinearLayout>
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:id="@+id/button_network_detail_submit"
+                    android:layout_width="@dimen/network_config_button_width"
+                    android:layout_height="@dimen/network_config_button_height"
+                    android:background="@drawable/selector_network_config_button"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/button_network_submit"
+                    android:textSize="@dimen/text_size_view_item_name"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:id="@+id/button_network_detail_ignore"
+                    android:layout_width="@dimen/network_config_button_width"
+                    android:layout_height="@dimen/network_config_button_height"
+                    android:layout_marginTop="-20dp"
+                    android:background="@drawable/selector_network_config_button"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/button_network_ignore"
+                    android:textSize="@dimen/text_size_view_item_name"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/network_config_wireless_scroll_view_top_blank_height" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.joysee.tvbox.settings.base.ShadowFrameLayout
+            android:id="@+id/view_shadow_layout"
+            android:layout_width="@dimen/shadow_network_config_wireless_width"
+            android:layout_height="@dimen/shadow_network_config_wireless_height" />
+    </FrameLayout>
+
+</RelativeLayout>

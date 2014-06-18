@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">高清数字电视</string>
+    <string name="jstyle_dialog_postive_bt">确定</string>
+    <string name="jstyle_dialog_negatvie_bt">取消</string>
+    <string name="dvb_animation_switch">动画开关</string>
+    <string name="portal_animation_on">Portal动画已打开</string>
+    <string name="portal_animation_off">Portal动画已关闭</string>
+    <string name="debug_on">Debug模式已打开</string>
+    <string name="debug_off">Debug模式已关闭</string>
+    <string name="print_log_on">Log打印已打开</string>
+    <string name="print_log_off">Log打印已关闭</string>
+    <string name="exit_hint">再按一次返回健退出本应用</string>
+    <string name="qucik_frequency">频率</string>
+    <string name="qucik_symbolRate">符号率</string>
+    <string name="qucik_modulation">调制方式</string>
+    <string name="qucik_save">保存</string>
+    <string name="ts_epg_on">Ts Epg已打开</string>
+    <string name="ts_epg_off">Ts Epg已关闭</string>
+    <string name="ts_channel_on">Ts Channel已打开</string>
+    <string name="ts_channel_off">Ts Channel已关闭</string>
+    <string name="portal_applist">所有应用</string>
+
+</resources>

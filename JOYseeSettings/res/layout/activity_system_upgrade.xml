@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:joysee="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dvb_bg" >
+
+    <com.joysee.tvbox.settings.base.SettingsTitleView
+        android:id="@+id/settings_title_system_upgrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        joysee:description="@string/title_system_upgrade_description_dummy"
+        joysee:text="@string/title_system_upgrade" >
+    </com.joysee.tvbox.settings.base.SettingsTitleView>
+
+    <RelativeLayout
+        android:id="@+id/content_check_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" >
+
+        <com.joysee.tvbox.settings.base.ProgressWheel
+            android:id="@+id/progress_wheel"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_centerHorizontal="true"
+            joysee:barColor="#007cff"
+            joysee:barLength="60dp"
+            joysee:barWidth="25dp"
+            joysee:rimColor="#aaaaaa"
+            joysee:rimWidth="25dp"
+            joysee:spinSpeed="6dp"
+            joysee:textColor="#007cff"
+            joysee:textSize="36dp" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/text_progress_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_wheel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:text="@string/about_system_version_check"
+            android:textSize="24sp"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_check_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/text_update_check_result_string"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:text="@string/about_system_version_check"
+            android:textSize="@dimen/text_size_view_update_result_string"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/text_update_check_result_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_update_check_result_string"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/about_system_version_check"
+            android:textSize="@dimen/text_size_view_update_result_version"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+    <com.joysee.common.widget.JButtonWithTTF
+        android:id="@+id/button_about_system_upgrade"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_below="@id/content_check_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/button_system_upgrade_margin_top"
+        android:background="@drawable/button_system_upgrade"
+        android:text="@string/about_system_version_check"
+        android:textSize="@dimen/button_text_size"
+        dvb:ttf="fzltch.TTF" />
+
+</RelativeLayout>

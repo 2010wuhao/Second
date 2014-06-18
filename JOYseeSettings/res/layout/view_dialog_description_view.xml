@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="match_parent"
+    android:layout_height="274dp"
+    android:gravity="center" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/content_view_message"
+        android:layout_width="wrap_content"
+        android:layout_height="274dp"
+        android:layout_centerInParent="true"
+        android:textColor="#000000"
+        android:gravity="center_vertical"
+        android:textSize="34dp"
+        dvb:ttf="fzltzh.TTF" />
+
+</RelativeLayout>

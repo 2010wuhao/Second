@@ -1,0 +1,85 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joysee.tvbox.settings" android:sharedUserId="android.uid.system"
+    android:versionCode="1" android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.Manifest.permission.DELETE_PACKAGES" />
+
+    <application android:name="com.joysee.tvbox.settings.base.SettingsApplication"
+        android:allowBackup="true" android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.joysee.tvbox.settings.main.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.joysee.tvbox.settings.about.AboutActivity" />
+        <activity android:name="com.joysee.tvbox.settings.about.ContactActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.about.SystemVersionActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.about.LawInformationActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.about.ComplaintGuidelineActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.about.PrivacyPolicyActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.about.UserAgreementActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.common.CommonBluetoothActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.common.CommonDeviceNameActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.common.CommonSettingsActivity" />
+        <activity android:name="com.joysee.tvbox.settings.common.CommonPIPActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundModelActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundUserDefineActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundResolutionActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundDisplayEreaActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.soundimage.ImageAndSoundAudioActivity" />
+        <activity android:name="com.joysee.tvbox.settings.network.NetworkActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.network.NetworkWiredDetailActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.network.NetworkWirelessDetailActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.network.NetworkWirelessListActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.network.NetworkDetectionActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.network.NetworkSpeedActivity" />
+        <activity android:name="com.joysee.tvbox.settings.apps.AppManagerActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.apps.ApplicationDetailActivity" />
+        <activity
+            android:name="com.joysee.tvbox.settings.upgrade.SystemUpgradeActivity" />
+
+        <provider android:name="com.joysee.tvbox.settings.db.SettingsProvider"
+            android:authorities="com.joysee.tvbox.settings">
+        </provider>
+    </application>
+
+</manifest>

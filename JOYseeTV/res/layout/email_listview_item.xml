@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="88px"
+    android:orientation="vertical"
+    android:minHeight="88px"
+    android:gravity="center_vertical"
+    android:paddingLeft="40px"
+    android:paddingRight="40px" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/email_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_tv_title"
+            android:textSize="25px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/email_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="21px"
+            android:drawableLeft="@drawable/email_icon"
+            android:drawablePadding="7px"
+            android:text="@string/email_tv_title"
+            android:textSize="17px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/email_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_tv_author"
+            android:textSize="17px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/email_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="73px"
+            android:text="@string/email_tv_date"
+            android:textSize="17px"
+            dvb:ttf="fzltzh.TTF" />
+    </LinearLayout>
+
+</LinearLayout>

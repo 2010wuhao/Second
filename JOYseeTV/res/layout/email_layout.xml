@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/rootview"
+    android:layout_width="1280px"
+    android:layout_height="720px"
+    android:background="@drawable/dvb_bg" >
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="32px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_tv_title"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title_info_unread_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="10px"
+            android:textColor="@color/gray_858585"
+            android:textSize="17px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title_info_total_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/title_info_unread_email"
+            android:textColor="@color/gray_858585"
+            android:textSize="17px"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/email_listview"
+        android:layout_width="944px"
+        android:layout_height="450px"
+        android:layout_below="@id/page_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33px"
+        android:cacheColorHint="#00000000"
+        android:divider="#AAA"
+        android:dividerHeight="1px"
+        android:listSelector="@drawable/dvb_button_default"
+        android:paddingLeft="10px"
+        android:paddingRight="10px"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@null"
+        android:scrollbars="vertical" >
+    </ListView>
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/email_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/email_listview"
+        android:layout_marginRight="168px"
+        android:layout_marginTop="19px"
+        android:text="@string/email_tv_point"
+        android:textColor="@color/gray_858585"
+        android:textSize="15px"
+        dvb:ttf="fzltzh.TTF" />
+
+</RelativeLayout>

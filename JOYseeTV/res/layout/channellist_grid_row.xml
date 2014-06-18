@@ -1,0 +1,32 @@
+<com.joysee.dvb.channellist.ChannelListGridRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1185px"
+    android:layout_height="152px"
+    android:clipChildren="false"
+    android:orientation="horizontal" >
+
+    <include
+        android:layout_width="237px"
+        android:layout_height="152px"
+        layout="@layout/channellist_grid_item" />
+
+    <include
+        android:layout_width="237px"
+        android:layout_height="152px"
+        layout="@layout/channellist_grid_item" />
+
+    <include
+        android:layout_width="237px"
+        android:layout_height="152px"
+        layout="@layout/channellist_grid_item" />
+
+    <include
+        android:layout_width="237px"
+        android:layout_height="152px"
+        layout="@layout/channellist_grid_item" />
+
+    <include
+        android:layout_width="237px"
+        android:layout_height="152px"
+        layout="@layout/channellist_grid_item" />
+
+</com.joysee.dvb.channellist.ChannelListGridRow>

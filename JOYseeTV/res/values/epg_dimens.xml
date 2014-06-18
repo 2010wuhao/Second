@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <dimen name="liveguide_programtypecategory_item_textsize_normal">26px</dimen>
+    <dimen name="liveguide_programtypecategory_item_textsize_selected">29px</dimen>
+
+    <dimen name="epg_channellist_item_height">53px</dimen>
+    <dimen name="epg_channellist_item_paddingLeft">57px</dimen>
+    <dimen name="epg_channellist_item_textsize">27px</dimen>
+    
+    <dimen name="epg_channels_layout_width">333px</dimen>
+    <dimen name="epg_datepickerlist_item_day_textsize_normal">20px</dimen>
+    <dimen name="epg_datepickerlist_item_day_textsize_selected">24px</dimen>
+    <dimen name="epg_datepickerlist_item_date_textsize_normal">13px</dimen>
+    <dimen name="epg_datepickerlist_item_date_textsize_selected">16px</dimen>
+    
+    <dimen name="playback_channellist_item_channel_name_height">34px</dimen>
+    <dimen name="playback_channellist_item_channel_name_topmargin">12px</dimen>
+    <dimen name="playback_channellist_item_channel_name_leftmargin">143px</dimen>
+    
+    <dimen name="playback_osd_textsize">40px</dimen>
+    <dimen name="playback_osd_top_start_X">1280px</dimen>
+    <dimen name="playback_osd_bottom_start_X">1280px</dimen>
+    <dimen name="playback_osd_top_start_Y">60px</dimen>
+    <dimen name="playback_osd_bottom_start_Y">690px</dimen>
+    
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="white">#fff</color>
+    <color name="dialog_background">#b0ffffff</color>
+    <color name="about_background">#B5DF0C</color>
+    <color name="dialog_bt_normal_tv_color">#007aff</color>
+    <color name="dialog_bt_focus_tv_color">#ffffff</color>
+    <color name="transparent">#00ffffff</color>
+
+</resources>

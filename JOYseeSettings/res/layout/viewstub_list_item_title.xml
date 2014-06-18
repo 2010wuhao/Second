@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.common.widget.JTextViewWithTTF xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:id="@+id/txt_settings_item_name"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/list_settings_item_name_margin_left"
+    android:textSize="@dimen/text_size_view_item_name"
+    dvb:ttf="fzltzh.TTF" />

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/rootview"
+    android:layout_width="@dimen/screen_width"
+    android:layout_height="@dimen/screen_height"
+    android:background="@android:color/transparent" >
+
+    <SurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <RelativeLayout
+        android:id="@+id/loading_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/vod_bg" >
+
+        <ImageView
+            android:id="@+id/status_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/center_buffer_progressbar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="123px"
+            android:layout_height="123px"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/dialog_progress_image"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/buffer_name_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/center_buffer_progressbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20px"
+            android:orientation="horizontal" >
+
+            <ProgressBar
+                android:id="@+id/small_buffer_progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="20px"
+                android:layout_height="20px"
+                android:layout_gravity="center_horizontal"
+                android:indeterminateDrawable="@drawable/dialog_progress_image"
+                android:visibility="gone" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/buffing_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="10px"
+                android:paddingRight="10px"
+                android:textSize="17px"
+                android:visibility="gone"
+                dvb:ttf="fzltch.TTF" />
+        </LinearLayout>
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/buffer_pro_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buffer_name_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7px"
+            android:textSize="17px"
+            android:visibility="gone"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/buffer_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buffer_pro_point"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7px"
+            android:textSize="17px"
+            android:visibility="gone"
+            dvb:ttf="fzltch.TTF" />
+    </RelativeLayout>
+
+    <!-- control bar -->
+
+    <com.joysee.dvb.vod.VodPlayControlbar
+        android:id="@+id/control_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:focusable="false" >
+
+        <RelativeLayout
+            android:id="@+id/title_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="43px"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="59px"
+            android:layout_marginTop="21px"
+            android:visibility="gone" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/media_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:singleLine="true"
+                android:textSize="25px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/clear_level"
+                android:layout_width="44px"
+                android:layout_height="24px"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16px"
+                android:layout_toRightOf="@id/media_name"
+                android:background="@drawable/vod_pop"
+                android:paddingLeft="10px"
+                android:paddingTop="3px"
+                android:textSize="12px"
+                dvb:ttf="fzltch.TTF" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="352px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/vod_control_bar_bg"
+            android:paddingBottom="55px"
+            android:paddingLeft="47px"
+            android:paddingRight="47px"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="1093px"
+                android:layout_height="36px"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:progressDrawable="@drawable/vod_play_progressbar" />
+
+            <RelativeLayout
+                android:id="@+id/bubble_cursor"
+                android:layout_width="93px"
+                android:layout_height="93px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/vod_play_control_cursor"
+                android:visibility="invisible" >
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:id="@+id/bubble_cursor_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="47px"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="17px"
+                    dvb:ttf="fzltch.TTF" >
+                </com.joysee.common.widget.JTextViewWithTTF>
+            </RelativeLayout>
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/current_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="36px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="67px"
+                android:gravity="center"
+                android:textSize="20px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/total_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="36px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="67px"
+                android:gravity="center"
+                android:textSize="20px"
+                dvb:ttf="fzltch.TTF" />
+        </RelativeLayout>
+    </com.joysee.dvb.vod.VodPlayControlbar>
+
+</RelativeLayout>

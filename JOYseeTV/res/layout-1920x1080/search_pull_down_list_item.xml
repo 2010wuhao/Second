@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.common.widget.JTextViewWithTTF xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/search_down_list_textview"
+    android:layout_width="164px"
+    android:layout_height="63px"
+    android:gravity="center"
+    android:textColor="@color/search_pull_down_text_color"
+    android:textSize="30px"
+    dvb:ttf="fzltch.TTF" />

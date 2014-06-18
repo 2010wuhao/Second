@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main" >
+
+    <!-- <include layout="@layout/include_main_background_cross" /> -->
+
+
+    <!-- Settings button layouts -->
+
+    <com.joysee.tvbox.settings.base.Cursor
+        android:id="@+id/main_cusor"
+        android:layout_width="463dp"
+        android:layout_height="397dp" />
+
+    <include layout="@layout/include_settings_buttons" />
+
+</FrameLayout>

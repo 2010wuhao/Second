@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="92px"
+    android:minWidth="1200px"
+    android:orientation="horizontal" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/ca_menu_item_title"
+        android:layout_width="200px"
+        android:layout_height="90px"
+        android:layout_marginLeft="40px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="40px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/ca_menu_item_content"
+        android:layout_width="200px"
+        android:layout_height="90px"
+        android:layout_marginLeft="40px"
+        android:alpha="0.6"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="30px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <ImageView
+        android:id="@+id/ca_menu_item_right_icon"
+        android:layout_width="23px"
+        android:layout_height="35px"
+        android:layout_gravity="center"
+        android:layout_marginLeft="624px"
+        android:gravity="center_vertical" />
+
+</LinearLayout>

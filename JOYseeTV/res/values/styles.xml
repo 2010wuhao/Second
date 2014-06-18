@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Application theme. -->
+    <style name="Theme.APP" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:buttonStyle">@style/Dvb.Button.Default</item>
+    </style>
+
+    <style name="Dvb.Button.Default" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/dvb_button_default</item>
+        <item name="android:textColor">@color/dvb_button_text_color</item>
+    </style>
+    
+    <style name="Dvb.EditText.Default" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/dvb_button_default</item>
+        <item name="android:textColor">@color/dvb_button_text_color</item>
+    </style>
+
+</resources>

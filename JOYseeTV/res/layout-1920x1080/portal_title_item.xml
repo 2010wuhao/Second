@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.common.widget.JButtonWithTTF xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:singleLine="true"
+    android:background="@android:color/transparent"
+    android:longClickable="false"
+    android:textColor="@color/portal_title_text_unfocus"
+    android:textSize="@dimen/portal_title_textSize"
+    dvb:ttf="fzltch.TTF" />

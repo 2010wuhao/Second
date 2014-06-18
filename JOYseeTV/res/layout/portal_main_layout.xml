@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/portal_bg" >
+
+    <include layout="@layout/portal_title_layout" />
+
+    <com.joysee.dvb.portal.widget.PortalViewPager
+        android:id="@+id/portal_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/portal_applist" />
+
+</FrameLayout>

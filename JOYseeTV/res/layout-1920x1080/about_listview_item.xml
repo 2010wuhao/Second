@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="87px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40px"
+            android:textColor="@android:color/white"
+            android:textSize="38px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/item_title_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="45px"
+            android:textColor="@android:color/white"
+            android:textSize="26px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <!--
+             <ImageView
+            android:id="@+id/arrow_tag"
+            android:layout_width="18px"
+            android:layout_height="28px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="72px"
+            android:src="@drawable/arrow_next" />
+        -->
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/item_preview_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="72px"
+            android:textColor="@color/gray_4f5659"
+            android:textSize="26px"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+</RelativeLayout>

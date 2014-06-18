@@ -1,0 +1,169 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joysee.dvb"
+    android:versionCode="107003"
+    android:versionName="1.0.7" >
+
+    <uses-feature android:name="android.hardware.usb.host" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" />
+    <!-- TODO: replace with READ_NETWORK_POLICY permission when it exists -->
+    <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL" />
+    <uses-permission android:name="android.permission.MODIFY_NETWORK_ACCOUNTING" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />
+    <uses-permission android:name="android.permission.HARDWARE_TEST" />
+    <!-- xiaomi update sdk -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.xiaomi.market.sdk.UPDATE" />
+
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.type.television"
+        android:required="true" />
+
+    <application
+        android:name=".TvApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.APP" >
+        <service android:name="com.joysee.common.download.JDownloadService" />
+
+        <receiver
+            android:name="com.joysee.common.download.JDownloadReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.xiaomi.market.sdk.DownloadCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.joysee.dvb.portal.PortalActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+            <intent-filter>
+                <action android:name="com.joysee.dvb.main" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DvbPlaybackActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name=".activity.ChannelListActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name=".activity.LiveGuideActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name=".activity.EPGActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name=".activity.SearchChannelActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:theme="@style/Theme.DVB"
+            android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".activity.EmailActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:theme="@style/Theme.DVB"
+            android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden" >
+        </activity>
+
+        <provider
+            android:name=".db.DvbProvider"
+            android:authorities="com.joysee.dvb.db.DvbProvider"
+            android:multiprocess="true" />
+        
+        <provider
+            android:name="com.joysee.dvb.vod.VodProvider"
+            android:authorities="com.joysee.dvb.db.SMProvider"
+            android:multiprocess="true" />
+
+        <service android:name=".service.EPGUpdateService" >
+            <intent-filter>
+                <action android:name="com.joysee.dvb.service.EPGUpdateService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.joysee.dvb.portal.QuickAccessActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.joysee.dvb.ca.CaActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:theme="@style/Theme.DVB"
+            android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name=".activity.UpdateActivity"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name="com.joysee.dvb.vod.VodDetaileActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+        <activity
+            android:name="com.joysee.dvb.vod.VodPlayActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DVB" >
+        </activity>
+    </application>
+
+</manifest>

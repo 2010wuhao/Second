@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="450px"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+        android:padding="43px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/number_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="56px"
+            android:text="@string/about_service_number"
+            android:textColor="@android:color/black"
+            android:textSize="27px"
+            android:visibility="gone"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/number_title"
+            android:layout_marginTop="26px"
+            android:textColor="@android:color/black"
+            android:textSize="27px"
+            android:visibility="gone"
+            dvb:ttf="fzltzh.TTF" />
+
+        <ImageView
+            android:id="@+id/qr_code"
+            android:layout_width="210px"
+            android:layout_height="210px"
+            android:layout_centerInParent="true"
+            android:src="@drawable/joysee_qr_code" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qr_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26px"
+            android:text="@string/scan_qr_code"
+            android:textColor="@android:color/black"
+            android:textSize="26px"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="1920px"
+    android:layout_height="1080px"
+    android:background="@android:color/black" >
+
+    <com.joysee.dvb.widget.DVBSurfaceViewParent
+        android:id="@+id/playback_surface_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" />
+
+    <com.joysee.dvb.widget.DVBSurfaceMask
+        android:id="@+id/playback_surface_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/playback_surface_mask"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal" />
+
+    <include
+        android:id="@+id/playback_miniepg_view"
+        android:layout_width="1132px"
+        android:layout_height="232px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="817px"
+        layout="@layout/playback_miniepg_panel"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/playback_liveguide"
+        android:layout_width="595px"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        layout="@layout/playback_liveguide"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/playback_channellist"
+        android:layout_width="686px"
+        android:layout_height="match_parent"
+        layout="@layout/playback_channellist"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/error_report_view"
+        android:layout_width="963px"
+        android:layout_height="196px"
+        android:layout_gravity="center"
+        layout="@layout/playback_error_report_view"
+        android:visibility="invisible" />
+
+    <com.joysee.dvb.widget.EmailNotifyView
+        android:id="@+id/playback_email_notify_view"
+        android:layout_width="49px"
+        android:layout_height="35px"
+        android:layout_marginLeft="1700px"
+        android:layout_marginTop="100px"
+        android:background="@drawable/playback_email_notify_icon"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/playback_debug_epgupdate_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/playback_debug_epgupdate" />
+    
+    <com.joysee.dvb.widget.OSDView 
+        android:id="@+id/playback_osd_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>

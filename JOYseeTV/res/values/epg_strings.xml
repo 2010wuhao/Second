@@ -1,0 +1,65 @@
+<resources>
+
+    <string name="epg_datepicker_monday">周一</string>
+    <string name="epg_datepicker_tuesday">周二</string>
+    <string name="epg_datepicker_wednesday">周三</string>
+    <string name="epg_datepicker_thursday">周四</string>
+    <string name="epg_datepicker_friday">周五</string>
+    <string name="epg_datepicker_saturday">周六</string>
+    <string name="epg_datepicker_sunday">周日</string>
+    <string name="epg_datepicker_last_monday">上周一</string>
+    <string name="epg_datepicker_last_tuesday">上周二</string>
+    <string name="epg_datepicker_last_wednesday">上周三</string>
+    <string name="epg_datepicker_last_thursday">上周四</string>
+    <string name="epg_datepicker_last_friday">上周五</string>
+    <string name="epg_datepicker_last_saturday">上周六</string>
+    <string name="epg_datepicker_last_sunday">上周日</string>
+    <string name="epg_datepicker_current_day">今天</string>
+
+    <string name="epg_programs_layout_emptyview_hint">没有搜索到该频道的节目信息</string>
+    <string name="epg_programs_order_dialog_point">是否预约</string>
+    <string name="epg_programs_order_dialog_positive_order">预约</string>
+    <string name="epg_programs_order_dialog_positive_remove_order">取消预约</string>
+    <string name="epg_programs_order_dialog_positive_watching">观看</string>
+    <string name="epg_programs_order_dialog_negative_search">搜索</string>
+    <string name="epg_programs_order_dialog_positive_lookback">回看</string>
+    
+    
+    
+    <string name="liveguide_type_recommend">人气推荐</string>
+    <string name="liveguide_programs_layout_emptyview_hint">没有搜索到该类型的节目信息</string>
+    <string name="liveguide_programs_item_status">正在播出</string>
+    
+    <string name="playback_liveguide_programs_layout_emptyview_hint">没有搜索到该类型的节目信息</string>
+    
+    <string name="title_epg">节目表</string>
+    <string name="title_channellist">频道</string>
+    <string name="title_liveguide">直播导视</string>
+    
+    <string name="channellist_dialog_negative_watching">观看</string>
+    <string name="channellist_dialog_hint">选择节目表,可回看该频道7天内节目</string>
+    
+    <string name="playback_program_order_notify_positive">观看</string>
+    <string name="playback_program_order_notify_negative">取消</string>
+    
+    <string name="playback_menu_epg">节目表</string>
+    <string name="playback_menu_videoaspectratio">画面比例</string>
+    <string name="playback_menu_videoaspectratio_adaptive">自适应</string>
+    <string name="playback_menu_videoaspectratio_4_3">4:3</string>
+    <string name="playback_menu_videoaspectratio_16_9">16:9</string>
+    <string name="playback_menu_3d">3D 设置</string>
+    <string name="playback_menu_3d_close">关闭3D</string>
+    <string name="playback_menu_3d_left_right">左右</string>
+    <string name="playback_menu_3d_up_down">上下</string>
+    <string name="playback_menu_3d_frame_package">帧封装</string>
+    <string name="playback_menu_soundtrack">声道</string>
+    <string name="playback_menu_soundtrack_stereo">立体声</string>
+    <string name="playback_menu_soundtrack_left">左声道</string>
+    <string name="playback_menu_soundtrack_right">右声道</string>
+    <string name="playback_menu_soundtrack_mono">单声道</string>
+    <string name="playback_menu_search">搜台</string>
+    
+    <string name="playback_debug_epgupdate_status">当前状态:</string>
+    <string name="playback_debug_epgupdate_progress">EPG更新进度:</string>
+    
+</resources>

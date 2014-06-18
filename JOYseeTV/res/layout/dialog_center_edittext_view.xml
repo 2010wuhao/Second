@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="274px" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/content_view_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122px"
+        android:textColor="#000000"
+        android:textSize="34px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JEditTextWithTTF
+        android:id="@+id/content_view_edittext"
+        android:layout_width="267px"
+        android:layout_height="47px"
+        android:layout_below="@id/content_view_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/dvb_edittext_default"
+        android:gravity="center"
+        android:inputType="numberPassword"
+        android:textColor="#000000"
+        android:textSize="25px"
+        dvb:ttf="fzltch.TTF" />
+
+</RelativeLayout>

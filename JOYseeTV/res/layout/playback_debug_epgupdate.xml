@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.widget.PlaybackDebugEPGUpdate xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="67px"
+    android:paddingRight="67px"
+    android:visibility="invisible" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="200px"
+        android:layout_height="34px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical|right"
+        android:text="@string/playback_debug_epgupdate_status"
+        android:textColor="@android:color/black"
+        android:textSize="24px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/playback_debug_epgupdate_status_value"
+        android:layout_width="wrap_content"
+        android:layout_height="34px"
+        android:layout_marginLeft="213px"
+        android:layout_marginTop="14px"
+        android:gravity="center_vertical"
+        android:textColor="@color/blue_007aff"
+        android:textSize="22px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="200px"
+        android:layout_height="34px"
+        android:layout_marginTop="47px"
+        android:gravity="center_vertical|right"
+        android:text="@string/playback_debug_epgupdate_progress"
+        android:textColor="@android:color/black"
+        android:textSize="24px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/playback_debug_epgupdate_progress_value"
+        android:layout_width="wrap_content"
+        android:layout_height="34px"
+        android:layout_marginLeft="213px"
+        android:layout_marginTop="47px"
+        android:gravity="center_vertical"
+        android:textColor="@color/blue_007aff"
+        android:textSize="22px"
+        dvb:ttf="fzltzh.TTF" />
+
+</com.joysee.dvb.widget.PlaybackDebugEPGUpdate>

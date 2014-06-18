@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="portal_title_text_tv">电视</string>
+    <string name="portal_title_text_vod">点播</string>
+    <string name="portal_title_text_hall">业务大厅</string>
+    <string name="portal_title_text_mytv">我的TV</string>
+    <string name="portal_mytv_text_business">业务厅</string>
+    <string name="portal_mytv_text_area">运营商设置</string>
+    <string name="portal_mytv_text_search">频道搜索</string>
+    <string name="portal_mytv_text_email">我的邮箱</string>
+    <string name="portal_mytv_text_about">关于</string>
+    <string name="portal_mytv_text_ca">智能卡</string>
+    <string name="portal_mytv_text_help">使用帮助</string>
+    <string name="portal_tv_text_live_guide">直播导视</string>
+    <string name="portal_tv_text_channel_list">频道列表</string>
+    <string name="portal_tv_text_program_list">节目单</string>
+    <string name="portal_tv_text_look_back">回看</string>
+    <string name="portal_tv_text_recommend">暂无推荐</string>
+    <string name="portal_vod_text_history">历史</string>
+    <string name="portal_vod_text_search">搜索</string>
+    <string name="portal_vod_hot">热播</string>
+    <string name="portal_not_open_hint">模块暂时未开放</string>
+    <string name="portal_not_open_nochannel">没有频道</string>
+    <string name="portal_not_history">无历史记录</string>
+    <string name="portal_not_recommand">无推荐节目</string>
+
+</resources>

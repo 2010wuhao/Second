@@ -1,0 +1,61 @@
+<com.joysee.dvb.channellist.playback.ChannelList xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="686px"
+    android:layout_height="match_parent"
+    android:background="@drawable/playback_channellist_bg" >
+
+    <ImageView
+        android:id="@+id/channellist_category_arrow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="73px"
+        android:layout_marginTop="80px"
+        android:src="@drawable/playback_arrow_left" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/channellist_category_title"
+        android:layout_width="456px"
+        android:layout_height="66px"
+        android:layout_marginLeft="98px"
+        android:layout_marginTop="61px"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="44px"
+        dvb:ttf="fzltch.TTF" />
+
+    <ImageView
+        android:id="@+id/channellist_category_arrow_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="554px"
+        android:layout_marginTop="80px"
+        android:src="@drawable/playback_arrow_right" />
+
+    <com.joysee.dvb.channellist.playback.CategorySwitcher
+        android:id="@+id/channellist_category_switcher"
+        android:layout_width="1938px"
+        android:layout_height="819px"
+        android:layout_marginLeft="-646px"
+        android:layout_marginTop="166px" >
+
+        <include
+            android:layout_width="646px"
+            android:layout_height="1053px"
+            android:layout_marginTop="-117px"
+            layout="@layout/playback_channellistview" />
+
+        <include
+            android:layout_width="646px"
+            android:layout_height="1053px"
+            android:layout_marginTop="-117px"
+            layout="@layout/playback_channellistview" />
+
+        <include
+            android:layout_width="646px"
+            android:layout_height="1053px"
+            android:layout_marginTop="-117px"
+            layout="@layout/playback_channellistview" />
+    </com.joysee.dvb.channellist.playback.CategorySwitcher>
+
+</com.joysee.dvb.channellist.playback.ChannelList>

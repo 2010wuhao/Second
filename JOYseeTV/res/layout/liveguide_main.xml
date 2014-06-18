@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="1280px"
+    android:layout_height="720px"
+    android:background="@drawable/dvb_bg" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/liveguide_programs_layout_emptyview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="80px"
+        android:text="@string/liveguide_programs_layout_emptyview_hint"
+        android:textColor="@color/blue_007aff"
+        android:textSize="33px"
+        android:visibility="invisible"
+        dvb:ttf="fzltzh.TTF" />
+
+    <LinearLayout
+        android:id="@+id/liveguide_grid_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="127px"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="invisible" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="151px"
+                android:layout_height="180px"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/playback_liveguide_loading_bg" />
+
+            <ProgressBar
+                android:id="@+id/liveguide_grid_loading_progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="92px"
+                android:layout_height="92px"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/playback_liveguide_loading_progress" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.joysee.dvb.liveguide.LiveGuideProgramGrid
+        android:id="@+id/liveguide_program_grid"
+        android:layout_width="1104px"
+        android:layout_height="1386px"
+        android:layout_marginLeft="155px"
+        android:layout_marginTop="-345px"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:visibility="invisible" >
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+
+        <include layout="@layout/liveguide_program_row" />
+    </com.joysee.dvb.liveguide.LiveGuideProgramGrid>
+
+    <com.joysee.dvb.liveguide.Cursor
+        android:id="@+id/liveguide_category_cursor"
+        android:layout_width="400px"
+        android:layout_height="160px" />
+
+    <LinearLayout
+        android:layout_width="180px"
+        android:layout_height="533px"
+        android:layout_marginTop="85px" >
+
+        <com.joysee.dvb.liveguide.ProgramTypeCategory
+            android:id="@+id/liveguide_category"
+            android:layout_width="180px"
+            android:layout_height="670px"
+            android:layout_marginTop="-67px"
+            android:gravity="right"
+            android:paddingRight="32px" >
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+
+            <include layout="@layout/liveguide_category_item" />
+        </com.joysee.dvb.liveguide.ProgramTypeCategory>
+    </LinearLayout>
+    
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-67px"
+        android:src="@drawable/epg_programs_layout_top_mask" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/epg_programs_layout_bottom_mask" />
+
+    <ImageView
+        android:layout_width="11px"
+        android:layout_height="17px"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="36px"
+        android:scaleType="fitXY"
+        android:src="@drawable/arrow_back" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="21px"
+        android:layout_marginLeft="47px"
+        android:layout_marginTop="34px"
+        android:alpha="0.6"
+        android:background="@android:color/white" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="wrap_content"
+        android:layout_height="29px"
+        android:layout_marginLeft="59px"
+        android:layout_marginTop="30px"
+        android:alpha="0.6"
+        android:gravity="center_vertical"
+        android:text="@string/title_liveguide"
+        android:textColor="@android:color/white"
+        android:textSize="27px"
+        dvb:ttf="fzltch.TTF" />
+
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.common.widget.JTextViewWithTTF xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/vod_pulldown_item_selector"
+    android:gravity="center"
+    android:paddingBottom="4px"
+    android:textColor="@android:color/white"
+    android:textSize="21px"
+    dvb:ttf="fzltch.TTF" >
+
+</com.joysee.common.widget.JTextViewWithTTF>

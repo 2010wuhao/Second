@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/menu_root"
+    android:layout_width="@dimen/exmenu_panel_w"
+    android:layout_height="match_parent"
+    android:background="@drawable/exmenu_bg_mask" >
+
+    <FrameLayout
+        android:id="@+id/groups_root"
+        android:layout_width="320px"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/groups_select"
+            android:layout_width="match_parent"
+            android:layout_height="173px"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:src="@drawable/exmenu_select" />
+
+        <LinearLayout
+            android:id="@+id/group_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:orientation="vertical"
+            android:paddingLeft="67px"
+            android:paddingRight="67px" >
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/items_root"
+        android:layout_width="320px"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/items_select"
+            android:layout_width="match_parent"
+            android:layout_height="173px"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:src="@drawable/exmenu_select"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="11px"
+            android:layout_height="16px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="67px"
+            android:src="@drawable/arrow_back"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="67px"
+            android:paddingRight="67px" >
+        </RelativeLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="213px"
+        android:layout_height="59px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="87px"
+        android:visibility="invisible" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="13px"
+            android:textColor="#ffffff"
+            android:textSize="35px"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.3"
+            android:background="@android:color/white" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40px"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="800px"
+        android:layout_height="1px"
+        android:background="#aaa" />
+
+    <ListView
+        android:id="@+id/ca_menu_listview"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:cacheColorHint="#00000000"
+        android:divider="#aaa"
+        android:dividerHeight="1px"
+        android:listSelector="@drawable/dvb_button_default"
+        android:scrollbars="none" >
+    </ListView>
+
+    <View
+        android:layout_width="800px"
+        android:layout_height="1px"
+        android:background="#aaa" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/ca_card_num_tv"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:alpha="0.6"
+        android:text="@string/ca_card_num_text"
+        android:textColor="@android:color/white"
+        android:textSize="20px"
+        dvb:ttf="fzltzh.TTF" />
+
+</LinearLayout>

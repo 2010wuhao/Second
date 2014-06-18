@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="2px" >
+
+    <RelativeLayout
+        android:id="@+id/contentview"
+        android:layout_width="156px"
+        android:layout_height="156px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/portal_applist_item_bg" >
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23px"
+            android:src="@drawable/ic_launcher" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="110px"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="8px"
+            android:ellipsize="marquee"
+            android:gravity="center_horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="23px"
+            dvb:ttf="fzltch.TTF" />
+    </RelativeLayout>
+
+</RelativeLayout>

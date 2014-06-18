@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="667px"
+    android:layout_height="533px"
+    android:alpha="0.5"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dvb_animation_switch"
+        android:textSize="34px" />
+
+    <ToggleButton
+        android:id="@+id/portal_animation_toggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/portal_animation_off"
+        android:textOn="@string/portal_animation_on" />
+
+    <ToggleButton
+        android:id="@+id/debug_mode_togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/debug_off"
+        android:textOn="@string/debug_on" />
+
+    <ToggleButton
+        android:id="@+id/print_log_togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/print_log_off"
+        android:textOn="@string/print_log_on" />
+
+    <ToggleButton
+        android:id="@+id/ts_epg_togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/ts_epg_off"
+        android:textOn="@string/ts_epg_on" />
+
+    <ToggleButton
+        android:id="@+id/ts_channel_togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/ts_channel_off"
+        android:textOn="@string/ts_channel_on" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/search_spinner"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qucik_frequency" />
+
+        <EditText
+            android:id="@+id/editText_frequency"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="3"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qucik_symbolRate" />
+
+        <EditText
+            android:id="@+id/editText_symbolRate"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="3"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qucik_modulation" />
+
+        <EditText
+            android:id="@+id/editText_modulation"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="3"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/quick_save"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/qucik_save" />
+    </LinearLayout>
+
+</LinearLayout>

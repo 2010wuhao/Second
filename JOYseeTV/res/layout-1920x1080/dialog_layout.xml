@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:id="@+id/dialog_layout"
+        android:layout_width="1042px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dvb_dialog_default_bg"
+        android:minHeight="546px"
+        android:paddingBottom="51px"
+        android:paddingLeft="27px"
+        android:paddingRight="27px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="67px"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="35px"
+            android:visibility="gone"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:id="@+id/dialog_title_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/dialog_title"
+            android:alpha="50"
+            android:background="#887766"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/dialog_center_view_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_title_line"
+            android:minHeight="400px" >
+
+            <include layout="@layout/dialog_default_center_view" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/dialog_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/dialog_center_view_root"
+            android:alpha="50"
+            android:background="#887766" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84px"
+            android:layout_below="@id/dialog_bottom_line"
+            android:orientation="horizontal" >
+
+            <com.joysee.common.widget.JButtonWithTTF
+                android:id="@+id/dialog_bt_no"
+                android:layout_width="match_parent"
+                android:layout_height="84px"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_left_bt_default"
+                android:gravity="center"
+                android:text="@string/jstyle_dialog_negatvie_bt"
+                android:textColor="@color/dialog_bt_text_color"
+                android:textSize="42px"
+                dvb:ttf="fzltzh.TTF"
+                dvb:ttf_focus="fzltch.TTF" />
+
+            <View
+                android:id="@+id/dialog_button_dvider"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:alpha="50"
+                android:background="#887766" />
+
+            <com.joysee.common.widget.JButtonWithTTF
+                android:id="@+id/dialog_bt_yes"
+                android:layout_width="match_parent"
+                android:layout_height="84px"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_right_bt_default"
+                android:gravity="center"
+                android:text="@string/jstyle_dialog_postive_bt"
+                android:textColor="@color/dialog_bt_text_color"
+                android:textSize="42px"
+                dvb:ttf="fzltzh.TTF"
+                dvb:ttf_focus="fzltch.TTF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

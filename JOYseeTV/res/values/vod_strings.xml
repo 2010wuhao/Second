@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="vod_actor">演员：%1$s</string>
+    <string name="vod_director">导演：%1$s</string>
+    <string name="vod_total_episode">共%1$s集</string>
+    <string name="vod_episode">第%1$s集</string>
+    <string name="vod_play">播放</string>
+    <string name="vod_select_episode">选集</string>
+    <string name="vod_related_video">相关视频</string>
+    <string name="vod_menu_one">one</string>
+    <string name="vod_menu_two">two</string>
+
+    <string-array name="vod_clear_level">
+        <item>流畅</item>
+        <item>标清</item>
+        <item>高清</item>
+        <item>超清</item>
+        <item>蓝光</item>
+    </string-array>
+
+</resources>

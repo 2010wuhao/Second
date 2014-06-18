@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="1920px"
+    android:layout_height="1080px" >
+
+    <LinearLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:layout_marginTop="40px"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="16px"
+            android:layout_height="25px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40px"
+            android:background="@drawable/arrow_back" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="50px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="22px"
+            android:alpha="0.6"
+            android:background="@android:color/white" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="18px"
+            android:gravity="center_vertical"
+            android:text="@string/update_activity_title"
+            android:textSize="46px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="1300px"
+        android:layout_height="600px"
+        android:layout_centerInParent="true" >
+
+        <RelativeLayout
+            android:id="@+id/content_version_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/current_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10px"
+                android:gravity="center_vertical"
+                android:text="@string/update_current_version"
+                android:textSize="38px"
+                dvb:ttf="fzltch.TTF" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/current_version"
+                android:layout_marginTop="20px"
+                android:background="#222222" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/current_version_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/line1"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:textSize="28px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/current_version_repair_ins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/current_version_info"
+                android:layout_marginLeft="10px"
+                android:layout_marginTop="65px"
+                android:gravity="center_vertical"
+                android:text="@string/update_repair_ins"
+                android:textSize="38px"
+                dvb:ttf="fzltch.TTF" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/current_version_repair_ins"
+                android:layout_marginTop="20px"
+                android:background="#222222" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/current_version_repair_ins_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/line2"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="12px"
+                android:textSize="28px"
+                dvb:ttf="fzltch.TTF" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_check_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" >
+
+            <com.joysee.dvb.widget.ProgressWheel
+                android:id="@+id/progress_wheel"
+                android:layout_width="256px"
+                android:layout_height="256px"
+                android:layout_centerHorizontal="true"
+                ProgressWheel:barColor="#007cff"
+                ProgressWheel:barLength="60px"
+                ProgressWheel:barWidth="32px"
+                ProgressWheel:rimColor="#bbbbbb"
+                ProgressWheel:rimWidth="32px"
+                ProgressWheel:spinSpeed="6px"
+                ProgressWheel:textColor="#007cff"
+                ProgressWheel:textSize="36px" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/progress_wheel_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress_wheel"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45px"
+                android:text="@string/update_checking"
+                android:textSize="35px"
+                dvb:ttf="fzltzh.TTF" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_result_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="46px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/result_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/result"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30px"
+                android:textSize="23px"
+                dvb:ttf="fzltzh.TTF" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.joysee.common.widget.JButtonWithTTF
+        android:id="@+id/execute_bt"
+        android:layout_width="330px"
+        android:layout_height="90px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="114px"
+        android:background="@drawable/dvb_round_role_button"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="17px"
+        android:text="@string/update_check_new"
+        android:textSize="34px"
+        dvb:ttf="fzltch.TTF" />
+
+</RelativeLayout>

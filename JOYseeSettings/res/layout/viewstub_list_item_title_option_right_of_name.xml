@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/txt_settings_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/list_settings_item_name_margin_left"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_size_view_item_name"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/txt_settings_item_option_right_of_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/list_settings_item_option_right_of_name_margin_left"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_size_view_item_option_right_of_name"
+        dvb:ttf="fzltzh.TTF" />
+
+</LinearLayout>

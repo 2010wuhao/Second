@@ -1,0 +1,269 @@
+<com.joysee.dvb.epg.EpgRootView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/epg_rootview"
+    android:layout_width="1920px"
+    android:layout_height="1080px"
+    android:background="@drawable/dvb_bg" >
+
+    <com.joysee.dvb.epg.EpgRootViewInner
+        android:id="@+id/epg_rootview_inner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="2420px"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:orientation="horizontal" >
+
+            <com.joysee.dvb.epg.EpgChannelsLayout
+                android:id="@+id/epg_channels_layout"
+                android:layout_width="@dimen/epg_channels_layout_width"
+                android:layout_height="match_parent" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="890px"
+                    android:layout_marginTop="135px"
+                    android:background="@drawable/epg_channel_list_bg" />
+
+                <View
+                    android:id="@+id/epg_channellist_arrow_up"
+                    android:layout_width="33px"
+                    android:layout_height="16px"
+                    android:layout_marginLeft="215px"
+                    android:layout_marginTop="175px"
+                    android:background="@drawable/epg_channellist_arrow_up" />
+
+                <View
+                    android:id="@+id/epg_channellist_arrow_down"
+                    android:layout_width="33px"
+                    android:layout_height="16px"
+                    android:layout_marginLeft="215px"
+                    android:layout_marginTop="965px"
+                    android:background="@drawable/epg_channellist_arrow_down" />
+
+                <com.joysee.dvb.epg.EpgChannelList
+                    android:id="@+id/epg_channels_layout_list"
+                    android:layout_width="463px"
+                    android:layout_height="720px"
+                    android:layout_marginTop="220px"
+                    android:divider="@null"
+                    android:dividerHeight="0px"
+                    android:listSelector="@drawable/list_selector_background" />
+            </com.joysee.dvb.epg.EpgChannelsLayout>
+
+            <com.joysee.dvb.epg.EpgProgramsLayout
+                android:id="@+id/epg_programs_layout"
+                android:layout_width="1920px"
+                android:layout_height="match_parent"
+                android:clipChildren="false" >
+
+                <com.joysee.dvb.epg.EpgDatePicker
+                    android:id="@+id/epg_programs_layout_datepicker"
+                    android:layout_width="400px"
+                    android:layout_height="800px"
+                    android:layout_marginTop="180px"
+                    android:clipChildren="true"
+                    android:clipToPadding="true" >
+
+                    <!-- Use to enable clipChildren -->
+
+                    <FrameLayout
+                        android:id="@+id/use_to_enable_clipchildren"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <View
+                            android:id="@+id/epg_programs_datepicker_focused"
+                            android:layout_width="349px"
+                            android:layout_height="314px"
+                            android:layout_marginTop="-10px"
+                            android:layout_gravity="center_vertical"
+                            android:alpha="0"
+                            android:background="@drawable/epg_program_datepicker_item_focused" />
+
+                        <com.joysee.dvb.epg.EpgDatePickerList
+                            android:id="@+id/epg_programs_datepicker_list"
+                            android:layout_width="150px"
+                            android:layout_height="1120px"
+                            android:layout_marginLeft="100px"
+                            android:layout_marginTop="-160px"
+                            android:clipChildren="true" >
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+
+                            <include layout="@layout/epg_datepicker_list_item" />
+                        </com.joysee.dvb.epg.EpgDatePickerList>
+                    </FrameLayout>
+                </com.joysee.dvb.epg.EpgDatePicker>
+
+                <com.joysee.dvb.epg.EPGProgramsGrid
+                    android:id="@+id/epg_programs_gridview"
+                    android:layout_width="1556px"
+                    android:layout_height="1883px"
+                    android:layout_marginLeft="300px"
+                    android:layout_marginTop="-402px"
+                    android:clipChildren="false"
+                    android:orientation="vertical" >
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+
+                    <include
+                        android:layout_width="1556px"
+                        android:layout_height="269px"
+                        layout="@layout/epg_program_view_folderv" />
+                </com.joysee.dvb.epg.EPGProgramsGrid>
+
+                <ImageView
+                    android:id="@+id/epg_program_layout_hint_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginTop="40px"
+                    android:src="@drawable/epg_program_layout_hint_menu" />
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:id="@+id/dvb_epg_programs_layout_emptyview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:focusable="true"
+                    android:nextFocusDown="@+id/dvb_epg_programs_layout_emptyview"
+                    android:nextFocusLeft="@+id/epg_programs_datepicker_list"
+                    android:nextFocusRight="@+id/dvb_epg_programs_layout_emptyview"
+                    android:nextFocusUp="@+id/dvb_epg_programs_layout_emptyview"
+                    android:text="@string/epg_programs_layout_emptyview_hint"
+                    android:textColor="@color/blue_007aff"
+                    android:textSize="50px"
+                    android:visibility="invisible"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <LinearLayout
+                    android:id="@+id/epg_programs_grid_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <ImageView
+                            android:layout_width="226px"
+                            android:layout_height="270px"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/playback_liveguide_loading_bg" />
+
+                        <ProgressBar
+                            android:id="@+id/epg_programs_grid_loading_progressbar"
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="138px"
+                            android:layout_height="138px"
+                            android:layout_gravity="center"
+                            android:indeterminateDrawable="@drawable/playback_liveguide_loading_progress" />
+                    </FrameLayout>
+                </LinearLayout>
+            </com.joysee.dvb.epg.EpgProgramsLayout>
+        </LinearLayout>
+    </com.joysee.dvb.epg.EpgRootViewInner>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/epg_programs_layout_top_mask" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/epg_programs_layout_bottom_mask" />
+
+    <ImageView
+        android:id="@+id/epg_programs_layout_right_mask"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:src="@drawable/epg_programs_layout_right_mask" />
+
+    <View
+        android:layout_width="16px"
+        android:layout_height="25px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="58px"
+        android:background="@drawable/arrow_back" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="82px"
+        android:layout_marginLeft="78px"
+        android:layout_marginTop="48px"
+        android:alpha="0.6"
+        android:background="@android:color/white" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/epg_programs_layout_channelname"
+        android:layout_width="wrap_content"
+        android:layout_height="69px"
+        android:layout_marginLeft="96px"
+        android:layout_marginTop="37px"
+        android:gravity="center_vertical"
+        android:textSize="45px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:layout_marginLeft="96px"
+        android:layout_marginTop="88px"
+        android:alpha="0.6"
+        android:gravity="center_vertical"
+        android:text="@string/title_epg"
+        android:textColor="@android:color/white"
+        android:textSize="26px"
+        dvb:ttf="fzltzh.TTF" />
+
+</com.joysee.dvb.epg.EpgRootView>

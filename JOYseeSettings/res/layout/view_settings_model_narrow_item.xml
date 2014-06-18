@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:paddingBottom="1dp" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/txt_settings_model_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_size_view_item_name"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/txt_settings_item_model_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txt_settings_model_item_name"
+        android:layout_marginTop="@dimen/view_settings_title_description_margin_top"
+        android:alpha="0.5"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_view_settings_title_description"
+        dvb:ttf="fzltzh.TTF" />
+
+    <CheckBox
+        android:id="@+id/cbx_settings_item_model_select"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/list_settings_item_option_margin_right"
+        android:focusable="false" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listex_divider"
+        android:paddingBottom="-1dp" />
+
+</RelativeLayout>

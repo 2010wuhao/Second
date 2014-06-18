@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="160px"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="636px"
+        android:layout_marginTop="200px"
+        android:text="@string/ca_watch_level_text"
+        android:textColor="@android:color/white"
+        android:textSize="40px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <!--
+         <com.joysee.common.widget.JEditTextWithTTF
+        android:layout_width="368px"
+        android:layout_height="195px"
+        android:layout_marginLeft="810px"
+        android:layout_marginTop="130px"
+        dvb:ttf="fzltzh.TTF" />
+    -->
+
+    <com.joysee.dvb.search.wheelview.WheelView
+        android:id="@+id/ca_level_wheelview"
+        android:layout_width="368px"
+        android:layout_height="195px"
+        android:layout_marginLeft="810px"
+        android:layout_marginTop="130px"
+        android:background="@android:color/white"
+        android:focusable="true" />
+
+    <com.joysee.common.widget.JButtonWithTTF
+        android:id="@+id/ca_watchlevel_bt"
+        android:layout_width="300px"
+        android:layout_height="80px"
+        android:layout_marginLeft="806px"
+        android:layout_marginTop="480px"
+        android:background="@drawable/dvb_round_role_button"
+        android:paddingBottom="16px"
+        android:text="@string/ca_save_text"
+        android:textColor="@android:color/white"
+        android:textSize="40px"
+        android:visibility="gone"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:gravity="center"
+        android:layout_marginTop="480px"
+        android:text="@string/ca_watch_level_tips_text"
+        android:textColor="@android:color/white"
+        android:textSize="30px"
+        android:alpha="0.6"
+        dvb:ttf="fzltzh.TTF" />
+
+</FrameLayout>

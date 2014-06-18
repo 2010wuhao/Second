@@ -1,0 +1,18 @@
+<resources>
+
+   <string name="email_tv_title">电视邮件</string>
+   <string name="email_tv_title_unread">%1$s封未读</string>
+   <string name="email_tv_title_total">共%1$s封邮件</string>
+   <string name="email_tv_point">按遥控器［菜单］键管理邮件</string>
+   <string name="email_tv_author">来自: %1$s</string>
+   <string name="email_tv_date">%1$s　%1$s</string>
+   <string name="email_tv_close_remind">关闭新邮件提醒</string>
+   <string name="email_tv_delete_all_email">删除所有邮件</string>
+   <string name="email_tv_unread">未读</string>
+   <string name="email_tv_detail_title">查看邮箱</string>
+   <string name="email_tv_delete_fail">删除失败</string>
+   <string name="email_tv_inbox_is_null">收件箱为空</string>
+   <string name="email_tv_load_fail">加载邮件失败</string>
+   <string name="email_tv_sure_delete">删除</string>
+   <string name="email_tv_cancle_delete">取消</string>
+</resources>

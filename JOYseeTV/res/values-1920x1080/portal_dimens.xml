@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <dimen name="screen_width">1920px</dimen>
+    <dimen name="screen_height">1080px</dimen>
+
+    <!-- Title -->
+    <dimen name="portal_title_item_width">55px</dimen>
+    <dimen name="portal_title_item_height">120px</dimen>
+    <dimen name="portal_title_textSize">43px</dimen>
+    <dimen name="portal_title_leftMargin">100px</dimen>
+
+    <item name="portal_scaleX" type="dimen">40</item>
+    <item name="portal_scaleY" type="dimen">40</item>
+
+    <integer name="portal_page_first">0</integer>
+    <integer name="portal_page_second">1</integer>
+    <integer name="portal_page_third">2</integer>
+    <integer name="portal_page_fourth">1</integer>
+    <!-- 0x10000 看电视 -->
+    <integer name="portal_res_type_dvb">16</integer>
+    <!-- 0x10001 历史 -->
+    <integer name="portal_res_type_dvb_history">17</integer>
+    <!-- 0x10010 推荐 -->
+    <integer name="portal_res_type_dvb_recommand">18</integer>
+    <!-- 0x10011 直播导视 -->
+    <integer name="portal_res_type_dvb_liveguide">19</integer>
+    <!-- 0x10100 频道列表 -->
+    <integer name="portal_res_type_dvb_channel_list">20</integer>
+    <!-- 0x10101 节目单 -->
+    <integer name="portal_res_type_dvb_program_list">21</integer>
+    <!-- 0x10110 搜索 -->
+    <integer name="portal_res_type_dvb_search">22</integer>
+    <!-- 0x10111 智能卡 -->
+    <integer name="portal_res_type_dvb_ca">23</integer>
+    <!-- 0x11000 邮件 -->
+    <integer name="portal_res_type_dvb_email">24</integer>
+    <!-- 0x11001 运营商 -->
+    <integer name="portal_res_type_dvb_operator">25</integer>
+    <!-- 0x11010 回看 -->
+    <integer name="portal_res_type_dvb_lookback">26</integer>
+    <!-- 0x100000 使用帮助 -->
+    <integer name="portal_res_type_help">32</integer>
+    <!-- Potral title text size -->
+    <integer name="portal_title_size_focus">50</integer>
+    <integer name="portal_title_size_normal">43</integer>
+    <!-- Portal viewpager margin -->
+    <integer name="portal_viewpager_margin">470</integer>
+
+    <dimen name="operator_item_text_size">30px</dimen>
+    <dimen name="operator_item_text_padding">12px</dimen>
+    <dimen name="custom_menu_width">592px</dimen>
+    <dimen name="search_process_result_content_h">1370px</dimen>
+    <dimen name="search_process_result_item_child_margin">40px</dimen>
+    <dimen name="scan_progressbar_panel_w">1820px</dimen>
+    <dimen name="scan_progressbar_panel_h">100px</dimen>
+    <dimen name="scan_progressbar_bar_w">1760px</dimen>
+    <dimen name="scan_progressbar_bar_h">3px</dimen>
+    <dimen name="scan_progressbar_bar_scan_radius">33px</dimen>
+    <dimen name="search_process_result_item_h">274px</dimen>
+    <dimen name="search_process_result_item_textview_move_y">100px</dimen>
+
+    <!-- Portal CA Dialog -->
+    <integer name="portal_ca_dialog_width">995</integer>
+    <integer name="portal_ca_dialog_height">407</integer>
+
+</resources>

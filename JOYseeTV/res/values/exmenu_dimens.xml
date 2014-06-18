@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="window_width">1280px</dimen>
+    <dimen name="window_height">720px</dimen>
+    <dimen name="exmenu_panel_w">433px</dimen>
+    <dimen name="exmenu_group_w">187px</dimen>
+    <dimen name="exmenu_group_h">83px</dimen>
+    <dimen name="exmenu_item_w">160px</dimen>
+    <dimen name="exmenu_item_h">83px</dimen>
+    <dimen name="exmenu_title_move_x">-87px</dimen>
+    <dimen name="exmenu_backarrow_move_begin">67px</dimen>
+    <dimen name="exmenu_backarrow_move_end">33px</dimen>
+    <dimen name="exmenu_item_panel_move_out">113px</dimen>
+
+</resources>

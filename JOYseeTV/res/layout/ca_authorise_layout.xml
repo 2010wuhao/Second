@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="133px"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="237px"
+        android:layout_marginTop="38px"
+        android:text="@string/ca_operation_id_text"
+        android:textColor="@android:color/white"
+        android:textSize="27px"
+        dvb:ttf="fzltzh.TTF" />
+
+    <com.joysee.common.widget.JEditTextWithTTF
+        android:id="@+id/ca_operate_id_tv"
+        android:layout_width="245px"
+        android:layout_height="40px"
+        android:layout_marginLeft="380px"
+        android:layout_marginTop="33px"
+        android:background="@drawable/dvb_edittext_default"
+        android:cursorVisible="false"
+        android:drawableRight="@drawable/search_arrows_unfocus"
+        android:gravity="center"
+        android:paddingRight="7px"
+        android:textColor="@android:color/white"
+        android:textSize="27px" />
+
+    <com.joysee.dvb.search.wheelview.WheelView
+        android:id="@+id/ca_operate_id_wheelview"
+        android:layout_width="245px"
+        android:layout_height="113px"
+        android:layout_marginLeft="380px"
+        android:background="@android:color/white"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="800px"
+        android:layout_height="1px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120px"
+        android:background="#aaa" />
+
+    <LinearLayout
+        android:layout_width="800px"
+        android:layout_height="60px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="122px"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ca_authorise_num_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ca_authorise_deadline_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ca_recording_flag_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="182px"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="800px"
+            android:layout_height="1px"
+            android:background="#aaa" />
+
+        <ListView
+            android:id="@+id/ca_authorise_listview"
+            android:layout_width="800px"
+            android:layout_height="305px"
+            android:layout_centerHorizontal="true"
+            android:cacheColorHint="#00000000"
+            android:divider="#aaa"
+            android:dividerHeight="1px"
+            android:listSelector="@drawable/dvb_button_default"
+            android:scrollbars="vertical" >
+        </ListView>
+    </LinearLayout>
+
+</FrameLayout>

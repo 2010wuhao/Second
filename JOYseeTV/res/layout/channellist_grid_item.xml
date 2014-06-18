@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.channellist.ChannelItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="237px"
+    android:layout_height="152px"
+    android:clipChildren="false"
+    android:focusable="true" >
+
+    <ImageView
+        android:layout_width="220px"
+        android:layout_height="137px"
+        android:layout_marginLeft="8px"
+        android:layout_marginTop="13px"
+        android:background="@drawable/channellist_channel_item_default"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/channellist_grid_item_channel_icon"
+        android:layout_width="85px"
+        android:layout_height="64px"
+        android:layout_marginLeft="77px"
+        android:layout_marginTop="27px"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/channellist_grid_item_channel_focus"
+        android:layout_width="254px"
+        android:layout_height="168px"
+        android:layout_marginLeft="-10px"
+        android:layout_marginTop="-9px"
+        android:scaleType="fitXY"
+        android:alpha="0"
+        android:src="@drawable/program_preview_cursor" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/channellist_grid_item_channel_num"
+        android:layout_width="wrap_content"
+        android:layout_height="21px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="107px"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="19px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/channellist_grid_item_channel_name"
+        android:layout_width="135px"
+        android:layout_height="21px"
+        android:layout_marginLeft="88px"
+        android:layout_marginTop="107px"
+        android:ellipsize="marquee"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="19px"
+        dvb:ttf="fzltch.TTF" />
+
+</com.joysee.dvb.channellist.ChannelItem>

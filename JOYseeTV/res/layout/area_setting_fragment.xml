@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/search_area_setting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30px"
+            android:text="@string/search_tv_mode_operator"
+            android:textSize="30px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/zoom_layout"
+        android:layout_width="800px"
+        android:layout_height="390px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="167px"
+        android:background="@drawable/area_setting_data_bg" >
+
+        <ImageView
+            android:id="@+id/first_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="200px"
+            android:layout_marginTop="1px"
+            android:background="@drawable/area_setting_divider" />
+
+        <ImageView
+            android:id="@+id/first_twp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="400px"
+            android:layout_marginTop="1px"
+            android:background="@drawable/area_setting_divider" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="600px"
+            android:layout_marginTop="1px"
+            android:background="@drawable/area_setting_divider" />
+
+        <LinearLayout
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="67px"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/area_setting_title_bg"
+            android:orientation="horizontal" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/title_text_one"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/search_tv_area_province"
+                android:textSize="23px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/title_text_two"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/search_tv_area_city"
+                android:textSize="23px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/title_text_three"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/search_tv_zone_"
+                android:textSize="23px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/title_text_four"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/search_tv_operator"
+                android:textSize="23px"
+                dvb:ttf="fzltch.TTF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wheel_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title_text"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            android:orientation="horizontal" >
+
+            <com.joysee.dvb.search.wheelview.WheelView
+                android:id="@+id/province"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:focusable="true" />
+
+            <com.joysee.dvb.search.wheelview.WheelView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:focusable="true" />
+
+            <com.joysee.dvb.search.wheelview.WheelView
+                android:id="@+id/county"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:focusable="true" />
+
+            <com.joysee.dvb.search.wheelview.WheelView
+                android:id="@+id/operator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:focusable="true" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/search_area_setting_current_operator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/zoom_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:singleLine="true"
+        android:text="@string/search_msg_area_setting_current_operator"
+        android:textColor="@color/white_alpha_50"
+        android:textSize="15px"
+        dvb:ttf="fzltch.TTF" />
+
+    <com.joysee.dvb.widget.shimmer.ShimmerTextView
+        android:id="@+id/search_area_setting_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_area_setting_current_operator"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:text="@string/search_msg_area_setting_point"
+        android:textColor="@color/gray_858585"
+        android:textSize="20px" />
+
+</RelativeLayout>

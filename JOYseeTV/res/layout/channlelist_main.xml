@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="1280px"
+    android:layout_height="720px"
+    android:background="@drawable/dvb_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="635px"
+        android:layout_marginTop="73px"
+        android:clipToPadding="false"
+        android:paddingBottom="13px"
+        android:paddingTop="13px" >
+
+        <com.joysee.dvb.channellist.ChannelListGrid
+            android:id="@+id/channellist_grid"
+            android:layout_width="1215px"
+            android:layout_height="912px"
+            android:layout_marginLeft="33px"
+            android:layout_marginTop="-152px"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingLeft="13px"
+            android:paddingRight="13px" >
+
+            <include layout="@layout/channellist_grid_row" />
+
+            <include layout="@layout/channellist_grid_row" />
+
+            <include layout="@layout/channellist_grid_row" />
+
+            <include layout="@layout/channellist_grid_row" />
+
+            <include layout="@layout/channellist_grid_row" />
+
+            <include layout="@layout/channellist_grid_row" />
+        </com.joysee.dvb.channellist.ChannelListGrid>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/epg_programs_layout_top_mask" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-47px"
+        android:src="@drawable/epg_programs_layout_bottom_mask" />
+
+    <ImageView
+        android:layout_width="11px"
+        android:layout_height="17px"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="36px"
+        android:scaleType="fitXY"
+        android:src="@drawable/arrow_back" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="21px"
+        android:layout_marginLeft="47px"
+        android:layout_marginTop="34px"
+        android:alpha="0.6"
+        android:background="@android:color/white" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:layout_width="wrap_content"
+        android:layout_height="29px"
+        android:layout_marginLeft="59px"
+        android:layout_marginTop="30px"
+        android:alpha="0.6"
+        android:gravity="center_vertical"
+        android:text="@string/title_channellist"
+        android:textColor="@android:color/white"
+        android:textSize="27px"
+        dvb:ttf="fzltch.TTF" />
+
+</FrameLayout>

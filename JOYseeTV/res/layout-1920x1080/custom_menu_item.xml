@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="84px" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="36px"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:visibility="invisible" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/title"
+        android:layout_width="400px"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/icon"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/search_menu_text_color"
+        android:textSize="40px"
+        dvb:ttf="fzltch.TTF" />
+
+</RelativeLayout>

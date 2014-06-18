@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.portal.widget.PortalPageItemVod xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:portal="http://schemas.android.com/apk/res/com.joysee.dvb"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="105px"
+    android:paddingTop="100px" >
+
+    <!-- 1 1267*722 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="1364px"
+        android:layout_height="817px"
+        android:layout_marginLeft="51px"
+        android:layout_marginTop="101px"
+        portal:focusType="1364"
+        portal:isLeftEdge="true"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_second"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="1266px"
+            android:layout_height="719px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_vod" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 2 235*235 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="325px"
+        android:layout_height="325px"
+        android:layout_marginLeft="1330px"
+        android:layout_marginTop="105px"
+        portal:focusType="325"
+        portal:isRightEdge="true"
+        portal:isTopEdge="true"
+        portal:parentID="@integer/portal_page_second"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="235px"
+            android:layout_height="235px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_vod_history" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_vod_text_history"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 4 235*235 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="325px"
+        android:layout_height="325px"
+        android:layout_marginLeft="1330px"
+        android:layout_marginTop="589px"
+        portal:focusType="325"
+        portal:isRightEdge="true"
+        portal:parentID="@integer/portal_page_second"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="235px"
+            android:layout_height="235px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_vod_hotplay" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_vod_hot"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+    <!-- 3 235*235 -->
+
+    <com.joysee.dvb.portal.widget.PortalScaleView
+        android:layout_width="325px"
+        android:layout_height="325px"
+        android:layout_marginLeft="1330px"
+        android:layout_marginTop="347px"
+        portal:focusType="325"
+        portal:isRightEdge="true"
+        portal:parentID="@integer/portal_page_second"
+        portal:scaleX="@dimen/portal_scaleX"
+        portal:scaleY="@dimen/portal_scaleY" >
+
+        <ImageView
+            android:id="@+id/portal_scaleview_content"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="235px"
+            android:layout_height="235px"
+            android:layout_gravity="center"
+            android:src="@drawable/portal_vod_search" />
+
+        <ImageView
+            android:id="@+id/portal_scaleview_focus"
+            style="@style/PortalScaleViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            style="@style/PortalScaleViewText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200px"
+            android:gravity="center_horizontal"
+            android:text="@string/portal_vod_text_search"
+            dvb:ttf="fzltch.TTF" />
+    </com.joysee.dvb.portal.widget.PortalScaleView>
+
+</com.joysee.dvb.portal.widget.PortalPageItemVod>

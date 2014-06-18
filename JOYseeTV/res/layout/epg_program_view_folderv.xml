@@ -1,0 +1,26 @@
+<com.joysee.dvb.epg.EpgProgramViewFolderV xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1036px"
+    android:layout_height="179px"
+    android:clipChildren="false"
+    android:orientation="horizontal" >
+
+    <include
+        android:layout_width="259px"
+        android:layout_height="179px"
+        layout="@layout/epg_program_item" />
+
+    <include
+        android:layout_width="259px"
+        android:layout_height="179px"
+        layout="@layout/epg_program_item" />
+
+    <include
+        android:layout_width="259px"
+        android:layout_height="179px"
+        layout="@layout/epg_program_item" />
+    
+    <include
+        android:layout_width="259px"
+        android:layout_height="179px"
+        layout="@layout/epg_program_item" />
+</com.joysee.dvb.epg.EpgProgramViewFolderV>

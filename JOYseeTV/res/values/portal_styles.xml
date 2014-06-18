@@ -1,0 +1,39 @@
+<resources xmlns:app="http://schemas.android.com/apk/res/com.leo.testviewfolw" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="PortalScaleViewText">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">24px</item>
+        <item name="android:focusable">false</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="PortalHistoryText">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">24px</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:paddingLeft">33px</item>
+        <item name="android:paddingRight">33px</item>
+    </style>
+
+    <style name="PortalRecomendViewText">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">24px</item>
+        <item name="android:focusable">false</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:alpha">0.6</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+    <style name="PortalScaleViewImage">
+        <item name="android:focusable">false</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="PortalRecomendImage">
+        <item name="android:focusable">false</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+</resources>

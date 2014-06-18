@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Protal_ScaleView">
+        <attr name="parentID" format="integer" />
+        <attr name="resUrl" format="string" />
+        <attr name="resType" format="integer" />
+        <attr name="isRightEdge" format="boolean" />
+        <attr name="isLeftEdge" format="boolean" />
+        <attr name="isTopEdge" format="boolean" />
+        <attr name="isBottomEdge" format="boolean" />
+        <attr name="scaleX" format="integer" />
+        <attr name="scaleY" format="integer" />
+        <attr name="packageName" format="string" />
+        <attr name="activityName" format="string" />
+        <attr name="intentKey" format="string" />
+        <attr name="intentValue" format="string" />
+        <attr name="focusType" format="integer" />
+    </declare-styleable>
+
+</resources>

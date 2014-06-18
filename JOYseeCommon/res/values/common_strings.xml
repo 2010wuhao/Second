@@ -1,0 +1,63 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!--
+    This is the title that is used when displaying the notification
+    for a download that doesn't have a title associated with it.
+
+    -->
+    <string name="joysee_common_download_unknown_title">&lt;Untitled&gt;</string>
+    <!--
+         When a download is paused because it's too large to download over a
+        mobile connection, and Wi-Fi is unavailable, this string is displayed in
+        the system notification for the running download, beneath the download
+        title and description.  Note that such a download could have been
+        initiated by a variety of applications, including (but not limited to)
+        the browser, an email application, a content marketplace.
+        [CHAR LIMIT=24]
+
+
+    -->
+    <string name="joysee_common_notification_need_wifi_for_size">Download size requires Wi-Fi.</string>
+    <!--
+        When there are multiple simultaneous outstanding downloads from a
+        single application, they are displayed as a single notification,
+        and the expanded notification view displays the first two download
+        names separated with this string, i.e. "[title], [title]"
+        or "[title], [title] and [n] more". This is the comma + space
+        that separates the first two titles, and it's used both when there
+        are exactly two and more than two titles.
+
+    -->
+    <string name="joysee_common_notification_filename_separator">", "</string>
+    <!--
+        When there are three or more simultaneous outstanding downloads from a
+        single application, they are displayed as a single notification,
+        and the expanded notification view uses this string to indicate
+        downloads beyond the first two, i.e. "[title], [title] and [n] more".
+        This is the " and [n] more" part, including the leading space, and it's
+        used regardless of the number of additional downloads.
+
+    -->
+    <string name="joysee_common_notification_filename_extras">" and <xliff:g id="number" example="27">%d</xliff:g> more"</string>
+    <!--
+        When a download completes, a notification is displayed, and this
+        string is used to indicate that the download failed.
+        Note that such a download could have been initiated by a variety of
+        applications, including (but not limited to) the browser, an email
+        application, a content marketplace.
+
+    -->
+    <string name="joysee_common_notification_download_failed">Download unsuccessful.</string>
+
+    <!--
+        When a download completes, a notification is displayed, and this
+        string is used to indicate that the download successfully completed.
+        Note that such a download could have been initiated by a variety of
+        applications, including (but not limited to) the browser, an email
+        application, a content marketplace.
+    -->
+    <string name="joysee_common_notification_download_complete">Download complete.</string>
+    <!-- Short representation of download progress percentage. [CHAR LIMIT=8] -->
+    <string name="joysee_common_download_percent"><xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g></string>
+
+</resources>

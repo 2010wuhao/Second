@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.liveguide.playback.ProgramListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="266px"
+    android:layout_height="198px"
+    android:focusable="true" >
+
+    <ImageView
+        android:layout_width="257px"
+        android:layout_height="156px"
+        android:layout_marginLeft="4px"
+        android:layout_marginTop="14px"
+        android:scaleType="fitXY"
+        android:src="@drawable/liveguide_program_item_default" />
+
+    <ImageView
+        android:id="@+id/liveguide_program_item_preview"
+        android:layout_width="229px"
+        android:layout_height="128px"
+        android:layout_marginLeft="18px"
+        android:layout_marginTop="21px"
+        android:scaleType="fitXY" />
+
+    <View
+        android:id="@+id/liveguide_program_item_focus"
+        android:layout_width="269px"
+        android:layout_height="170px"
+        android:layout_marginLeft="-2px"
+        android:layout_marginTop="1px"
+        android:alpha="0"
+        android:background="@drawable/program_preview_cursor" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/liveguide_program_item_pname"
+        android:layout_width="227px"
+        android:layout_height="25px"
+        android:layout_marginLeft="18px"
+        android:layout_marginTop="155px"
+        android:ellipsize="marquee"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textColor="@android:color/black"
+        android:textSize="21px"
+        dvb:ttf="fzltch.TTF" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="19px"
+        android:layout_marginTop="179px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/liveguide_program_item_channelname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18px"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="16px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/liveguide_program_item_status"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16px"
+            android:gravity="center_vertical"
+            android:text="@string/liveguide_programs_item_status"
+            android:textColor="@color/blue_007aff"
+            android:textSize="16px"
+            dvb:ttf="fzltzh.TTF" />
+    </LinearLayout>
+
+</com.joysee.dvb.liveguide.playback.ProgramListItem>

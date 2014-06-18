@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/page_cards_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="90px"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="45px"
+            android:textSize="46px"
+            dvb:ttf="fzltch.TTF" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="1200px"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <LinearLayout
+            android:id="@+id/search_params_layout"
+            android:layout_width="match_parent"
+            android:layout_height="65px"
+            android:baselineAligned="true"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/frequency_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/search_tv_frequency"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+
+                <com.joysee.dvb.search.SearchEditNumText
+                    android:id="@+id/search_frequency_edit"
+                    android:layout_width="164px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:background="@drawable/dvb_edittext_default"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px"
+                    dvb:max="862"
+                    dvb:min="47"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:gravity="center"
+                    android:text="@string/search_tv_frequency_unit"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/search_tv_symbol"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+
+                <com.joysee.dvb.search.SearchEditNumText
+                    android:id="@+id/search_symbol_edit"
+                    android:layout_width="164px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:background="@drawable/dvb_edittext_default"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textColor="@android:color/white"
+                    android:textSize="30px"
+                    dvb:max="7200"
+                    dvb:min="1500"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:gravity="center"
+                    android:text="@string/search_tv_symbol_unit"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/search_tv_qam"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+
+                <LinearLayout
+                    android:id="@+id/search_param_qam_layout"
+                    android:layout_width="164px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:background="@drawable/dvb_edittext_default"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical" >
+
+                    <com.joysee.common.widget.JTextViewWithTTF
+                        android:id="@+id/search_param_qam"
+                        android:layout_width="120px"
+                        android:layout_height="match_parent"
+                        android:duplicateParentState="false"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="30px"
+                        dvb:ttf="fzltzh.TTF" />
+
+                    <ImageView
+                        android:id="@+id/search_param_qam_imageview"
+                        android:layout_width="31px"
+                        android:layout_height="40px"
+                        android:layout_gravity="left|center_vertical"
+                        android:duplicateParentState="true"
+                        android:gravity="left|center_vertical"
+                        android:src="@drawable/search_arrows_unfocus" />
+                </LinearLayout>
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20px"
+                    android:gravity="center"
+                    android:text="@string/search_tv_qam_unit"
+                    android:textSize="30px"
+                    dvb:ttf="fzltch.TTF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/button_be_margin_top"
+            android:layout_width="match_parent"
+            android:layout_height="227px"
+            android:layout_below="@id/search_params_layout"
+            android:visibility="gone" />
+
+        <com.joysee.common.widget.JButtonWithTTF
+            android:id="@+id/search_bt"
+            android:layout_width="330px"
+            android:layout_height="90px"
+            android:layout_below="@id/button_be_margin_top"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dvb_round_role_button"
+            android:gravity="top|center_horizontal"
+            android:paddingTop="17px"
+            android:text="@string/search_bt_start"
+            android:textColor="@android:color/white"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/search_bt_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_bt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6px"
+            android:text="@string/search_msg_button_point"
+            android:textColor="@color/gray_858585"
+            android:textSize="22px"
+            dvb:ttf="fzltzh.TTF" />
+        
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/net_search_bt_point"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_bt_point"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6px"
+            android:text="@string/search_msg_net_search_current_operator"
+            android:textColor="@color/gray_858585"
+            android:textSize="22px"
+            dvb:ttf="fzltzh.TTF" />
+    </RelativeLayout>
+
+</RelativeLayout>

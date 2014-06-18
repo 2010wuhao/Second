@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.portal.widget.PortalAppListView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/portal_applist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone" >
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/applist_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="125px"
+        android:layout_marginTop="66px"
+        android:text="@string/portal_applist"
+        android:textSize="42px"
+        dvb:ttf="fzltch.TTF" />
+
+    <GridView
+        android:id="@+id/applist_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="792px"
+        android:layout_below="@id/applist_title"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="138px"
+        android:layout_marginRight="138px"
+        android:layout_marginTop="53px"
+        android:columnWidth="236px"
+        android:horizontalSpacing="39px"
+        android:listSelector="@drawable/applist_gridview_seletor"
+        android:numColumns="6"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="39px" />
+
+    <ImageView
+        android:id="@+id/applist_more_tag"
+        android:layout_width="45px"
+        android:layout_height="17px"
+        android:layout_below="@id/applist_gridview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38px"
+        android:src="@drawable/portal_applist_more_tag"
+        android:visibility="invisible" />
+
+</com.joysee.dvb.portal.widget.PortalAppListView>

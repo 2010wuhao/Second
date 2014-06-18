@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joysee.dvb.portal.widget.PortalTitle xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/portal_title"
+    android:layout_width="fill_parent"
+    android:layout_height="162px"
+    tools:context=".portal.PortalActivity" >
+
+    <com.joysee.dvb.portal.widget.PortalCursor
+        android:id="@+id/portal_title_cursor"
+        android:layout_width="285px"
+        android:layout_height="162px"
+        android:alpha="0.00001" />
+
+    <LinearLayout
+        android:id="@+id/portal_title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="50px"
+        android:orientation="horizontal" />
+
+</com.joysee.dvb.portal.widget.PortalTitle>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:id="@+id/root_layout"
+    android:layout_width="@dimen/screen_width"
+    android:layout_height="@dimen/screen_height"
+    android:background="@drawable/vod_bg"
+    android:descendantFocusability="blocksDescendants" >
+
+    <ImageView
+        android:id="@+id/poster_shaow"
+        android:layout_width="142px"
+        android:layout_height="531px"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="102px"
+        android:background="@drawable/vod_poster_shaow" />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="407px"
+        android:layout_height="531px"
+        android:layout_marginTop="102px"
+        android:layout_toRightOf="@id/poster_shaow"
+        android:background="@drawable/vod_poster_bg"
+        android:padding="2px"
+        android:scaleType="fitXY"
+        android:src="@drawable/vod_big_poster_default" />
+
+    <ImageView
+        android:id="@+id/poster_inverted"
+        android:layout_width="407px"
+        android:layout_height="68px"
+        android:layout_below="@id/poster"
+        android:layout_marginLeft="142px"
+        android:layout_marginTop="1px"
+        android:alpha="0.1"
+        android:drawingCacheQuality="low"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="67px"
+        android:layout_toRightOf="@+id/poster"
+        android:paddingRight="142px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="15px"
+            android:singleLine="true"
+            android:textSize="51px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/HD"
+            android:layout_width="74px"
+            android:layout_height="42px"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="12px"
+            android:layout_toRightOf="@id/name"
+            android:background="@drawable/vod_pop"
+            android:paddingLeft="15px"
+            android:paddingTop="4px"
+            android:textSize="23px"
+            android:visibility="invisible"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15px"
+            android:layout_marginRight="10px"
+            android:singleLine="true"
+            android:textColor="#007cff"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.5"
+            android:background="#AAA" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="526px"
+        android:layout_below="@id/title_layout"
+        android:layout_marginLeft="46px"
+        android:layout_toRightOf="@+id/poster"
+        android:paddingRight="142px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="13px"
+            android:singleLine="true"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/director"
+            android:layout_marginTop="13px"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/actor"
+            android:layout_marginTop="13px"
+            android:alpha="0.5"
+            android:background="#AAA" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="238px"
+            android:layout_below="@id/divider2"
+            android:layout_marginTop="13px"
+            android:ellipsize="end"
+            android:lineSpacingExtra="25px"
+            android:lines="4"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JButtonWithTTF
+            android:id="@+id/play"
+            android:layout_width="300px"
+            android:layout_height="130px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/detail"
+            android:background="@drawable/vod_playbt_bg"
+            android:paddingBottom="20px"
+            android:paddingLeft="80px"
+            android:textColor="@android:color/white"
+            android:textSize="34px"
+            android:visibility="invisible"
+            dvb:ttf="fzltch.TTF" />
+
+        <com.joysee.common.widget.JButtonWithTTF
+            android:id="@+id/select"
+            android:layout_width="300px"
+            android:layout_height="130px"
+            android:layout_below="@id/detail"
+            android:layout_marginLeft="50px"
+            android:layout_toRightOf="@id/play"
+            android:background="@drawable/vod_selectbt_bg"
+            android:paddingBottom="20px"
+            android:paddingLeft="70px"
+            android:text="@string/vod_select_episode"
+            android:textColor="@android:color/white"
+            android:textSize="34px"
+            android:visibility="invisible"
+            dvb:ttf="fzltch.TTF" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/related_layout"
+        android:layout_width="1636px"
+        android:layout_height="match_parent"
+        android:layout_below="@id/poster_inverted"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-15px" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/related_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vod_related_video"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="34px"
+            dvb:ttf="fzltch.TTF" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="67px"
+            android:layout_marginTop="15px"
+            android:layout_toRightOf="@id/related_title"
+            android:alpha="0.5"
+            android:background="#AAA" />
+
+        <com.joysee.dvb.vod.VodScrollView
+            android:id="@+id/related_scrollview"
+            android:layout_width="1600px"
+            android:layout_height="323px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/related_content_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </com.joysee.dvb.vod.VodScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pull_down_layout"
+        android:layout_width="match_parent"
+        android:layout_height="417px"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible" >
+
+        <GridView
+            android:id="@+id/pull_down_content"
+            android:layout_width="match_parent"
+            android:layout_height="403px"
+            android:layout_alignParentBottom="true"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/vod_pull_down_bg"
+            android:columnWidth="291px"
+            android:drawSelectorOnTop="true"
+            android:fastScrollEnabled="false"
+            android:horizontalSpacing="-6px"
+            android:numColumns="6"
+            android:paddingLeft="127px"
+            android:paddingRight="127px"
+            android:paddingTop="34px"
+            android:scrollbars="none"
+            android:verticalSpacing="-6px" >
+        </GridView>
+
+        <ImageView
+            android:id="@+id/up_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="15px"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="1080px"
+            android:background="@drawable/vod_up_arrow" />
+    </RelativeLayout>
+
+</RelativeLayout>

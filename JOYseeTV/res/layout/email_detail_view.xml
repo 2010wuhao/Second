@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="351px"
+        android:descendantFocusability="blocksDescendants"
+        android:drawingCacheQuality="low"
+        android:fadeScrollbars="false"
+        android:fadingEdge="vertical"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:padding="27px"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@null"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/email_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="9px"
+                android:textColor="@android:color/black"
+                android:textSize="25px"
+                dvb:ttf="fzltch.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/email_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21px"
+                android:textColor="@android:color/black"
+                android:textSize="19px"
+                dvb:ttf="fzltzh.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/email_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7px"
+                android:textColor="@android:color/black"
+                android:textSize="19px"
+                dvb:ttf="fzltzh.TTF" />
+
+            <com.joysee.common.widget.JTextViewWithTTF
+                android:id="@+id/email_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="41px"
+                android:lineSpacingExtra="7px"
+                android:textColor="@android:color/black"
+                android:textSize="19px"
+                dvb:ttf="fzltzh.TTF" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

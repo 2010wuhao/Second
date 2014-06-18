@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45px"
+        android:layout_marginTop="133px"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ca_begin_time_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JEditTextWithTTF
+            android:id="@+id/ca_worktime_begintime_hour"
+            android:layout_width="67px"
+            android:layout_height="43px"
+            android:layout_marginLeft="7px"
+            android:layout_marginRight="7px"
+            android:background="@drawable/dvb_edittext_default"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="@android:color/white"
+            android:textSize="20px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ca_time_hour_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JEditTextWithTTF
+            android:id="@+id/ca_worktime_begintime_minute"
+            android:layout_width="67px"
+            android:layout_height="43px"
+            android:layout_marginLeft="7px"
+            android:layout_marginRight="7px"
+            android:background="@drawable/dvb_edittext_default"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="@android:color/white"
+            android:textSize="20px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ca_time_minute_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53px"
+            android:text="@string/ca_end_time_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JEditTextWithTTF
+            android:id="@+id/ca_worktime_endtime_hour"
+            android:layout_width="67px"
+            android:layout_height="43px"
+            android:layout_marginLeft="7px"
+            android:layout_marginRight="7px"
+            android:background="@drawable/dvb_edittext_default"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="@android:color/white"
+            android:textSize="20px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ca_time_hour_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JEditTextWithTTF
+            android:id="@+id/ca_worktime_endtime_minute"
+            android:layout_width="67px"
+            android:layout_height="43px"
+            android:layout_marginLeft="7px"
+            android:layout_marginRight="7px"
+            android:background="@drawable/dvb_edittext_default"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textColor="@android:color/white"
+            android:textSize="20px"
+            dvb:ttf="fzltzh.TTF" />
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ca_time_minute_text"
+            android:textColor="@android:color/white"
+            android:textSize="27px"
+            dvb:ttf="fzltzh.TTF" />
+    </LinearLayout>
+
+    <com.joysee.common.widget.JButtonWithTTF
+        android:id="@+id/ca_worktime_bt"
+        android:layout_width="204px"
+        android:layout_height="53px"
+        android:layout_marginTop="133px"
+        android:background="@drawable/dvb_round_role_button"
+        android:paddingBottom="11px"
+        android:text="@string/ca_save_text"
+        android:textColor="@android:color/white"
+        android:textSize="27px"
+        dvb:ttf="fzltch.TTF" />
+
+</LinearLayout>

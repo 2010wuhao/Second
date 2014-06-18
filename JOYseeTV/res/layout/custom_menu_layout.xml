@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_backgound"
+    android:layout_width="@dimen/custom_menu_width"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="567px"
+        android:layout_centerVertical="true" >
+
+        <ListView
+            android:id="@+id/menu_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:cacheColorHint="#00000000"
+            android:divider="#AAA"
+            android:dividerHeight="1px"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:listSelector="@drawable/dvb_button_default"
+            android:scrollbars="none" >
+        </ListView>
+    </LinearLayout>
+
+</RelativeLayout>

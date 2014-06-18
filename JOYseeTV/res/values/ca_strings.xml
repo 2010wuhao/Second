@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="ca_main_title_text">电视智能卡设置</string>
+    <string name="ca_subtitle_text">%1$s电视运营商</string>
+    <string name="ca_work_time_text">工作时段</string>
+    <string name="ca_watch_level_text">观看级别</string>
+    <string name="ca_authorise_info_text">授权信息</string>
+    <string name="ca_modify_password_text">修改密码</string>
+    <string name="ca_begin_time_text">开始工作时间</string>
+    <string name="ca_end_time_text">结束工作时间</string>
+    <string name="ca_time_hour_text">时</string>
+    <string name="ca_time_minute_text">分</string>
+    <string name="ca_save_text">保存</string>
+    <string name="ca_new_password_text">新密码</string>
+    <string name="ca_confirm_password_text">确认新密码</string>
+    <string name="ca_operation_id_text">运营商ID</string>
+    <string name="ca_authorise_num_text">授权产品编号</string>
+    <string name="ca_authorise_deadline_text">授权截止日期</string>
+    <string name="ca_recording_flag_text">是否可以录制</string>
+    <string name="ca_card_num_text">本机卡号：%1$s</string>
+    <string name="ca_please_input_password">输入电视智能卡密码：</string>
+    <string name="ca_password_error_text">输入密码错误</string>
+    <string name="ca_password_length_error_text">密码长度应为6位</string>
+    <string name="ca_card_not_finded">智能卡不存在或是无效卡</string>
+    <string name="ca_operate_msg_ok">修改成功</string>
+    <string name="ca_operate_msg_time_error">开始时间小于结束时间</string>
+    <string name="ca_operate_msg_equals_error">两次密码输入不一致</string>
+    <string name="ca_operate_msg_error">修改失败</string>
+    <string name="ca_dialog_ok">确定</string>
+    <string name="ca_dialog_cancle">取消</string>
+    <string name="ca_dialog_try_again">再试一次</string>
+    <string name="ca_watch_over_level">%1$d岁以上</string>
+    <string name="ca_watch_level_tips_text">" 提示：上下键选择   确定键修改"</string>
+    <string name="ca_operate_msg_getdata_ok">获取数据成功</string>
+    <string name="ca_operate_msg_getdata_error">获取数据失败</string>
+    <string name="ca_operate_msg_unknow_error">未知错误</string>
+    <string name="ca_no_operator">没有设置</string>
+
+</resources>

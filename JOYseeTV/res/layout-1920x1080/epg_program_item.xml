@@ -1,0 +1,86 @@
+<com.joysee.dvb.epg.EpgProgramItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="389px"
+    android:layout_height="269px"
+    android:focusable="true" >
+    
+    <View
+        android:layout_width="357px"
+        android:layout_height="217px"
+        android:layout_marginLeft="16px"
+        android:layout_marginTop="31px"
+        android:background="@drawable/epg_program_item_default"
+        />
+
+    <View
+        android:id="@+id/epg_program_preview_cursor"
+        android:layout_width="383px"
+        android:layout_height="243px"
+        android:layout_gravity="center"
+        android:alpha="0"
+        android:background="@drawable/program_preview_cursor" />
+
+    <ImageView
+        android:id="@+id/epg_program_view_preview"
+        android:layout_width="319px"
+        android:layout_height="179px"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <View
+        android:layout_width="319px"
+        android:layout_height="45px"
+        android:layout_marginTop="179px"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/black_alpha_80" />
+    
+    <ImageView
+        android:id="@+id/epg_program_order_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="75px"
+        android:src="@drawable/epg_program_order_mark"
+        android:visibility="invisible" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/epg_program_view_program_begintime"
+        android:layout_width="321px"
+        android:layout_height="48px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180px"
+        android:gravity="center_vertical"
+        android:paddingLeft="12px"
+        android:singleLine="true"
+        android:textColor="@color/white_alpha_50"
+        android:textSize="26px"
+        dvb:ttf="fzltzh.TTF" />
+    
+    <View
+        android:id="@+id/epg_program_view_vod_mask"
+        android:layout_width="15px"
+        android:layout_height="18px"
+        android:layout_marginTop="193px"
+        android:layout_marginRight="48px"
+        android:layout_gravity="right"
+        android:alpha="0.5"
+        android:visibility="invisible"
+        android:background="@drawable/epg_program_view_vod_mask" />
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/epg_program_view_program_name"
+        android:layout_width="321px"
+        android:layout_height="42px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="233px"
+        android:background="@null"
+        android:ellipsize="marquee"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@color/white_alpha_50"
+        android:textSize="32px"
+        dvb:ttf="fzltzh.TTF" />
+
+</com.joysee.dvb.epg.EpgProgramItem>
