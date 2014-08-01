@@ -31,7 +31,7 @@ public class VodHistoryRecord {
     public String sourceId;
     public String sourceName;
     public String joyseeSourceId;
-    public int date;
+    public long date;
     public int offset;
     public int duration;
     public int episode;
@@ -58,7 +58,7 @@ public class VodHistoryRecord {
         return joyseeSourceId;
     }
 
-    public int getDate() {
+    public long getDate() {
         return date;
     }
 
@@ -98,7 +98,7 @@ public class VodHistoryRecord {
         this.joyseeSourceId = joyseeSourceId;
     }
 
-    public void setDate(int date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

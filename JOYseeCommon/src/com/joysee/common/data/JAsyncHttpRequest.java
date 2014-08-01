@@ -36,6 +36,7 @@ import com.joysee.common.utils.JLog;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
 class JAsyncHttpRequest implements Runnable {
@@ -46,6 +47,7 @@ class JAsyncHttpRequest implements Runnable {
     private final JResponseInterface responseInterface;
     private int executionCount;
     private int timeout;
+    private int errorCode = -1;
 
     public JAsyncHttpRequest(AbstractHttpClient c, HttpContext ctx, int timeout, HttpUriRequest hr, JResponseInterface rf) {
         this.client = c;
@@ -64,7 +66,7 @@ class JAsyncHttpRequest implements Runnable {
             makeRequestWithRetries();
         } catch (Exception e) {
             if (responseInterface != null) {
-                responseInterface.handlerError(0, e);
+                responseInterface.handlerError(errorCode, e);
             }
         }
         if (responseInterface != null) {
@@ -89,9 +91,11 @@ class JAsyncHttpRequest implements Runnable {
                 break;
             } catch (UnknownHostException e) {
                 cause = new IOException("UnknownHostException exception: " + e.getMessage());
+                errorCode = JRequsetError.ERROR_CODE_UNKNOWNHOST;
                 retry = retryHandler != null && (executionCount > 0) && retryHandler.retryRequest(cause, ++executionCount, context);
             } catch (IOException e) {
                 cause = e;
+                errorCode = JRequsetError.ERROR_CODE_IO;
                 retry = retryHandler != null && retryHandler.retryRequest(cause, ++executionCount, context);
             } catch (Exception e) {
                 cause = new IOException(e.getMessage());
@@ -119,7 +123,11 @@ class JAsyncHttpRequest implements Runnable {
                         responseInterface.handlerResponse(response);
                     }
                 }
+            } catch (SocketTimeoutException e) {
+                errorCode = JRequsetError.ERROR_CODE_TIME_OUT;
+                throw e;
             } catch (Exception e) {
+                errorCode = JRequsetError.ERROR_CODE_UNKOWN;
                 JLog.e(TAG, "client.execute exception e=" + e);
                 throw e;
             }

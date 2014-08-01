@@ -1,12 +1,12 @@
 /**
  * =====================================================================
  *
- * @file  UpdateInfoParser.java
+ * @file  VodInfoParser.java
  * @Module Name   com.joysee.dvb.parser
  * @author benz
  * @OS version  1.0
  * @Product type: JoySee
- * @date   2014-3-27
+ * @date   2014-6-19
  * @brief  This file is the http **** implementation.
  * @This file is responsible by ANDROID TEAM.
  * @Comments: 
@@ -17,16 +17,19 @@
  *
  * Author            Date            OS version        Reason 
  * ----------      ------------     -------------     -----------
- * benz          2014-3-27           1.0         Check for NULL, 0 h/w
+ * benz          2014-6-19           1.0         Check for NULL, 0 h/w
  * =====================================================================
  **/
+//
 
 package com.joysee.dvb.parser;
 
 import com.joysee.common.data.JBaseParser;
 import com.joysee.common.utils.JLog;
 import com.joysee.dvb.R;
-import com.joysee.dvb.vod.VodItemSourceInfo;
+import com.joysee.dvb.TvApplication;
+import com.joysee.dvb.vod.VodSourceErrorInfo;
+import com.joysee.dvb.vod.VodSourceInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,16 +37,37 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class VodInfoParser extends JBaseParser<ArrayList<VodItemSourceInfo>> {
+public class VodInfoParser extends JBaseParser<ArrayList<VodSourceInfo>> {
 
     public class Attach {
-        public static final int CLEAR_LEVEL_COUNT = 5;
+        public static final int QUALITY_LEVEL_COUNT = 5;
 
-        public static final int LEVEL_SMOOTH = 0;
-        public static final int LEVEL_SD = 1;
-        public static final int LEVEL_HD = 2;
-        public static final int LEVEL_ULTRACLEAR = 3;
-        public static final int LEVEL_BLURAY = 4;
+        /**
+         * 流畅
+         */
+        public static final int QUALITY_LEVEL_SMOOTH = 0;
+        /**
+         * 标清
+         */
+        public static final int QUALITY_LEVEL_SD = 1;
+        /**
+         * 高清
+         */
+        public static final int QUALITY_LEVEL_HD = 2;
+        /**
+         * 超清
+         */
+        public static final int QUALITY_LEVEL_UD = 3;
+        /**
+         * 蓝光
+         */
+        public static final int QUALITY_LEVEL_BD = 4;
+
+        public static final int ERROR_JSON_NULL = -111;
+
+        public static final int ERROR_JSON_NO_DATA_VALUE = -222;
+        
+        public static final int ERROR_JSON_SOURCELIST_IS_O = -333;
     }
 
     private static final String TAG = JLog.makeTag(VodInfoParser.class);
@@ -54,82 +78,129 @@ public class VodInfoParser extends JBaseParser<ArrayList<VodItemSourceInfo>> {
     }
 
     @Override
-    public ArrayList<VodItemSourceInfo> parseJSON(String json) throws JSONException {
-        JLog.d(TAG, "parseJSON : \n " + json);
+    public ArrayList<VodSourceInfo> parseJSON(String json) throws JSONException {
+        if (TvApplication.DEBUG_LOG) {
+            JLog.d(TAG, "parseJSON : \n " + json);
+        }
+        ArrayList<VodSourceInfo> infos = null;
+        VodSourceErrorInfo error = new VodSourceErrorInfo();
+
         if (json == null || "".equals(json)) {
-            return null;
+            JLog.e(TAG, "get sourceInfo'json = null");
+            infos = new ArrayList<VodSourceInfo>();
+            error.setErrorNo(Attach.ERROR_JSON_NULL);
+            error.setErrorMsg("json为null");
+            infos.add(error);
+            return infos;
         }
-        ArrayList<VodItemSourceInfo> infos = null;
+
         JSONObject rootJson = new JSONObject(json);
+
+        boolean hasError = false;
         if (rootJson.has("error_no")) {
-            JLog.d(TAG, "error info :  " + rootJson.getString("error_no") + "   msg=" + rootJson.getString("error_msg"));
-            return null;
+            error.setErrorNo(rootJson.getInt("error_no"));
+            hasError = true;
         }
+        if (rootJson.has("error_msg")) {
+            error.setErrorMsg(rootJson.getString("error_msg"));
+            hasError = true;
+        }
+        if (hasError) {
+            infos = new ArrayList<VodSourceInfo>();
+            infos.add(error);
+            return infos;
+        }
+
         if (!rootJson.has("data")) {
-            JLog.d(TAG, "json not contanis 'data' tag");
-            return null;
+            JLog.e(TAG, "get vodSource'json not contanis 'data' tag");
+            infos = new ArrayList<VodSourceInfo>();
+            error.setErrorNo(Attach.ERROR_JSON_NO_DATA_VALUE);
+            error.setErrorMsg("json not contanis 'data' tag");
+            return infos;
         }
+
         JSONArray dataJson = rootJson.getJSONArray("data");
         if (dataJson != null && dataJson.length() > 0) {
             int sourceSize = dataJson.length();
-            infos = new ArrayList<VodItemSourceInfo>(sourceSize);
+            infos = new ArrayList<VodSourceInfo>(sourceSize);
             for (int i = 0; i < sourceSize; i++) {
                 JSONObject episodeObj = dataJson.getJSONObject(i);
                 if (episodeObj != null) {
-                    VodItemSourceInfo info = new VodItemSourceInfo();
-                    info.setVid(episodeObj.getString("vid"));
-                    info.setNumber(episodeObj.getString("num"));
-                    info.setSourceId(episodeObj.getString("source"));
-                    info.setSourceName(episodeObj.getString("sourceName"));
+                    String[] urls = null;
+                    boolean voild = false;
                     Object urlObj = episodeObj.get("playUrl");
                     if (urlObj != null) {
                         if (urlObj instanceof JSONArray) {
-                            JLog.d(TAG, info.getSourceName() + "  not mattch 'playUrl' to JSONArray");
+                            JLog.d(TAG, episodeObj.getString("sourceName") + "  not mattch 'playUrl' to JSONArray");
                         } else {
                             JSONObject jsonObj = (JSONObject) urlObj;
                             if (jsonObj.has("guoyu")) {
                                 JSONObject obj = jsonObj.getJSONObject("guoyu");
                                 if (obj != null) {
-                                    String[] urls = new String[Attach.CLEAR_LEVEL_COUNT];
+                                    urls = new String[Attach.QUALITY_LEVEL_COUNT];
                                     if (obj.has("Smooth")) {
-                                        urls[Attach.LEVEL_SMOOTH] = obj.getJSONArray("Smooth").getString(0);
+                                        urls[Attach.QUALITY_LEVEL_SMOOTH] = obj.getJSONArray("Smooth").getString(0);
+                                        voild = urls[Attach.QUALITY_LEVEL_SMOOTH] != null && !urls[Attach.QUALITY_LEVEL_SMOOTH].isEmpty();
                                     }
                                     if (obj.has("SD")) {
-                                        urls[Attach.LEVEL_SD] = obj.getJSONArray("SD").getString(0);
+                                        urls[Attach.QUALITY_LEVEL_SD] = obj.getJSONArray("SD").getString(0);
+                                        voild = urls[Attach.QUALITY_LEVEL_SD] != null && !urls[Attach.QUALITY_LEVEL_SD].isEmpty();
                                     }
                                     if (obj.has("HD")) {
-                                        urls[Attach.LEVEL_HD] = obj.getJSONArray("HD").getString(0);
+                                        urls[Attach.QUALITY_LEVEL_HD] = obj.getJSONArray("HD").getString(0);
+                                        voild = urls[Attach.QUALITY_LEVEL_HD] != null && !urls[Attach.QUALITY_LEVEL_HD].isEmpty();
                                     }
                                     if (obj.has("Ultraclear")) {
-                                        urls[Attach.LEVEL_ULTRACLEAR] = obj.getJSONArray("Ultraclear").getString(0);
+                                        urls[Attach.QUALITY_LEVEL_UD] = obj.getJSONArray("Ultraclear").getString(0);
+                                        voild = urls[Attach.QUALITY_LEVEL_UD] != null && !urls[Attach.QUALITY_LEVEL_UD].isEmpty();
                                     }
                                     if (obj.has("Bluray")) {
-                                        urls[Attach.LEVEL_BLURAY] = obj.getJSONArray("Bluray").getString(0);
+                                        urls[Attach.QUALITY_LEVEL_BD] = obj.getJSONArray("Bluray").getString(0);
+                                        voild = urls[Attach.QUALITY_LEVEL_BD] != null && !urls[Attach.QUALITY_LEVEL_BD].isEmpty();
                                     }
-                                    JLog.d(TAG, "sourceName=" + info.getSourceName() + "\n" +
-                                            "smooth:" + urls[Attach.LEVEL_SMOOTH] + " \n" +
-                                            "SD:" + urls[Attach.LEVEL_SD] + " \n" +
-                                            "HD:" + urls[Attach.LEVEL_HD] + " \n" +
-                                            "UD:" + urls[Attach.LEVEL_ULTRACLEAR] + " \n" +
-                                            "BD:" + urls[Attach.LEVEL_BLURAY] + " \n"
-                                            );
-                                    info.setGuoYuUrls(urls);
                                 }
                             } else if (jsonObj.has("other")) {
-
+                                JLog.d(TAG, "get 'ohter' language urls");
                             }
                         }
                     }
-                    info.setSourceIconRes(matchSourceRes(info.getSourceId()));
-                    infos.add(info);
+                    /**
+                     * 过滤无URL的源
+                     */
+                    if (urls != null && voild) {
+                        VodSourceInfo info = new VodSourceInfo();
+                        info.setVid(episodeObj.getString("vid"));
+                        info.setNumber(episodeObj.getString("num"));
+                        info.setSourceId(episodeObj.getString("source"));
+                        info.setSourceName(episodeObj.getString("sourceName"));
+                        info.setSourcePosition(i);
+                        info.setSourceIconRes(matchSourceRes(info.getSourceId()));
+                        infos.add(info);
+                        if (TvApplication.DEBUG_LOG) {
+                            JLog.d(TAG,
+                                    "sourceName=" + info.getSourceName() + "\n" +
+                                            "smooth:" + urls[Attach.QUALITY_LEVEL_SMOOTH] + " \n" +
+                                            "SD:" + urls[Attach.QUALITY_LEVEL_SD] + " \n" +
+                                            "HD:" + urls[Attach.QUALITY_LEVEL_HD] + " \n" +
+                                            "UD:" + urls[Attach.QUALITY_LEVEL_UD] + " \n" +
+                                            "BD:" + urls[Attach.QUALITY_LEVEL_BD] + " \n"
+                                    );
+                        }
+                        info.setGuoYuUrls(urls);
+                    }
                 }
             }
+        } else {
+            infos = new ArrayList<VodSourceInfo>();
+            error.setErrorNo(Attach.ERROR_JSON_SOURCELIST_IS_O);
+            error.setErrorMsg("播放源列表为null");
+            infos.add(error);
         }
         return infos;
     }
 
     public int matchSourceRes(String sourceId) {
-        int resId = R.drawable.vod_default_clound;
+        int resId = R.drawable.vod_default_clound_icon;
         if (sourceId != null) {
             if (sourceId.contains("56")) {
                 resId = R.drawable.vod_source_icon_56;

@@ -3,32 +3,27 @@ package com.joysee.dvb.vod;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.joysee.common.data.JFetchBackListener;
+import com.joysee.common.data.JHttpHelper;
 import com.joysee.common.utils.JImage;
+import com.joysee.common.widget.JTextViewWithTTF;
 import com.joysee.dvb.R;
-
-import java.lang.ref.WeakReference;
 
 public class VodRelatedItemView extends RelativeLayout {
 
-    private ImageView mPoster;
+    private RoundImageView mPoster;
     private ImageView mPosterInverted;
-    private RelativeLayout mPosterLayout;
-    private TextView mNameTv;
-    private int mPosterW;
-    private int mPosterH;
-    private int mInvertedW;
+    private Bitmap mInvertedBitmap;
+    private JTextViewWithTTF mNameTv;
     private int mInvertedH;
-
-    private WeakReference<Bitmap> mPosterBitmap;
-    private WeakReference<Bitmap> mFocusInverted;
-    private WeakReference<Bitmap> mNormalInverted;
+    private int[] mSize;
 
     public VodRelatedItemView(Context context) {
         super(context);
@@ -45,72 +40,81 @@ public class VodRelatedItemView extends RelativeLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mPoster = (ImageView) findViewById(R.id.poster);
+        mPoster = (RoundImageView) findViewById(R.id.poster);
         mPosterInverted = (ImageView) findViewById(R.id.poster_inverted);
-        mPosterLayout = (RelativeLayout) findViewById(R.id.poster_layout);
-        mNameTv = (TextView) findViewById(R.id.name);
+        mNameTv = (JTextViewWithTTF) findViewById(R.id.name);
+        mNameTv.setManualScrollable(true);
 
-        mPosterW = (int) getResources().getDimension(R.dimen.vod_related_item_poster_w);
-        mPosterH = (int) getResources().getDimension(R.dimen.vod_related_item_poster_h);
-        mInvertedW = (int) getResources().getDimension(R.dimen.vod_related_item_poster_inverted_w);
+        mSize = new int[2];
+        mSize[0] = (int) getResources().getDimension(R.dimen.vod_related_item_poster_w);
+        mSize[1] = (int) getResources().getDimension(R.dimen.vod_related_item_poster_h);
         mInvertedH = (int) getResources().getDimension(R.dimen.vod_related_item_poster_inverted_h);
 
-        mPoster.setAlpha(0.5f);
-    }
-
-    @Override
-    protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
-        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-        if (gainFocus) {
-            mNameTv.setVisibility(View.VISIBLE);
-            mPoster.setAlpha(1.0f);
-            if (mFocusInverted != null && mFocusInverted.get() != null) {
-                mPosterInverted.setImageBitmap(mFocusInverted.get());
-            }
-        } else {
-            mPoster.setAlpha(0.5f);
-            mNameTv.setVisibility(View.GONE);
-            if (mNormalInverted != null && mNormalInverted.get() != null) {
-                mPosterInverted.setImageBitmap(mNormalInverted.get());
-            }
-        }
-    }
-
-    public void setData(Bitmap poster, String name) {
-        if (poster != null) {
-            Bitmap roundPoster = JImage.getRound(poster, 30);
-            if (roundPoster != null) {
-                mPosterBitmap = new WeakReference<Bitmap>(roundPoster);
-                mPoster.setImageBitmap(roundPoster);
-                Bitmap inverted = JImage.getReflect(roundPoster, roundPoster.getHeight() * mInvertedH / mPosterH, false);
-                if (inverted != null) {
-                    mNormalInverted = new WeakReference<Bitmap>(inverted);
-                    mPosterInverted.setImageBitmap(inverted);
+        mPoster.setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    mNameTv.setVisibility(View.VISIBLE);
+                    postDelayed(mDelayScrollText, 500);
+                } else {
+                    removeCallbacks(mDelayScrollText);
+                    mNameTv.setVisibility(View.GONE);
+                    mNameTv.setTextScrollable(false);
+                    mNameTv.setSelected(false);
                 }
             }
-        }
-        mNameTv.setVisibility(View.VISIBLE);
-        mNameTv.setText(name);
+        });
+    }
 
-        // 取poster与name的截图
-        mPosterLayout.setDrawingCacheEnabled(true);
-        mPosterLayout.measure(
-                MeasureSpec.makeMeasureSpec(mPosterW, MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(mPosterH, MeasureSpec.EXACTLY));
-        mPosterLayout.layout(0, 0, mPoster.getMeasuredWidth(), mPoster.getMeasuredHeight());
-        mPosterLayout.buildDrawingCache();
-        Bitmap newDisplay = mPosterLayout.getDrawingCache();
-        if (newDisplay != null) {
-            Bitmap focusInverted = JImage.getReflect(newDisplay, mInvertedH, false);
-            if (focusInverted != null) {
-                mFocusInverted = new WeakReference<Bitmap>(focusInverted);
-            }
+    private Runnable mDelayScrollText = new Runnable() {
+        @Override
+        public void run() {
+            mNameTv.setVisibility(View.GONE);
+            mNameTv.setSelected(true);
+            mNameTv.setTextScrollable(true);
+            mNameTv.setVisibility(View.VISIBLE);
         }
-        mNameTv.setVisibility(View.GONE);
+    };
+
+    public void setOnItemClickListener(OnClickListener l) {
+        mPoster.setOnClickListener(l);
+    }
+
+    public void setData(String url, String name) {
+        if (name != null) {
+            mNameTv.setText(name);
+        }
+        JHttpHelper.getImage(getContext(), url, mSize, new JFetchBackListener() {
+            @Override
+            public void fetchSuccess(String arg0, BitmapDrawable arg1) {
+                if (arg1 != null && arg1.getBitmap() != null) {
+                    mPoster.setImageSource(arg1.getBitmap(), mSize, 6, true);
+                    mPoster.setBackgroundColor(Color.TRANSPARENT);
+
+                    mPoster.setDrawingCacheEnabled(true);
+                    mPoster.measure(
+                            MeasureSpec.makeMeasureSpec(mSize[0], MeasureSpec.EXACTLY),
+                            MeasureSpec.makeMeasureSpec(mSize[1], MeasureSpec.EXACTLY));
+                    mPoster.layout(0, 0, mPoster.getMeasuredWidth(), mPoster.getMeasuredHeight());
+                    mPoster.buildDrawingCache();
+                    Bitmap newDisplay = mPoster.getDrawingCache();
+                    if (newDisplay != null) {
+                        mInvertedBitmap = JImage.getReflect(newDisplay, mInvertedH, false);
+                        if (mInvertedBitmap != null) {
+                            mPosterInverted.setImageBitmap(mInvertedBitmap);
+                        }
+                        mPoster.destroyDrawingCache();
+                        newDisplay.recycle();
+                    }
+                }
+            }
+        });
     }
 
     public void releaseImage() {
-        
+        if (mInvertedBitmap != null) {
+            mInvertedBitmap.recycle();
+        }
     }
-    
+
 }

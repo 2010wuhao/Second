@@ -21,7 +21,6 @@
  * =====================================================================
  **/
 
-
 package com.joysee.common.data;
 
 import org.apache.http.Header;
@@ -37,7 +36,7 @@ import java.io.InputStream;
 import java.net.URI;
 
 public abstract class JHttpParserCallBack implements JResponseInterface {
-	
+
     private static final String TAG = JLog.makeTag(JHttpParserCallBack.class);
 
     protected static final int SUCCESS_MESSAGE = 0;
@@ -55,17 +54,16 @@ public abstract class JHttpParserCallBack implements JResponseInterface {
 
     private URI requestURI = null;
     private Header[] requestHeaders = null;
-    
+
     JBaseParser<?> parser;
 
     public abstract void onSuccess(Object obj);
+
     public abstract void onFailure(int errorCode, Throwable e);
-    
-    
+
     public JHttpParserCallBack(JBaseParser<?> parser) {
-    	this.parser = parser;
+        this.parser = parser;
     }
-    
 
     @Override
     public URI getRequestURI() {
@@ -96,7 +94,7 @@ public abstract class JHttpParserCallBack implements JResponseInterface {
     public void setUseSynchronousMode(boolean value) {
         useSynchronousMode = value;
     }
-    
+
     public void setCharset(final String charset) {
         this.responseCharset = charset;
     }
@@ -104,36 +102,38 @@ public abstract class JHttpParserCallBack implements JResponseInterface {
     public String getCharset() {
         return this.responseCharset == null ? DEFAULT_CHARSET : this.responseCharset;
     }
-    
+
     public void onProgress(int bytesWritten, int totalSize) {
-    	if (totalSize!=0) {
-    		JLog.d(TAG, String.format("J Http Progress %d from %d (%d)", bytesWritten, totalSize, bytesWritten*100/totalSize));
-		}
+        if (totalSize != 0) {
+            JLog.d(TAG, String.format("J Http Progress %d from %d (%d)", bytesWritten, totalSize, bytesWritten * 100 / totalSize));
+        }
     }
-    
+
     /**
      * Fired when a retry occurs, override to handle in your own code
+     * 
      * @param retryNo number of retry
      */
     public void onRetryCount(int retryNo) {
-    	JLog.d(TAG, String.format("Request retry no. %d", retryNo));
+        JLog.d(TAG, String.format("Request retry no. %d", retryNo));
     }
 
     public void onStart() {
-    	
+
     }
 
     public void onFinish() {
-    	
+
     }
 
     /**
      * handler response data
-     * @throws IOException 
+     * 
+     * @throws IOException
      */
     @Override
     public void handlerResponse(HttpResponse response) throws IOException {
-    	if (!Thread.currentThread().isInterrupted()) {
+        if (!Thread.currentThread().isInterrupted()) {
             StatusLine status = response.getStatusLine();
             byte[] responseBody;
             responseBody = getResponseData(response.getEntity());
@@ -141,38 +141,37 @@ public abstract class JHttpParserCallBack implements JResponseInterface {
                 if (status.getStatusCode() >= 300) {
                     onFailure(status.getStatusCode(), new HttpResponseException(status.getStatusCode(), status.getReasonPhrase()));
                 } else {
-                	String json = new String(responseBody);
-                	Object obj = null;
-                	JSONException error = null;
-                	try {
-						obj = parser.parseJSON(json);
-					} catch (JSONException e) {
-						e.printStackTrace();
-						obj = null;
-						error = e;
-					}
-                	if(obj!=null){
-						onSuccess(obj);
-					}else{
-						if (error == null) {
-							error = new JSONException("---parseJSON return null obj---");
-						}
-						onFailure(status.getStatusCode(), error);
-					}
+                    String json = new String(responseBody);
+                    Object obj = null;
+                    JSONException error = null;
+                    try {
+                        obj = parser.parseJSON(json);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        obj = null;
+                        error = e;
+                    }
+                    if (obj != null) {
+                        onSuccess(obj);
+                    } else {
+                        if (error == null) {
+                            error = new JSONException("parseJSON return null obj");
+                        }
+                        onFailure(status.getStatusCode(), error);
+                    }
                 }
             }
         }
     }
-    
 
     @Override
     public void handlerError(Integer code, Throwable e) {
-    	onFailure(code, e);
+        onFailure(code, e);
     }
-    
-    
+
     /**
      * Returns byte array of response HttpEntity contents
+     * 
      * @param entity
      * @return
      * @throws IOException

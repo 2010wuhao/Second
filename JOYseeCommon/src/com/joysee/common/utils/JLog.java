@@ -33,12 +33,8 @@ public class JLog {
     public static final String App_Tag = "TVDongle";
 
     public static boolean USE_APPTAG = false;
-
-    public static boolean DBG = true;
-    public static boolean DBGE = true;
     public static boolean LogSD = false;
     public static boolean MANUAL_POWER = false;
-
     public static boolean DBG_METHOD = true;
 
     private static void logD(String tag, String msg) {
@@ -48,7 +44,7 @@ public class JLog {
     private static void logD(String tag, String msg, Throwable tr) {
         android.util.Log.d(tag, msg, tr);
     }
-    
+
     private static void logW(String tag, String msg, Throwable tr) {
         android.util.Log.w(tag, msg, tr);
     }
@@ -65,8 +61,7 @@ public class JLog {
         return tag + " - " + msg;
     }
 
-    // Log on sdcard
-    public static void log(String tag, String msg) {
+    public static void log2Disk(String tag, String msg) {
         if (android.os.Environment.getExternalStorageState().equals(
                 android.os.Environment.MEDIA_MOUNTED)) {
             String file = "/sdcard/" + App_Tag + ".txt";
@@ -92,52 +87,42 @@ public class JLog {
     }
 
     public static void d(String tag, String msg) {
-        if (DBG) {
-            if (USE_APPTAG) {
-                JLog.logD(App_Tag, formatMsg(tag, msg));
-            } else {
-                JLog.logD(tag, msg);
-            }
+        if (USE_APPTAG) {
+            JLog.logD(App_Tag, formatMsg(tag, msg));
+        } else {
+            JLog.logD(tag, msg);
         }
     }
 
     public static void d(String tag, String msg, Throwable tr) {
-        if (DBG) {
-            if (USE_APPTAG) {
-                JLog.logD(App_Tag, formatMsg(tag, msg), tr);
-            } else {
-                JLog.logD(tag, msg, tr);
-            }
+        if (USE_APPTAG) {
+            JLog.logD(App_Tag, formatMsg(tag, msg), tr);
+        } else {
+            JLog.logD(tag, msg, tr);
         }
     }
 
     public static void w(String tag, String msg, Throwable tr) {
-        if (DBG) {
-            if (USE_APPTAG) {
-                JLog.logW(App_Tag, formatMsg(tag, msg), tr);
-            } else {
-                JLog.logW(tag, msg, tr);
-            }
+        if (USE_APPTAG) {
+            JLog.logW(App_Tag, formatMsg(tag, msg), tr);
+        } else {
+            JLog.logW(tag, msg, tr);
         }
     }
-    
+
     public static void e(String tag, String msg) {
-        if (DBGE) {
-            if (USE_APPTAG) {
-                JLog.logE(App_Tag, formatMsg(tag, msg));
-            } else {
-                JLog.logE(tag, msg);
-            }
+        if (USE_APPTAG) {
+            JLog.logE(App_Tag, formatMsg(tag, msg));
+        } else {
+            JLog.logE(tag, msg);
         }
     }
 
     public static void e(String tag, String msg, Throwable tr) {
-        if (DBGE) {
-            if (USE_APPTAG) {
-                JLog.logE(App_Tag, formatMsg(tag, msg), tr);
-            } else {
-                JLog.logE(tag, msg, tr);
-            }
+        if (USE_APPTAG) {
+            JLog.logE(App_Tag, formatMsg(tag, msg), tr);
+        } else {
+            JLog.logE(tag, msg, tr);
         }
     }
 
@@ -178,7 +163,7 @@ public class JLog {
             }
         }
     }
-    
+
     public static void methodEnd(String tag, long begin, String obj) {
         if (DBG_METHOD) {
             String methodName = Thread.currentThread().getStackTrace()[3].getMethodName();

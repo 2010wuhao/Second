@@ -27,11 +27,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.ActivityManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.IPackageDeleteObserver;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.format.Formatter;
 import android.util.Log;
@@ -41,6 +48,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.joysee.common.widget.JButtonWithTTF;
 import com.joysee.common.widget.JTextViewWithTTF;
@@ -75,8 +83,36 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
     private ClearCacheObserver mClearCacheObserver;
     private ClearDataObserver mClearDataObserver;
     private PackageDeleteObserver mPackageDeleteObserver;
-
     private StyleDialog mDialog;
+
+    private NotificationManager mNotificationManager;
+    private IntentFilter mFilter;
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (Intent.ACTION_PACKAGE_REMOVED.equals(action)) {
+                String packageName = intent.getDataString();
+                int pos = packageName.indexOf(":");
+                packageName = packageName.substring(pos + 1);
+                if (mEntry.info.packageName.equals(packageName)) {
+                    Notification notification = new Notification();
+                    notification.icon = R.drawable.icon_transparent;
+                    notification.when = System.currentTimeMillis();
+                    notification.flags = Notification.FLAG_AUTO_CANCEL;
+                    notification.tickerText = mEntry.label + " 卸载完毕";
+                    notification.contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
+                    notification.setLatestEventInfo(mContext, "", "", notification.contentIntent);
+                    // 用图片ID作通知ID,用来移除之前的通知，以免通知不Tick
+                    mNotificationManager.cancel(R.drawable.icon_transparent);
+                    mNotificationManager.notify(R.drawable.icon_transparent, notification);
+
+                    ApplicationDetailActivity.this.finish();
+                }
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +122,14 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
         mClearCacheObserver = new ClearCacheObserver();
         mClearDataObserver = new ClearDataObserver();
         mPackageDeleteObserver = new PackageDeleteObserver();
+
+        mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mFilter = new IntentFilter();
+        mFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        mFilter.addDataScheme("package");
+
+        mContext.registerReceiver(mReceiver, mFilter);
     }
 
     @Override
@@ -141,6 +185,7 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
 
         } else if (v == mClearCache) {
             mPackageManager.deleteApplicationCacheFiles(packageName, mClearCacheObserver);
+            mCacheSize.setText("");
         }
 
     }
@@ -236,13 +281,13 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
         public void onRemoveCompleted(final String packageName, final boolean succeeded) {
             if (succeeded) {
                 mEntry.cacheSize = 0;
-                mCacheSize.post(new Runnable() {
+                mCacheSize.postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
                         mCacheSize.setText(getSizeStr(mEntry.cacheSize));
                     }
-                });
+                }, 100);
             } else {
                 // 清除失败
             }
@@ -270,7 +315,7 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
 
         public void packageDeleted(String packageName, int returnCode) {
             if (returnCode == PackageManager.DELETE_SUCCEEDED) {
-                ApplicationDetailActivity.this.finish();
+                // ApplicationDetailActivity.this.finish();
             } else {
                 Log.d("TAG", "packageDeleted error returnCode : " + returnCode);
             }
@@ -278,8 +323,17 @@ public class ApplicationDetailActivity extends BaseActivity implements OnClickLi
     }
 
     @Override
+    public void finish() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+        }
+        super.finish();
+    }
+
+    @Override
     protected void onDestroy() {
         SettingsApplication.mEntry = null;
+        mContext.unregisterReceiver(mReceiver);
         super.onDestroy();
     }
 

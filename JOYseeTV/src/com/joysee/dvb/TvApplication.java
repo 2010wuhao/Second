@@ -50,11 +50,14 @@ public class TvApplication extends Application {
     private static final String TAG = JLog.makeTag(TvApplication.class);
 
     ArrayList<Activity> mActiveActivitys = new ArrayList<Activity>();
-    public static boolean DEBUG_MODE = false;
-    public static boolean DEBUG_LOG = false;
-    public static boolean PORTAL_USE_ANIMATION = true;
-    public static boolean FORCE_TS_EPG = false;
-    public static boolean FORCE_TS_CHANNELTYPE = false;
+    public static boolean DEBUG_MODE;
+    public static boolean DEBUG_LOG;
+    public static boolean VOD_ENABLE;
+    public static boolean PORTAL_USE_ANIMATION;
+    public static boolean FORCE_TS_EPG;
+    public static boolean FORCE_TS_CHANNELTYPE;
+    
+    
     public static boolean AS_LAUNCHER = false;
     public static final int OFF_VALUE = 0;
     public static final int ON_VALUE = 1;
@@ -65,11 +68,6 @@ public class TvApplication extends Application {
     public static PlayerType sDestPlayerType = PlayerType.DTV;
 
     static {
-//        String dtvServiceLevel = SystemProperties.get("debug.adtvservice.level");
-//        JLog.d(TAG, "dtvServiceLevel = " + dtvServiceLevel);
-//        if (TextUtils.isEmpty(dtvServiceLevel)) {
-//            sDestPlayerType = PlayerType.COMMON;
-//        }
         if (sDestPlayerType == PlayerType.COMMON) {
             sDestPlatform = DestPlatform.COMMON;
         } else {
@@ -123,13 +121,15 @@ public class TvApplication extends Application {
         filter.addAction(PortalModle.ACTION_GET_RECOMMEND);
         registerReceiver(mModle, filter);
 
-        PORTAL_USE_ANIMATION = System.getInt(getContentResolver(), System.PORTAL_USE_ANIMATION, ON_VALUE) == ON_VALUE;
         DEBUG_LOG = System.getInt(getContentResolver(), System.DEBUG_LOG, ON_VALUE) == ON_VALUE;
         DEBUG_MODE = System.getInt(getContentResolver(), System.DEBUG_MODE, ON_VALUE) == ON_VALUE;
+        VOD_ENABLE = System.getInt(getContentResolver(), System.VOD_ENABLE, OFF_VALUE) == ON_VALUE;
+        PORTAL_USE_ANIMATION = System.getInt(getContentResolver(), System.PORTAL_USE_ANIMATION, ON_VALUE) == ON_VALUE;
         FORCE_TS_EPG = System.getInt(getContentResolver(), System.FORCE_TS_EPG, OFF_VALUE) == ON_VALUE;
         FORCE_TS_CHANNELTYPE = System.getInt(getContentResolver(), System.FORCE_TS_CHANNELTYPE, OFF_VALUE) == ON_VALUE;
 
-        JLog.d(TAG, " useAnimation = " + PORTAL_USE_ANIMATION + " debug_mode = " + DEBUG_MODE + " debug_log = " + DEBUG_LOG);
+        JLog.d(TAG, " useAnimation = " + PORTAL_USE_ANIMATION + " debug_mode = " + DEBUG_MODE + " debug_log = " + DEBUG_LOG + 
+                " VOD_ENABLE = " + VOD_ENABLE);
         JDVBPlayer.setStrictMode(DEBUG_MODE);
 
         mContentObserver = new ContentObserver(new Handler()) {
@@ -138,13 +138,14 @@ public class TvApplication extends Application {
                 PORTAL_USE_ANIMATION = System.getInt(getContentResolver(), System.PORTAL_USE_ANIMATION, ON_VALUE) == ON_VALUE;
                 DEBUG_MODE = System.getInt(getContentResolver(), System.DEBUG_MODE, ON_VALUE) == ON_VALUE;
                 DEBUG_LOG = System.getInt(getContentResolver(), System.DEBUG_LOG, ON_VALUE) == ON_VALUE;
+                VOD_ENABLE = System.getInt(getContentResolver(), System.VOD_ENABLE, OFF_VALUE) == ON_VALUE;
                 FORCE_TS_EPG = System.getInt(getContentResolver(), System.FORCE_TS_EPG, OFF_VALUE) == ON_VALUE;
                 FORCE_TS_CHANNELTYPE = System.getInt(getContentResolver(), System.FORCE_TS_CHANNELTYPE, OFF_VALUE) == ON_VALUE;
 
                 if (TvApplication.DEBUG_LOG) {
                     JLog.d(TAG, " onChange selfChange = " + selfChange + " useAnimation = " + PORTAL_USE_ANIMATION
                             + " debug_mode = " + DEBUG_MODE + " debug_log = " + DEBUG_LOG + " FORCE_TS_EPG = " + FORCE_TS_EPG
-                            + " FORCE_TS_CHANNELTYPE = " + FORCE_TS_CHANNELTYPE);
+                            + " FORCE_TS_CHANNELTYPE = " + FORCE_TS_CHANNELTYPE + " VOD_ENABLE = " + VOD_ENABLE);
                 }
                 JDVBPlayer.setStrictMode(DEBUG_MODE);
             }
@@ -171,7 +172,7 @@ public class TvApplication extends Application {
 
     public static String getRepairInstructions() {
         StringBuilder sb = new StringBuilder();
-        sb.append("1. 支持按区域推荐节目. \n");
+        sb.append("1. 增加视频聚合测试版,默认为关闭状态,可以调出设置面板开启. \n");
         return sb.toString();
     }
 }

@@ -24,14 +24,16 @@
 
 package com.joysee.dvb.vod;
 
-public class VodItemInfoPreview {
+public class VodRelatedItemInfo {
 
-    public String vId;
-    public String name;
-    public String posterUrl;
-    public String SourceId;
+    private int vId;
+    private String name;
+    private String posterUrl;
+    private String SourceId;
+    private int errorNo;
+    private String errorMsg;
 
-    public String getvId() {
+    public int getvId() {
         return vId;
     }
 
@@ -47,7 +49,7 @@ public class VodItemInfoPreview {
         return SourceId;
     }
 
-    public void setvId(String id) {
+    public void setvId(int id) {
         this.vId = id;
     }
 
@@ -62,4 +64,21 @@ public class VodItemInfoPreview {
     public void setSourceId(String sourceId) {
         SourceId = sourceId;
     }
+
+    public int getErrorNo() {
+        return errorNo;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorNo(int errorNo) {
+        this.errorNo = errorNo;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+    
 }

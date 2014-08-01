@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:joysee="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.tvbox.settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dvb_bg" >
@@ -10,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         joysee:description="@string/title_image_and_sound_description_model"
-        joysee:narrow="true"
+        joysee:narrow="false"
         joysee:text="@string/title_image_and_sound_model" >
     </com.joysee.tvbox.settings.base.SettingsTitleView>
 
@@ -19,7 +20,7 @@
         android:layout_width="@dimen/list_settings_width"
         android:layout_height="@dimen/list_settings_height"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/list_settings_margin_top"
+        android:layout_marginTop="@dimen/list_settings_display_area_margin_top"
         android:focusable="true" >
 
         <ImageView
@@ -65,5 +66,15 @@
             android:layout_toRightOf="@id/settings_area_center_button"
             android:src="@drawable/position_button_left" />
     </RelativeLayout>
+
+    <com.joysee.common.widget.JTextViewWithTTF
+        android:id="@+id/text_settings_description"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/settings_area_button_panel"
+        android:layout_centerHorizontal="true"
+        android:text="@string/image_and_sound_display_area_discription"
+        android:textSize="@dimen/text_size_about_text_description"
+        dvb:ttf="fzltzh.TTF" />
 
 </RelativeLayout>

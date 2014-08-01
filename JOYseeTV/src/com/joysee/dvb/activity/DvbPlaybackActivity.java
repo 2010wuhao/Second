@@ -140,6 +140,7 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
     private static final int MSG_SWITCHCHANNEL_BY_NUM = 0;
     private static final int MSG_PROGRAM_ORDER_NOTIFY = 1;
     private static final int MSG_UPDATE_EPGUPDATE_STATUS = 2;
+    private static final int MSG_RESET_CHANNEL = 3;
     Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -188,6 +189,16 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
                         mHandler.sendEmptyMessageDelayed(MSG_UPDATE_EPGUPDATE_STATUS, 5000);
                     }
                     break;
+                case MSG_RESET_CHANNEL:
+                    JLog.d(TAG, "MSG_RESET_CHANNEL");
+                    DvbService channel = (DvbService) msg.obj;
+                    if (DvbService.isChannelValid(channel)) {
+                        mPlaybackCtr.setChannelByNum(JDVBPlayer.TUNER_0, channel.getLogicChNumber(),
+                                PlaybackController.FLAG_SET_CHANNEL_QUIET);
+                    } else {
+                        mPlaybackCtr.showNoSpecialChannelError(channel.getLogicChNumber());
+                    }
+                    break;
                 default:
                     break;
             }
@@ -210,7 +221,7 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
         public void onItemSubClick(ExMenuSub exMenuSub) {
             JLog.d(TAG, "mOnMenuListener onClickItemSub v = " + exMenuSub.getSubName());
             switch (exMenuSub.getSubId()) {
-                // 节目表
+            // 节目表
                 case R.string.playback_menu_epg:
                     // mExMenu.hide();
                     startActivity(mEpgIntent);
@@ -268,15 +279,37 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
 
         @Override
         public void onGroupExpand(ExMenuGroup whichHideItems) {
-            
+
         }
 
         @Override
         public void onGroupCollapsed(ExMenuGroup whichShowItems) {
-            // 当 items 展开时，重新设置选中行
+            /**
+             * 当 items 展开时，重新设置选中行
+             */
             if (whichShowItems.getSubId() == R.string.playback_menu_soundtrack) {
                 whichShowItems.setSelection(mPlaybackCtr != null ? mPlaybackCtr.getVideoAspectRation() : 0);
-            }   
+            } else if (whichShowItems.getSubId() == R.string.playback_menu_3d) {
+                int mode = mPlaybackCtr.get3DMode();
+                int selection = 0;
+                if (mode >= 0) {
+                    switch (mode) {
+                        case AbsDvbPlayer.THREED_MODE_OFF:
+                            selection = 0;
+                            break;
+                        case AbsDvbPlayer.THREED_MODE_SIDE_BY_SIDE:
+                            selection = 1;
+                            break;
+                        case AbsDvbPlayer.THREED_MODE_TOP_AND_BOTTOM:
+                            selection = 2;
+                            break;
+                        case AbsDvbPlayer.THREED_MODE_FRAMEPACKING:
+                            selection = 3;
+                            break;
+                    }
+                }
+                whichShowItems.setSelection(selection);
+            }
         }
     };
 
@@ -298,6 +331,7 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
                     }
                     break;
                 case JDVBPlayer.CALLBACK_BUYMSG:
+                case JDVBPlayer.CALLBACK_TUNER_SIGNAL:
                     if (!mPause) {
                         if (message != null && (Integer) message == 0) {
                             if (TvApplication.sDestPlatform == DestPlatform.MITV_QCOM ||
@@ -305,13 +339,16 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
                                 if (mPlaybackCtr.isPlaying()) {
                                     DvbService channel = mPlaybackCtr.getCurrentChannel();
                                     if (DvbService.isChannelValid(channel)) {
-                                        switchChannelByNum(channel.getLogicChNumber(), 0);
+                                        mHandler.removeMessages(MSG_RESET_CHANNEL);
+                                        Message msg = Message.obtain();
+                                        msg.what = MSG_RESET_CHANNEL;
+                                        msg.obj = channel;
+                                        mHandler.sendMessage(msg);
                                     }
                                 }
                             }
                         }
                     }
-                case JDVBPlayer.CALLBACK_TUNER_SIGNAL:
                     mPlaybackCtr.checkDVBErrors();
                     break;
                 case JDVBPlayer.CALLBACK_EPGCOMPLETE:
@@ -345,9 +382,9 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
         int count = mPlaybackCtr.getChannelCount();
         JLog.d(TAG, "changePage current channel count = " + count + " from " + from + "  --  to " + to);
 
-//        if (count <= 0) {
-//            return;
-//        }
+        // if (count <= 0) {
+        // return;
+        // }
 
         if (to == PageState.PLAYBACK) {
             if (from == PageState.CATEGORY_CHANNELLIST) {
@@ -450,12 +487,12 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
         mPlaybackCtr = new PlaybackController(this);
 
         setupView();
-        // setupMenu();
         setupExMenu();
         mSearchIntent = new Intent(this, SearchChannelActivity.class);
         mEpgIntent = new Intent(this, EPGActivity.class);
 
-        mPlaybackCtr.init(mSurfaceLayout);
+        mPlaybackCtr.init();
+        mPlaybackCtr.setSurfaceParent(mSurfaceLayout);
         mPlaybackCtr.addOnMonitorListener(mOnMonitorLis);
         mPlaybackCtr.initChannel(false);
         mPlaybackCtr.setKeepLastFrameEnable(JDVBPlayer.TUNER_0, false);
@@ -624,9 +661,9 @@ public class DvbPlaybackActivity extends Activity implements SurfaceHolder.Callb
         try {
             mPlaybackCtr.stop(JDVBPlayer.TUNER_0);
         } catch (JDVBStopTimeoutException e) {
-//            if (TvApplication.DEBUG_MODE) {
+            if (TvApplication.DEBUG_MODE) {
                 Toast.makeText(this, "DVB Player stop timeout", Toast.LENGTH_LONG).show();
-//            }
+            }
         }
 
         dismissProgramOrderDialog();

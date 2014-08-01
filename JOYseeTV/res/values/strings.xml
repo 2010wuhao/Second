@@ -19,6 +19,8 @@
     <string name="ts_epg_off">Ts Epg已关闭</string>
     <string name="ts_channel_on">Ts Channel已打开</string>
     <string name="ts_channel_off">Ts Channel已关闭</string>
+    <string name="vod_enable_on">VOD 已打开</string>
+    <string name="vod_enable_off">VOD 已关闭</string>
     <string name="portal_applist">所有应用</string>
 
 </resources>

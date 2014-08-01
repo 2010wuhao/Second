@@ -245,6 +245,10 @@ public class DvbSettings {
         /**
          * 1:true 0:false
          */
+        public static final String VOD_ENABLE = "vod_enable";
+        /**
+         * 1:true 0:false
+         */
         public static final String PORTAL_USE_ANIMATION = "portal_use_animation";
         /**
          * 1:true 0:false

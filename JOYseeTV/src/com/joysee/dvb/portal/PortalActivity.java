@@ -51,6 +51,7 @@ import com.joysee.dvb.activity.UpdateActivity;
 import com.joysee.dvb.bean.Program;
 import com.joysee.dvb.data.ChannelProvider;
 import com.joysee.dvb.player.AbsDvbPlayer;
+import com.joysee.dvb.player.AbsDvbPlayer.OnInitCompleteListener;
 import com.joysee.dvb.player.DvbPlayerFactory;
 import com.joysee.dvb.portal.PortalModle.PortalCallbacks;
 import com.joysee.dvb.portal.widget.PortalAdapter;
@@ -89,30 +90,90 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
     private PortalViewController mPortalViewController;
     private PortalTitle mPortalTitle;
     private PortalAppListView mPortalAppListView;
+    
 
     int FPS = 0;
-
     private final int mKeyInterval = 2000;
-
     private long mLastTime;
-
     private int mKeyCount = 0;
 
     private StyleDialog mUpdateDialog;
 
     private final int REQUEST_CODE = 100;
+    
+    boolean mInitialized = false;
+    private OnInitCompleteListener mInitCompLis = new OnInitCompleteListener() {
+        
+        @Override
+        public void onInitComplete(AbsDvbPlayer player, int result) {
+            int tDvbState = mDvbPlayer.getCurrentState();
+            JLog.d(TAG, "onResume DVB state : " + tDvbState + "-" + JDVBPlayer.dvbPlayerState2String(tDvbState));
+            if (result == 0) {
+                AbsDvbPlayer.initChannel(false);
+                mDvbPlayer.addOnMonitorListener(PortalActivity.this);
+                mDvbPlayer.setKeepLastFrameEnable(JDVBPlayer.TUNER_0, false);
+                Intent intent = new Intent("com.joysee.dvb.service.EPGUpdateService");
+                startService(intent);
+                if (TvApplication.sDestPlayerType == PlayerType.COMMON) {
+                    boolean perm = mModle.checkDonglePermission(PRODUCT_ID, VENDOR_ID);
+                    JLog.d(TAG, "mModle.checkDonglePermission = " + mHasDonglePerm);
+                    mHasDonglePerm = true;
+                }
+                if (mCurrentPage == 0) {
+                    if (TvApplication.sDestPlayerType == PlayerType.COMMON) {
+                        if (mHasDonglePerm) {
+                            if (!mSurfaceInited) {
+                                mDvbPlayer.initSurface(PortalActivity.this);
+                            } else {
+                                playLastChannel();
+                            }
+                        }
+                    } else {
+                        if (!mSurfaceInited) {
+                            mDvbPlayer.initSurface(PortalActivity.this);
+                        } else {
+                            playLastChannel();
+                        }
+                    }
+                    mPortalViewController.getPageItemTv().updateHistory();
+                    onUsbDongleStateChange(true);
+                }
+                sendUpdateBroadcastRepeat(PortalActivity.this);
+            } else {
+                if (TvApplication.sDestPlayerType == PlayerType.COMMON) {
+                    if (!mHasDonglePerm) {
+                        mModle.requestDonglePermission(PRODUCT_ID, VENDOR_ID);
+                    } else {
+                        Toast.makeText(PortalActivity.this, "初始化失败,请重新进入", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(PortalActivity.this, "初始化失败,请重新进入", Toast.LENGTH_SHORT).show();
+                }
+            }
+            mInitialized = true;
+        }
+    };
 
     @Override
     public void bindDataToItem() {
-        // TODO Auto-generated method stub
     }
 
     public void cancelUpdateBroadcast(Context ctx) {
         AlarmManager am = (AlarmManager) ctx.getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent();// new Intent(ctx, PortalModle.class);
+        Intent intent = new Intent();
         intent.setAction(PortalModle.ACTION_GET_RECOMMEND);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(ctx, 0, intent, 0);
         am.cancel(pendingIntent);
+    }
+    
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        JLog.d(TAG, "dispatchKeyEvent : " + event.getKeyCode() + " - " + event.getAction());
+        if (!mInitialized) {
+            Toast.makeText(this, "正在初始化,请稍后!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -156,26 +217,10 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
 
         mSurfaceParent = mPortalViewController.getDvbSurfaceView();
         mDvbPlayer = DvbPlayerFactory.getPlayer(this);
-        int initResult = mDvbPlayer.init(mSurfaceParent);
-        AbsDvbPlayer.initChannel(false);
-        mDvbPlayer.addOnMonitorListener(this);
-        mDvbPlayer.setKeepLastFrameEnable(JDVBPlayer.TUNER_0, false);
-
-        Intent intent = new Intent("com.joysee.dvb.service.EPGUpdateService");
-        startService(intent);
-
+        mDvbPlayer.setOnInitCompleteLis(mInitCompLis);
+        mDvbPlayer.initAsyn();
+        mDvbPlayer.setSurfaceParent(mSurfaceParent);
         
-        if (TvApplication.sDestPlayerType == PlayerType.COMMON) {
-            boolean perm = mModle.checkDonglePermission(PRODUCT_ID, VENDOR_ID);
-            JLog.d(TAG, "mModle.checkDonglePermission = " + mHasDonglePerm);
-            if (initResult == 0) {
-                mHasDonglePerm = true;
-            } else if (initResult == -2) {
-                mModle.requestDonglePermission(PRODUCT_ID, VENDOR_ID);
-            }
-        } else {
-            
-        }
         
         JLog.methodEnd(TAG, begin);
     }
@@ -253,6 +298,7 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
     public void onMonitor(int monitorType, Object message) {
         switch (monitorType) {
             case JDVBPlayer.CALLBACK_BUYMSG:
+            case JDVBPlayer.CALLBACK_TUNER_SIGNAL:
                 if (!mPaused) {
                     if (message != null && (Integer) message == 0) {
                         if (TvApplication.sDestPlatform == DestPlatform.MITV_QCOM ||
@@ -266,7 +312,6 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
                         }
                     }
                 }
-            case JDVBPlayer.CALLBACK_TUNER_SIGNAL:
                 mPortalViewController.getDvbStatusView().refreshDvbStatus();
                 break;
             default:
@@ -307,9 +352,9 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
                     try {
                         mDvbPlayer.stop(JDVBPlayer.TUNER_0);
                     } catch (JDVBStopTimeoutException e) {
-                        // if (TvApplication.DEBUG_MODE) {
-                        Toast.makeText(this, "DVB Player stop timeout", Toast.LENGTH_LONG).show();
-                        // }
+                        if (TvApplication.DEBUG_MODE) {
+                            Toast.makeText(this, "DVB Player stop timeout", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
             }
@@ -341,9 +386,9 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
             try {
                 mDvbPlayer.stop(JDVBPlayer.TUNER_0);
             } catch (JDVBStopTimeoutException e) {
-                // if (TvApplication.DEBUG_MODE) {
-                Toast.makeText(this, "DVB Player stop timeout", Toast.LENGTH_LONG).show();
-                // }
+                if (TvApplication.DEBUG_MODE) {
+                    Toast.makeText(this, "DVB Player stop timeout", Toast.LENGTH_LONG).show();
+                }
             }
         }
 
@@ -400,18 +445,20 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
         super.onResume();
         mPaused = false;
         final long begin = JLog.methodBegin(TAG);
-        if (mCurrentPage == 0) {
+        int tDvbState = mDvbPlayer.getCurrentState();
+        JLog.d(TAG, "onResume DVB state : " + tDvbState + "-" + JDVBPlayer.dvbPlayerState2String(tDvbState));
+        if (mCurrentPage == 0 && tDvbState > JDVBPlayer.DVBPLAYER_INITIALIZED) {
             if (TvApplication.sDestPlayerType == PlayerType.COMMON) {
                 if (mHasDonglePerm) {
                     if (!mSurfaceInited) {
-                        mDvbPlayer.initSurface(this);
+                        mDvbPlayer.initSurface(PortalActivity.this);
                     } else {
                         playLastChannel();
                     }
                 }
             } else {
                 if (!mSurfaceInited) {
-                    mDvbPlayer.initSurface(this);
+                    mDvbPlayer.initSurface(PortalActivity.this);
                 } else {
                     playLastChannel();
                 }
@@ -419,10 +466,11 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
             mPortalViewController.getPageItemTv().updateHistory();
             onUsbDongleStateChange(true);
         }
+        
         if (mAttached) {
             mModle.getAppVersionOnServerSync(this);
         }
-        sendUpdateBroadcastRepeat(this);
+        
         JLog.methodEnd(TAG, begin);
     }
 
@@ -530,12 +578,11 @@ public class PortalActivity extends Activity implements OnPageChangeListener, on
         JLog.d(TAG, "onDonglePermChanged gain = " + gain);
         if (gain) {
             mDvbPlayer.unInit();
+            mInitialized = false;
             int dongleDesc = mModle.getDongleFileDescriptor(PRODUCT_ID, VENDOR_ID);
             mDvbPlayer.setDongleFileDesc(dongleDesc);
-            mDvbPlayer.init(mSurfaceParent);
+            mDvbPlayer.initAsyn();
             mHasDonglePerm = true;
-            AbsDvbPlayer.initChannel(true);
-            mDvbPlayer.initSurface(this);
         }
     }
 	

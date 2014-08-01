@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="142px"
+        android:background="@drawable/vod_tips_view_bg" >
+
+        <com.joysee.common.widget.JTextViewWithTTF
+            android:id="@+id/tv"
+            android:paddingLeft="70px"
+            android:paddingRight="70px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:textSize="37px"
+            dvb:ttf="fzltch.TTF" />
+    </RelativeLayout>
+
+</LinearLayout>

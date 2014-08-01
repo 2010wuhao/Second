@@ -171,7 +171,7 @@ public class EpgProgramItem extends FrameLayout {
         mCurrentProgramId = program.programId;
 
         if (program.sourceType == ProgramSourceType.NET) {
-            if (program.hasVod) {
+            if (program.hasVod && TvApplication.VOD_ENABLE) {
                 mVodMask.setVisibility(View.VISIBLE);
             } else {
                 mVodMask.setVisibility(View.INVISIBLE);

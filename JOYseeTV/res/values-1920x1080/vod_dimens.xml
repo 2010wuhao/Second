@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="vod_poster_w">407px</dimen>
+    <dimen name="vod_poster_h">531px</dimen>
     <dimen name="vod_related_item_poster_w">160px</dimen>
     <dimen name="vod_related_item_poster_h">243px</dimen>
     <dimen name="vod_related_item_w">160px</dimen>
@@ -11,5 +13,8 @@
     <dimen name="vod_seekbar_progressbar_w">1640px</dimen>
     <dimen name="vod_related_item_left_margin">20px</dimen>
     <dimen name="vod_big_poster_inverted">68px</dimen>
+    <dimen name="vod_pull_down_item_h">129px</dimen>
+    <dimen name="vod_title_bar_from_y">-147px</dimen>
+    <dimen name="vod_title_bar_to_y">48px</dimen>
 
 </resources>

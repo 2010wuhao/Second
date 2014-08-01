@@ -40,6 +40,7 @@ import com.joysee.dvb.R;
 import com.joysee.dvb.bean.Program;
 import com.joysee.dvb.bean.ProgramType;
 import com.joysee.dvb.common.Constants;
+import com.joysee.dvb.data.ChannelProvider;
 import com.joysee.dvb.data.EPGProvider;
 import com.joysee.dvb.data.LocalInfoReader;
 import com.joysee.dvb.liveguide.Cursor;
@@ -69,19 +70,18 @@ public class LiveGuideActivity extends Activity {
         final long begin = JLog.methodBegin(TAG);
         ArrayList<Program> validPrograms = null;
         if (programs != null && programs.size() > 0) {
-            ArrayList<DvbService> channels = AbsDvbPlayer.getAllChannel();
-            if (channels != null && channels.size() > 0) {
-                HashMap<String, DvbService> channelnames = new HashMap<String, DvbService>();
-                for (DvbService channel : channels) {
-                    channelnames.put(channel.getChannelName(), channel);
-                }
+            int count = ChannelProvider.getChannelCountInDB(this);
+            if (count > 0) {
                 validPrograms = new ArrayList<Program>();
                 DvbService c = null;
                 for (Program p : programs) {
-                    c = channelnames.get(p.channelName);
+                    c = ChannelProvider.getChannelByTVId(this, p.tvId);
                     if (c != null) {
+                        String oldName = p.channelName;
                         p.logicNumber = c.getLogicChNumber();
                         p.serviceId = c.getServiceId();
+                        p.channelName = c.getChannelName();
+                        JLog.d(TAG, "rename channelName from :  " + oldName + " to : " + p.channelName);
                         validPrograms.add(p);
                     } else {
                         JLog.d(TAG, "drop program :  " + p.programName + "-" + p.channelName);

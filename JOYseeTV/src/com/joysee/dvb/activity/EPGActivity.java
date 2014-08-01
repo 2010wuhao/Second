@@ -37,6 +37,7 @@ import com.joysee.adtv.logic.JDVBPlayer;
 import com.joysee.adtv.logic.bean.DvbService;
 import com.joysee.common.utils.JLog;
 import com.joysee.dvb.R;
+import com.joysee.dvb.TvApplication;
 import com.joysee.dvb.bean.Program;
 import com.joysee.dvb.bean.Program.ProgramSourceType;
 import com.joysee.dvb.bean.Program.ProgramStatus;
@@ -134,7 +135,7 @@ public class EPGActivity extends Activity implements OnItemClickListener, JDVBPl
             positive = getResources().getString(R.string.epg_programs_order_dialog_positive_lookback);
         }
 
-        if (program.hasVod) {
+        if (TvApplication.VOD_ENABLE && program.hasVod) {
             negative = getResources().getString(R.string.epg_programs_order_dialog_negative_search);
         }
         StyleDialog.Builder builder = new StyleDialog.Builder(EPGActivity.this);
@@ -168,8 +169,9 @@ public class EPGActivity extends Activity implements OnItemClickListener, JDVBPl
                     mProgramOrderDialog.dismiss();
                     Intent intent = new Intent(EPGActivity.this, VodDetaileActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putInt(VodDetaileActivity.EXTRA_PARAM_SM_VID, program.vodId);
-                    bundle.putString(VodDetaileActivity.EXTRA_PARAM_SM_SOURCE_ID, program.vodSourceId + "");
+                    bundle.putInt(VodDetaileActivity.EXTRA_PARAM_VOD_VID, program.vodId);
+                    bundle.putString(VodDetaileActivity.EXTRA_PARAM_VOD_NAME, program.programName);
+                    bundle.putString(VodDetaileActivity.EXTRA_PARAM_VOD_SOURCE_ID, program.vodSourceId + "");
                     intent.putExtras(bundle);
                     EPGActivity.this.startActivity(intent);
                 }
@@ -303,7 +305,15 @@ public class EPGActivity extends Activity implements OnItemClickListener, JDVBPl
                             }
                         });
                     } else {
-                        JDVBPlayer.getInstance().startSearchEPG(JDVBPlayer.TUNER_0, channel.getTransponder());
+                        int success = JDVBPlayer.getInstance().startSearchEPG(JDVBPlayer.TUNER_0, channel.getTransponder());
+                        if (success != 0) {
+                            mHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    onProgramDataReady(new ArrayList<Program>(), false);
+                                }
+                            });
+                        }
                     }
                 } else {
                     JLog.d(TAG, "current service = " + mCurrentService.getChannelName() +

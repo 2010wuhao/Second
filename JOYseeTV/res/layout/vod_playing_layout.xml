@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:animateLayoutChanges="true"
             android:visibility="gone" />
 
         <ProgressBar
@@ -31,7 +32,8 @@
             android:layout_width="123px"
             android:layout_height="123px"
             android:layout_centerInParent="true"
-            android:indeterminateDrawable="@drawable/dialog_progress_image"
+            android:animateLayoutChanges="true"
+            android:indeterminateDrawable="@drawable/vod_progressbar_large"
             android:visibility="invisible" />
 
         <LinearLayout
@@ -45,11 +47,11 @@
 
             <ProgressBar
                 android:id="@+id/small_buffer_progressbar"
-                style="?android:attr/progressBarStyleLarge"
+                style="?android:attr/progressBarStyleSmall"
                 android:layout_width="20px"
                 android:layout_height="20px"
                 android:layout_gravity="center_horizontal"
-                android:indeterminateDrawable="@drawable/dialog_progress_image"
+                android:indeterminateDrawable="@drawable/vod_progressbar_small"
                 android:visibility="gone" />
 
             <com.joysee.common.widget.JTextViewWithTTF
@@ -85,6 +87,13 @@
             android:textSize="17px"
             android:visibility="gone"
             dvb:ttf="fzltch.TTF" />
+
+        <ImageView
+            android:id="@+id/error_face_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <!-- control bar -->
@@ -93,8 +102,7 @@
         android:id="@+id/control_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:focusable="false" >
+        android:background="@android:color/transparent" >
 
         <RelativeLayout
             android:id="@+id/title_layout"
@@ -103,6 +111,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="59px"
             android:layout_marginTop="21px"
+            android:animateLayoutChanges="true"
+            android:background="@android:color/transparent"
             android:visibility="gone" >
 
             <com.joysee.common.widget.JTextViewWithTTF
@@ -144,7 +154,7 @@
                 android:id="@+id/progressbar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="1093px"
-                android:layout_height="36px"
+                android:layout_height="37px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:progressDrawable="@drawable/vod_play_progressbar" />
@@ -155,6 +165,7 @@
                 android:layout_height="93px"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
+                android:animateLayoutChanges="true"
                 android:background="@drawable/vod_play_control_cursor"
                 android:visibility="invisible" >
 

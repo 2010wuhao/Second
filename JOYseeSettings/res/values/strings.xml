@@ -77,6 +77,7 @@
 
     <!-- Image and Sound -->
 
+    <string name="image_and_sound_display_area_discription">帮助： \n1.按确认键切换放大/缩小； \n2.按方向键调整屏幕四个边的位置； \n3.按返回键保存； \n4.按菜单键恢复默认显示区域；</string>
 
     <!-- Law info -->
 
@@ -110,7 +111,7 @@
     <string name="about_system_version_fix">之前版本修复的问题</string>
     <string name="about_system_version_fix_description">新增个人中心\n新增影视库\n新增排行榜\n新增高清电影\n优化系统性能</string>
     <string name="about_contact_us">联系客服</string>
-    <string name="about_contact_tel">联系电话：400 000 000</string>
+    <string name="about_contact_scan_qr_code">扫一扫二维码, 关注官方微信账号</string>
     <string name="about_contact_other_way">其他联系方式</string>
 
     <!-- App -->

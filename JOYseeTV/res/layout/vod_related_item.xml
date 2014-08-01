@@ -3,7 +3,6 @@
     xmlns:dvb="http://schemas.android.com/apk/res/com.joysee.dvb"
     android:layout_width="107px"
     android:layout_height="match_parent"
-    android:focusable="true"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -12,13 +11,13 @@
         android:layout_height="162px"
         android:layout_alignParentTop="true" >
 
-        <ImageView
+        <com.joysee.dvb.vod.RoundImageView
             android:id="@+id/poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="false"
-            android:scaleType="fitXY"
-            android:src="@drawable/vod_poster_default" />
+            android:background="@drawable/vod_poster_default"
+            android:focusable="true"
+            android:scaleType="fitXY" />
 
         <com.joysee.common.widget.JTextViewWithTTF
             android:id="@+id/name"
@@ -29,8 +28,8 @@
             android:ellipsize="marquee"
             android:gravity="center"
             android:marqueeRepeatLimit="marquee_forever"
-            android:paddingLeft="8px"
-            android:paddingRight="8px"
+            android:paddingLeft="5px"
+            android:paddingRight="5px"
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:textColor="@android:color/white"

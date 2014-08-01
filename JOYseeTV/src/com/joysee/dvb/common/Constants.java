@@ -80,7 +80,8 @@ public class Constants {
     public static String getProgramURL(int tvId, int programType, int pageNum, int pageSize, int channelType, long begin, long end) {
         StringBuilder sb = new StringBuilder();
         try {
-            sb.append(EPG_HOST).append(EPG_PORT);
+//            sb.append(EPG_HOST).append(EPG_PORT);
+            sb.append("http://192.168.11.5:").append("9000");
             sb.append("/epgiis/epgInterface/programMenu!doget.do?flag=1&id=&tvId=").append(tvId);
             sb.append("&programTypeCode=").append(programType);
             sb.append("&page=").append(pageNum);
@@ -125,13 +126,14 @@ public class Constants {
         return sb.toString();
     }
 
-    private static final String SM_INTERFACE = "http://192.168.11.5:9000/epgiis/vodMessage!";
+    private static final String VOD_INTERFACE = "http://192.168.11.5:9000/epgvodis/vodMessage!";
     public static String ACTION_GETPLAYURL = "doGetVodProgramVideoUrl.action";
     public static String ACTION_GETDETAIL = "doGetVodProgramDetail.action";
+    public static String ACTION_GETRELATED = "doGetVodRelatedListByTvid.action";
 
-    public static String getSMURL(String action) {
+    public static String getVodURL(String action) {
         StringBuilder sb = new StringBuilder();
-        sb.append(SM_INTERFACE);
+        sb.append(VOD_INTERFACE);
         sb.append(action);
         return sb.toString();
     }

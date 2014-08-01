@@ -165,25 +165,25 @@ public class Program {
                     program.programTypeName2[i] = ps[1];
                 }
             }
-//            try {
-//                program.hasVod = "1".equals(jsonProgram.getString("flagId"));
-//            } catch (JSONException e1) {
-//                JLog.e(TAG, e1.getMessage(), e1);
-//            }
-//            if (program.hasVod) {
-//                String sVodId = jsonProgram.getString("vid");
-//                String sVodSourceId = jsonProgram.getString("sourceId");
-//                if (!TextUtils.isEmpty(sVodId)) {
-//                    try {
-//                        program.vodId = Integer.parseInt(sVodId);
-//                        program.vodSourceId = Integer.parseInt(sVodSourceId);
-//                    } catch (NumberFormatException e) {
-//                        JLog.e(TAG, e.getMessage(), e);
-//                        program.vodId = 0;
-//                        program.vodSourceId = 0;
-//                    }
-//                }
-//            }
+            try {
+                program.hasVod = "1".equals(jsonProgram.getString("flagId"));
+            } catch (JSONException e1) {
+                JLog.e(TAG, e1.getMessage(), e1);
+            }
+            if (program.hasVod) {
+                String sVodId = jsonProgram.getString("vid");
+                String sVodSourceId = jsonProgram.getString("sourceId");
+                if (!TextUtils.isEmpty(sVodId)) {
+                    try {
+                        program.vodId = Integer.parseInt(sVodId);
+                        program.vodSourceId = Integer.parseInt(sVodSourceId);
+                    } catch (NumberFormatException e) {
+                        JLog.e(TAG, e.getMessage(), e);
+                        program.vodId = 0;
+                        program.vodSourceId = 0;
+                    }
+                }
+            }
         }
         return program;
     }

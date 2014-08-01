@@ -1,12 +1,12 @@
 /**
  * =====================================================================
  *
- * @file  UpdateInfoParser.java
+ * @file  VodDetailParser.java
  * @Module Name   com.joysee.dvb.parser
  * @author benz
  * @OS version  1.0
  * @Product type: JoySee
- * @date   2014-3-27
+ * @date   2014-6-19
  * @brief  This file is the http **** implementation.
  * @This file is responsible by ANDROID TEAM.
  * @Comments: 
@@ -17,30 +17,23 @@
  *
  * Author            Date            OS version        Reason 
  * ----------      ------------     -------------     -----------
- * benz          2014-3-27           1.0         Check for NULL, 0 h/w
+ * benz          2014-6-19           1.0         Check for NULL, 0 h/w
  * =====================================================================
  **/
+//
 
 package com.joysee.dvb.parser;
 
 import com.joysee.common.data.JBaseParser;
 import com.joysee.common.utils.JLog;
+import com.joysee.dvb.TvApplication;
+import com.joysee.dvb.parser.VodInfoParser.Attach;
 import com.joysee.dvb.vod.VodItemInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class VodDetailParser extends JBaseParser<VodItemInfo> {
-
-    public class Attach {
-        public static final int CLEAR_LEVEL_COUNT = 5;
-
-        public static final int LEVEL_SMOOTH = 0;
-        public static final int LEVEL_SD = 1;
-        public static final int LEVEL_HD = 2;
-        public static final int LEVEL_ULTRACLEAR = 3;
-        public static final int LEVEL_BLURAY = 4;
-    }
 
     private static final String TAG = JLog.makeTag(VodDetailParser.class);
 
@@ -51,16 +44,32 @@ public class VodDetailParser extends JBaseParser<VodItemInfo> {
 
     @Override
     public VodItemInfo parseJSON(String json) throws JSONException {
-        JLog.d(TAG, "parseJSON : \n " + json);
-        if (json == null || "".equals(json)) {
-            return null;
+        if (TvApplication.DEBUG_LOG) {
+            JLog.d(TAG, "parseJSON : \n " + json);
         }
         VodItemInfo info = new VodItemInfo();
-        JSONObject rootJson = new JSONObject(json);
-        if (rootJson.has("error_no")) {
-            info.setErrorMsg(rootJson.getString("error_no") + "   msg=" + rootJson.getString("error_msg"));
+
+        if (json == null || "".equals(json)) {
+            JLog.e(TAG, "get detailed'json = null");
+            info.setErrorNo(Attach.ERROR_JSON_NULL);
+            info.setErrorMsg("json为null");
             return info;
         }
+
+        JSONObject rootJson = new JSONObject(json);
+        boolean hasError = false;
+        if (rootJson.has("error_no")) {
+            info.setErrorNo(rootJson.getInt("error_no"));
+            hasError = true;
+        }
+        if (rootJson.has("error_msg")) {
+            info.setErrorMsg(rootJson.getString("error_msg"));
+            hasError = true;
+        }
+        if (hasError) {
+            return info;
+        }
+
         info.setActor(rootJson.getString("actorNane"));
         String tn = rootJson.getString("tnum");
         info.setTotalEpisode((tn != null && !tn.isEmpty()) ? Integer.valueOf(tn) : 1);

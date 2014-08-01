@@ -44,13 +44,35 @@
                 android:background="@drawable/listex_divider"
                 android:paddingBottom="-1dp" />
 
-            <com.joysee.common.widget.JTextViewWithTTF
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/about_scroll_view_text_margin_top"
-                android:text="@string/about_contact_tel"
-                android:textSize="@dimen/text_size_about_text_description"
-                dvb:ttf="fzltzh.TTF" />
+                android:orientation="horizontal" >
+
+                <com.joysee.common.widget.JTextViewWithTTF
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/about_scroll_view_item_margin_top"
+                    android:text="@string/about_contact_scan_qr_code"
+                    android:textSize="@dimen/text_size_about_text_description"
+                    dvb:ttf="fzltzh.TTF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/about_scroll_view_qr_image_margin_top"
+                    android:src="@drawable/joysee_qr_code" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
             <com.joysee.common.widget.JTextViewWithTTF
                 android:layout_width="wrap_content"
@@ -58,6 +80,7 @@
                 android:layout_marginTop="@dimen/about_scroll_view_item_margin_top"
                 android:text="@string/about_contact_other_way"
                 android:textSize="@dimen/text_size_view_item_name"
+                android:visibility="gone"
                 dvb:ttf="fzltzh.TTF" />
 
             <View
@@ -65,13 +88,15 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/about_scroll_view_divider_margin_top"
                 android:background="@drawable/listex_divider"
-                android:paddingBottom="-1dp" />
+                android:paddingBottom="-1dp"
+                android:visibility="gone" />
 
             <com.joysee.common.widget.JTextViewWithTTF
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/about_scroll_view_text_margin_top"
                 android:textSize="@dimen/text_size_about_text_description"
+                android:visibility="gone"
                 dvb:ttf="fzltzh.TTF" />
         </LinearLayout>
     </ScrollView>

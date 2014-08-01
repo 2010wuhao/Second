@@ -91,7 +91,29 @@ public class ExMenuGroup extends ExMenuSub {
     }
 
     public void setSelection(int position) {
-        mSelectItemId = position;
+        mSelectItemId = position < 0 ? 0 : position >= mSubItems.size() ? mSubItems.size() - 1 : position;
+    }
+
+    public void setSelectionById(int id) {
+        if (mSubItems != null) {
+            for (int i = 0; i < mSubItems.size(); i++) {
+                if (id == mSubItems.get(i).getSubId()) {
+                    setSelection(i);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void setSelectionByName(String name) {
+        if (mSubItems != null) {
+            for (int i = 0; i < mSubItems.size(); i++) {
+                if (mSubItems.get(i).getSubName().equals(name)) {
+                    setSelection(i);
+                    break;
+                }
+            }
+        }
     }
 
     public void setSelectViewInTrack(int position) {
@@ -103,6 +125,11 @@ public class ExMenuGroup extends ExMenuSub {
             this.mSubItems.add(item);
         }
         mHasSub = true;
+    }
+
+    public void clearItems() {
+        mHasSub = false;
+        mSubItems.clear();
     }
 
     public void setDividerVisibility(int visibility) {

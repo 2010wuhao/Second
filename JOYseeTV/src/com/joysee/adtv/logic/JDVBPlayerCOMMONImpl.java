@@ -101,7 +101,13 @@ class JDVBPlayerCOMMONImpl extends JDVBPlayer {
                         task.mCBType = monitorType;
                         mOnTaskInfoListener.onTaskInfo(task);
                     }
-                } else {
+                } else if (monitorType == CALLBACK_SERVICE_DIED) {
+                    mCurrentState = DVBPLAYER_ERROR;
+                    init();
+                    if (mOnDTVDeathNotifier != null) {
+                        mOnDTVDeathNotifier.onServiceDied();
+                    }
+                }  else {
                     for (OnMonitorListener lis : onMonitorListeners) {
                         lis.onMonitor(monitorType, message);
                     }
@@ -118,11 +124,13 @@ class JDVBPlayerCOMMONImpl extends JDVBPlayer {
     @Override
     public int init() {
         int ret = 0;
-        if (mCurrentState == DVBPLAYER_IDLE) {
+        if (mCurrentState == DVBPLAYER_IDLE || mCurrentState == DVBPLAYER_ERROR) {
+            mCurrentState = DVBPLAYER_INITIALIZING;
             if ((ret = mDvbPlayManager.nativeInit()) == NO_ERROR) {
                 mCurrentState = DVBPLAYER_INITIALIZED;
             } else {
                 Log.e(TAG, "init fail ret = " + ret, new RuntimeException());
+                mCurrentState = DVBPLAYER_ERROR;
             }
             Log.d(TAG, "init ret = " + ret);
         }
@@ -570,5 +578,10 @@ class JDVBPlayerCOMMONImpl extends JDVBPlayer {
     @Override
     public String getLocalPackVersionName(String url) {
         return mTaskManager.nativeGetLocalPacketVer(url);
+    }
+
+    @Override
+    public int getCurrentState() {
+        return mCurrentState;
     }
 }

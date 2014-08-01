@@ -15,16 +15,14 @@
         android:layout_marginTop="102px"
         android:background="@drawable/vod_poster_shaow" />
 
-    <ImageView
+    <com.joysee.dvb.vod.RoundImageView
         android:id="@+id/poster"
         android:layout_width="407px"
         android:layout_height="531px"
         android:layout_marginTop="102px"
         android:layout_toRightOf="@id/poster_shaow"
-        android:background="@drawable/vod_poster_bg"
-        android:padding="2px"
-        android:scaleType="fitXY"
-        android:src="@drawable/vod_big_poster_default" />
+        android:background="@drawable/vod_big_poster_default"
+        android:padding="2px" />
 
     <ImageView
         android:id="@+id/poster_inverted"
@@ -45,6 +43,7 @@
         android:layout_marginLeft="46px"
         android:layout_marginTop="67px"
         android:layout_toRightOf="@+id/poster"
+        android:animateLayoutChanges="true"
         android:paddingRight="142px" >
 
         <com.joysee.common.widget.JTextViewWithTTF
@@ -100,6 +99,7 @@
         android:layout_below="@id/title_layout"
         android:layout_marginLeft="46px"
         android:layout_toRightOf="@+id/poster"
+        android:animateLayoutChanges="true"
         android:paddingRight="142px" >
 
         <com.joysee.common.widget.JTextViewWithTTF
@@ -119,6 +119,8 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@id/director"
             android:layout_marginTop="13px"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:textSize="34px"
             dvb:ttf="fzltch.TTF" />
 
@@ -172,6 +174,38 @@
             android:textSize="34px"
             android:visibility="invisible"
             dvb:ttf="fzltch.TTF" />
+
+        <RelativeLayout
+            android:layout_width="650px"
+            android:layout_height="130px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/detail"
+            android:animateLayoutChanges="true" >
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:layout_centerInParent="true"
+                android:indeterminateDrawable="@drawable/vod_progressbar_middle" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="650px"
+            android:layout_height="130px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/detail"
+            android:animateLayoutChanges="true" >
+
+            <ImageView
+                android:id="@+id/error_face"
+                android:layout_width="182px"
+                android:layout_height="213px"
+                android:layout_centerInParent="true"
+                android:src="@drawable/vod_error_face_tips"
+                android:visibility="gone" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -202,21 +236,17 @@
             android:alpha="0.5"
             android:background="#AAA" />
 
-        <com.joysee.dvb.vod.VodScrollView
-            android:id="@+id/related_scrollview"
+        <LinearLayout
+            android:id="@+id/related_content_view"
             android:layout_width="1600px"
             android:layout_height="323px"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:scrollbars="none" >
-
-            <LinearLayout
-                android:id="@+id/related_content_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-            </LinearLayout>
-        </com.joysee.dvb.vod.VodScrollView>
+            android:animateLayoutChanges="true"
+            android:descendantFocusability="afterDescendants"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout

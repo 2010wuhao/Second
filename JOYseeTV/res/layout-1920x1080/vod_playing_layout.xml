@@ -31,7 +31,7 @@
             android:layout_width="184px"
             android:layout_height="184px"
             android:layout_centerInParent="true"
-            android:indeterminateDrawable="@drawable/dialog_progress_image"
+            android:indeterminateDrawable="@drawable/vod_progressbar_large"
             android:visibility="invisible" />
 
         <LinearLayout
@@ -49,7 +49,7 @@
                 android:layout_width="30px"
                 android:layout_height="30px"
                 android:layout_gravity="center_horizontal"
-                android:indeterminateDrawable="@drawable/dialog_progress_image"
+                android:indeterminateDrawable="@drawable/vod_progressbar_small"
                 android:visibility="gone" />
 
             <com.joysee.common.widget.JTextViewWithTTF
@@ -85,6 +85,13 @@
             android:textSize="26px"
             android:visibility="gone"
             dvb:ttf="fzltch.TTF" />
+
+        <ImageView
+            android:id="@+id/error_face_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <!-- control bar -->

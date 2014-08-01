@@ -70,7 +70,7 @@ class DVBPlayManager {
      */
     private synchronized static void onDTVPlayerCallBack(int tunerId, final int monitorType, final Object message) {
         Log.d(TAG, "onDTVPlayerCallback type = " + JDVBPlayer.getMonitorCallbackName(monitorType));
-        if (onMonitorListener != null) {
+        if (tunerId == 0 && onMonitorListener != null) {
             mHandler.post(new Runnable() {
                 public void run() {
                     onMonitorListener.onMonitor(monitorType, message);

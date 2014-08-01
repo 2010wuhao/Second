@@ -43,7 +43,6 @@ import com.joysee.dvb.bean.Program.ProgramSourceType;
 import com.joysee.dvb.controller.DvbMessage;
 import com.joysee.dvb.controller.IDvbBaseView;
 import com.joysee.dvb.data.EPGProvider;
-import com.joysee.dvb.liveguide.playback.CategoryProgramSwitcher;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

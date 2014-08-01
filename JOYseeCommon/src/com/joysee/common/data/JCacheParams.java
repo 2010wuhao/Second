@@ -45,7 +45,7 @@ public class JCacheParams {
 	
 	private int effectiveTime;
 	/** 1~100 */
-	private int jpgSaveQuality;
+	private int jpgSaveQuality = 100;
 	
 	private int defaultLoadingResId;
 	
@@ -110,9 +110,6 @@ public class JCacheParams {
 	}
 
 	public int getJpgSaveQuality() {
-		if(jpgSaveQuality == 0){
-			jpgSaveQuality = 70;
-		}
 		return jpgSaveQuality;
 	}
 

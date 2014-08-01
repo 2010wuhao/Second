@@ -245,7 +245,7 @@ public class ListAnimationAppAdapter extends BaseAdapter implements Applications
 
     @Override
     public void onPackageListChanged() {
-
+        rebuild(false);
     }
 
     @Override

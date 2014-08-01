@@ -1,8 +1,8 @@
 /**
  * =====================================================================
  *
- * @file  SMProvider.java
- * @Module Name   com.joysee.dvb.sm
+ * @file  VodProvider.java
+ * @Module Name   com.joysee.dvb.vod
  * @author YueLiang_TP
  * @OS version  1.0
  * @Product type: JoySee
@@ -51,31 +51,31 @@ public class VodProvider extends ContentProvider {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_HISTORY);
             StringBuilder sqlCreateTable = new StringBuilder();
             sqlCreateTable.append("CREATE TABLE IF NOT EXISTS ").append(TABLE_HISTORY).append(" (");
-            sqlCreateTable.append(SMHistoryColumn.VID).append(" INT,");
-            sqlCreateTable.append(SMHistoryColumn.NAME).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.CATEGORY).append(" INT,");
-            sqlCreateTable.append(SMHistoryColumn.SOURCE_ID).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.SOURCE_NAME).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.JOYSEE_SOURCE).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.WATCH_OFFSET).append(" BIGINT,");
-            sqlCreateTable.append(SMHistoryColumn.DURATION).append(" BIGINT,");
-            sqlCreateTable.append(SMHistoryColumn.WATCH_DATE).append(" BIGINT,");
-            sqlCreateTable.append(SMHistoryColumn.PIC).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.MAIN_ACTORS).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.CLEAR_LEVEL).append(" TEXT,");
-            sqlCreateTable.append(SMHistoryColumn.EPISODE).append(" INT)");
+            sqlCreateTable.append(VodHistoryColumn.VID).append(" INT,");
+            sqlCreateTable.append(VodHistoryColumn.NAME).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.CATEGORY).append(" INT,");
+            sqlCreateTable.append(VodHistoryColumn.SOURCE_ID).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.SOURCE_NAME).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.JOYSEE_SOURCE).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.WATCH_OFFSET).append(" BIGINT,");
+            sqlCreateTable.append(VodHistoryColumn.DURATION).append(" BIGINT,");
+            sqlCreateTable.append(VodHistoryColumn.WATCH_DATE).append(" BIGINT,");
+            sqlCreateTable.append(VodHistoryColumn.PIC).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.MAIN_ACTORS).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.CLEAR_LEVEL).append(" TEXT,");
+            sqlCreateTable.append(VodHistoryColumn.EPISODE).append(" INT)");
             db.execSQL(sqlCreateTable.toString());
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            JLog.d(TAG, "SMProvider DatabaseHelper onCreate");
+            JLog.d(TAG, "VodProvider DatabaseHelper onCreate");
             createHistoryTable(db);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            JLog.d(TAG, "SMProvider DatabaseHelper onUpgrade oldVersion = " + oldVersion + " newVersion = " + newVersion);
+            JLog.d(TAG, "VodProvider DatabaseHelper onUpgrade oldVersion = " + oldVersion + " newVersion = " + newVersion);
             int upgradeVersion = oldVersion;
             if (upgradeVersion != newVersion) {
                 Log.w(TAG, "Got stuck trying to upgrade from version " + newVersion + ", must wipe the provider");
@@ -85,7 +85,7 @@ public class VodProvider extends ContentProvider {
         }
     }
 
-    public class SMHistoryColumn implements BaseColumns {
+    public class VodHistoryColumn implements BaseColumns {
         public static final String VID = "vid";
         public static final String NAME = "name";
         public static final String CATEGORY = "category";
@@ -101,7 +101,7 @@ public class VodProvider extends ContentProvider {
         public static final String EPISODE = "episode";
     }
 
-    public class SMHistoryColumnIndex {
+    public class VodHistoryColumnIndex {
         public static final int VID = 0;
         public static final int NAME = 1;
         public static final int CATEGORY = 2;
@@ -151,12 +151,12 @@ public class VodProvider extends ContentProvider {
     private static final String TAG = JLog.makeTag(VodProvider.class);
     private SQLiteOpenHelper mOpenHelper = null;
 
-    private static final String DB_NAME = "joysee_sm.db";
+    private static final String DB_NAME = "joysee_vod.db";
     private static final int DB_VERSION = 1;
-    public static final String AUTHORITY = "com.joysee.dvb.db.SMProvider";
+    public static final String AUTHORITY = "com.joysee.dvb.db.VodProvider";
     public static final String PARAMETER_NOTIFY = "notify";
 
-    private static final String TABLE_HISTORY = "sm_history";
+    private static final String TABLE_HISTORY = "vod_history";
 
     private static final int HISTORY = 1;
 
@@ -192,7 +192,7 @@ public class VodProvider extends ContentProvider {
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         int match = sURIMatcher.match(uri);
         final long begin = JLog.methodBegin(TAG);
-        JLog.d(TAG, "SMProvider delete match = " + matchToTable(match));
+        JLog.d(TAG, "VodProvider delete match = " + matchToTable(match));
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 
         String table = null;
@@ -259,16 +259,16 @@ public class VodProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        JLog.d(TAG, "----SMProvider  onCreate----");
+        JLog.d(TAG, "----VodProvider  onCreate----");
         mOpenHelper = new DatabaseHelper(getContext());
-        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        // SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         return true;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         int match = sURIMatcher.match(uri);
-        JLog.d(TAG, "SMProvider query match = " + matchToTable(match));
+        JLog.d(TAG, "VodProvider query match = " + matchToTable(match));
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
         String table = null;
@@ -294,7 +294,7 @@ public class VodProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int match = sURIMatcher.match(uri);
-        JLog.d(TAG, "SMProvider update match = " + matchToTable(match));
+        JLog.d(TAG, "VodProvider update match = " + matchToTable(match));
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 
         String table = null;

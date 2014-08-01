@@ -24,7 +24,7 @@
 
 package com.joysee.dvb.vod;
 
-public class VodItemSourceInfo {
+public class VodSourceInfo {
 
     public String vid;
     public String number;
@@ -35,6 +35,11 @@ public class VodItemSourceInfo {
     public String[] guoYuUrls;
     public String[] enUrls;
     public String[] otUrls;
+    public int currentQuality;
+    public String currentUrl;
+    public int sourcePosition;
+    public int errorNo;
+    public String errorMsg;
 
     public String getVid() {
         return vid;
@@ -106,6 +111,46 @@ public class VodItemSourceInfo {
 
     public void setSourceIconRes(int sourceIconRes) {
         this.sourceIconRes = sourceIconRes;
+    }
+
+    public String getCurrentUrl() {
+        return currentUrl;
+    }
+
+    public void setCurrentUrl(String currentUrl) {
+        this.currentUrl = currentUrl;
+    }
+
+    public int getCurrentQuality() {
+        return currentQuality;
+    }
+
+    public void setCurrentQuality(int currentClearLevel) {
+        this.currentQuality = currentClearLevel;
+    }
+
+    public int getSourcePosition() {
+        return sourcePosition;
+    }
+
+    public void setSourcePosition(int sourcePosition) {
+        this.sourcePosition = sourcePosition;
+    }
+
+    public int getErrorNo() {
+        return errorNo;
+    }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorNo(int errorNo) {
+        this.errorNo = errorNo;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
     
 }

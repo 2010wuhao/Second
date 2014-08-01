@@ -47,6 +47,13 @@
         android:layout_height="wrap_content"
         android:textOff="@string/ts_channel_off"
         android:textOn="@string/ts_channel_on" />
+    
+    <ToggleButton
+        android:id="@+id/vod_enable_togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/vod_enable_off"
+        android:textOn="@string/vod_enable_on" />
 
     <LinearLayout
         android:layout_width="match_parent"

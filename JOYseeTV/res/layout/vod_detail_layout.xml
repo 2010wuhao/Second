@@ -15,16 +15,14 @@
         android:layout_marginTop="68px"
         android:background="@drawable/vod_poster_shaow" />
 
-    <ImageView
+    <com.joysee.dvb.vod.RoundImageView
         android:id="@+id/poster"
         android:layout_width="271px"
         android:layout_height="354px"
         android:layout_marginTop="68px"
         android:layout_toRightOf="@id/poster_shaow"
-        android:background="@drawable/vod_poster_bg"
-        android:padding="1px"
-        android:scaleType="fitXY"
-        android:src="@drawable/vod_big_poster_default" />
+        android:background="@drawable/vod_big_poster_default"
+        android:padding="1px" />
 
     <ImageView
         android:id="@+id/poster_inverted"
@@ -45,6 +43,7 @@
         android:layout_marginLeft="31px"
         android:layout_marginTop="45px"
         android:layout_toRightOf="@+id/poster"
+        android:animateLayoutChanges="true"
         android:paddingRight="95px" >
 
         <com.joysee.common.widget.JTextViewWithTTF
@@ -100,6 +99,7 @@
         android:layout_below="@id/title_layout"
         android:layout_marginLeft="31px"
         android:layout_toRightOf="@+id/poster"
+        android:animateLayoutChanges="true"
         android:paddingRight="95px" >
 
         <com.joysee.common.widget.JTextViewWithTTF
@@ -119,6 +119,8 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@id/director"
             android:layout_marginTop="9px"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:textSize="23px"
             dvb:ttf="fzltch.TTF" />
 
@@ -172,6 +174,39 @@
             android:textSize="23px"
             android:visibility="invisible"
             dvb:ttf="fzltch.TTF" />
+
+        <RelativeLayout
+            android:layout_width="433px"
+            android:layout_height="87px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/detail"
+            android:animateLayoutChanges="true" >
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerInParent="true"
+                android:indeterminateDrawable="@drawable/vod_progressbar_middle"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="433px"
+            android:layout_height="87px"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/detail"
+            android:animateLayoutChanges="true" >
+
+            <ImageView
+                android:id="@+id/error_face"
+                android:layout_width="123px"
+                android:layout_height="142px"
+                android:layout_centerInParent="true"
+                android:src="@drawable/vod_error_face_tips"
+                android:visibility="gone" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -202,34 +237,29 @@
             android:alpha="0.5"
             android:background="#AAA" />
 
-        <com.joysee.dvb.vod.VodScrollView
-            android:id="@+id/related_scrollview"
+        <LinearLayout
+            android:id="@+id/related_content_view"
             android:layout_width="1067px"
             android:layout_height="215px"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:scrollbars="none" >
-
-            <LinearLayout
-                android:id="@+id/related_content_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-            </LinearLayout>
-        </com.joysee.dvb.vod.VodScrollView>
+            android:animateLayoutChanges="true"
+            android:descendantFocusability="afterDescendants"
+            android:orientation="horizontal" >
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/pull_down_layout"
         android:layout_width="match_parent"
-        android:layout_height="278px"
+        android:layout_height="280px"
         android:layout_alignParentBottom="true"
         android:visibility="invisible" >
 
         <GridView
             android:id="@+id/pull_down_content"
             android:layout_width="match_parent"
-            android:layout_height="269px"
+            android:layout_height="270px"
             android:layout_alignParentBottom="true"
             android:animateLayoutChanges="true"
             android:background="@drawable/vod_pull_down_bg"

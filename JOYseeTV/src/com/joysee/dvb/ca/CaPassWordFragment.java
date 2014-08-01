@@ -64,8 +64,9 @@ public class CaPassWordFragment extends Fragment implements View.OnClickListener
         if (v.getId() == mSaveButton.getId()) {
             String psw = mPassWord.getText().toString();
             String confirm = mPassWordConfirm.getText().toString();
-            if (psw == null || confirm == null || psw.length() < 6 || confirm.length() < 6) {
-                showOperateMsg(CardOperateCode.PASSWORD_LENGTH_ERROR);
+            // || psw.length() < 6 || confirm.length() < 6
+            if (psw == null || confirm == null) {
+                showOperateMsg(CardOperateCode.PASSWORD_NULL_ERROR);
             } else if (!psw.equals(confirm)) {
                 showOperateMsg(CardOperateCode.EQUALS_ERROR);
             } else {
@@ -145,8 +146,8 @@ public class CaPassWordFragment extends Fragment implements View.OnClickListener
             case CardOperateCode.TIME_ERROR:
                 msg = getString(R.string.ca_operate_msg_time_error);
                 break;
-            case CardOperateCode.PASSWORD_LENGTH_ERROR:
-                msg = getString(R.string.ca_password_length_error_text);
+            case CardOperateCode.PASSWORD_NULL_ERROR:
+                msg = getString(R.string.ca_password_null_error_text);
                 break;
             case CardOperateCode.EQUALS_ERROR:
                 msg = getString(R.string.ca_operate_msg_equals_error);

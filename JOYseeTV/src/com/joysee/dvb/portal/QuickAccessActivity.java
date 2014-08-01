@@ -52,6 +52,7 @@ public class QuickAccessActivity extends Activity implements OnCheckedChangeList
     ToggleButton mPrintLogButton;
     ToggleButton mTsEpgButton;
     ToggleButton mTsChannelButton;
+    ToggleButton mVodEnableButton;
 
     EditText mEditText1;
     EditText mEditText2;
@@ -88,6 +89,10 @@ public class QuickAccessActivity extends Activity implements OnCheckedChangeList
                         DvbSettings.System.FORCE_TS_CHANNELTYPE,
                         isChecked ? TvApplication.ON_VALUE : TvApplication.OFF_VALUE);
                 break;
+            case R.id.vod_enable_togglebutton:
+                DvbSettings.System.putInt(getContentResolver(), 
+                        DvbSettings.System.VOD_ENABLE, 
+                        isChecked ? TvApplication.ON_VALUE : TvApplication.OFF_VALUE);
         }
     }
 
@@ -132,6 +137,10 @@ public class QuickAccessActivity extends Activity implements OnCheckedChangeList
         mTsChannelButton = (ToggleButton) findViewById(R.id.ts_channel_togglebutton);
         mTsChannelButton.setChecked(TvApplication.FORCE_TS_CHANNELTYPE);
         mTsChannelButton.setOnCheckedChangeListener(this);
+        
+        mVodEnableButton = (ToggleButton) findViewById(R.id.vod_enable_togglebutton);
+        mVodEnableButton.setChecked(TvApplication.VOD_ENABLE);
+        mVodEnableButton.setOnCheckedChangeListener(this);
 
         mEditText1 = (EditText) findViewById(R.id.editText_frequency);
         mEditText2 = (EditText) findViewById(R.id.editText_symbolRate);

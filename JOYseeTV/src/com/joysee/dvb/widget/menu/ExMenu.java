@@ -55,11 +55,19 @@ public class ExMenu extends RelativeLayout implements ExMenuGroup.OnSelectListen
 
         public void onMenuOpen();
 
-        // groups以whichHideItems为中心展开
+        /**
+         * @param groups以whichHideItems为中心展开
+         */
         public void onGroupExpand(ExMenuGroup whichHideItems);
 
-        // groups以whichHideItems为中心收展
+        /**
+         * @param groups以whichHideItems为中心收展
+         */
         public void onGroupCollapsed(ExMenuGroup whichShowItems);
+    }
+
+    public interface OnItemSelectListener {
+        public void onItemSelect(ExMenuSub item);
     }
 
     private class GroupPanelSwitchListener implements AnimatorListener {
@@ -188,6 +196,7 @@ public class ExMenu extends RelativeLayout implements ExMenuGroup.OnSelectListen
     private Activity mActivity;
     private LayoutInflater mInflater;
     private OnMenuListener mOnMenuListener;
+    private OnItemSelectListener mOnItemSelectListener;
 
     private boolean isResetable = true;
     private boolean isCancleable = true;
@@ -290,6 +299,13 @@ public class ExMenu extends RelativeLayout implements ExMenuGroup.OnSelectListen
     public void addSubGroups(ArrayList<ExMenuGroup> groups) {
         mGroupViews.clear();
         mGroupViews.addAll(groups);
+    }
+
+    public ExMenuGroup getMenuGroup(int position) {
+        if (position >= 0 && position < mGroupViews.size()) {
+            return mGroupViews.get(position);
+        }
+        return null;
     }
 
     public void attach2Window() {
@@ -970,6 +986,10 @@ public class ExMenu extends RelativeLayout implements ExMenuGroup.OnSelectListen
         mOnMenuListener = l;
     }
 
+    public void setOnItemSelectListener(OnItemSelectListener l) {
+        mOnItemSelectListener = l;
+    }
+
     private void resetMenuLastStatus() {
         mGroupSelectView.requestFocus();
         if (isResetable && hasLastOpenStatus) {
@@ -1038,11 +1058,17 @@ public class ExMenu extends RelativeLayout implements ExMenuGroup.OnSelectListen
     public void onGroupSelect(ExMenuGroup group) {
         JLog.d(TAG, "onGroupSelect = " + group.getSubId());
         mSelectGroup = group;
+        if (mOnItemSelectListener != null) {
+            mOnItemSelectListener.onItemSelect(group);
+        }
     }
 
     @Override
     public void onItemSelect(ExMenuItem item) {
         JLog.d(TAG, "onItemSelect = " + item.getSubId());
         mSelectItem = item;
+        if (mOnItemSelectListener != null) {
+            mOnItemSelectListener.onItemSelect(item);
+        }
     }
 }

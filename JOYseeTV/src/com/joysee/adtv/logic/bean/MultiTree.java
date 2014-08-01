@@ -72,9 +72,14 @@ public class MultiTree {
             mType = type;
         }
 
+        public String toRootString() {
+            return "【 name= " + mName + "　 type=" + mType + "　 data=" + mData +
+                    "　 childs=" + mChilds.size() + " 】";
+        }
+        
         public String toString() {
-            return "MultiTree$Node[mName= " + mName + ", mType=" + mType + ", mData=" + mData +
-                    ", childs=" + mChilds.size() + "]";
+            return "［name= " + mName + "　 type=" + mType + "　 data=" + mData +
+                    "　 childs=" + mChilds.size() + "］";
         }
     }
 
@@ -157,7 +162,7 @@ public class MultiTree {
         } else if (cls == byte[].class) {
             child.mType = TreeNodeTypeBinary;
         } else {
-            Log.d(mTag, "unknow type");
+            System.out.println("unknow type");
             return null;
         }
 
@@ -223,7 +228,7 @@ public class MultiTree {
     }
 
     // 打印节点及其子节点,,广度
-    public void printNode(Node node) {
+    private void printNode(Node node) {
         ArrayList<Node> list1 = new ArrayList<Node>();
         ArrayList<Node> list2 = new ArrayList<Node>();
 
@@ -231,7 +236,7 @@ public class MultiTree {
         while (!list1.isEmpty()) {
             for (Node n : list1) {
                 // 打印当前节点
-                Log.d(mTag, n.toString());
+                System.out.println(mTag + "  " + n.toString());
                 // 收集子节点
                 for (Node m : getChildrens(n)) {
                     list2.add(m);
@@ -245,9 +250,48 @@ public class MultiTree {
         }
     }
 
+    public void printTreeNote(Node rootNode) {
+        if (rootNode != null) {
+            ArrayList<Node> childs = rootNode.getChildreds();
+            StringBuilder sb = new StringBuilder();
+            sb.append("☂☂☂☂☂☂ Tree ☂☂☂☂☂☂\n");
+            sb.append("▼"+rootNode.toRootString() + "\n");
+            
+            int count = childs.size();
+            for (int i = 0; i < count; i++) {
+                sb.append(getNoteStr(childs.get(i), 1));
+            }
+            sb.append("☂☂☂☂☂☂ Tree ☂☂☂☂☂☂");
+            Log.d("MultiTree", sb.toString());
+        }
+    }
+
+    private String getNoteStr(Node node, int level) {
+        StringBuilder sb = new StringBuilder();
+        if (node != null) {
+            if (level > 0) {
+                sb.append("|");
+            }
+            for (int i = 0; i < level; i++) {
+                sb.append("－");
+            }
+            sb.append(node.toString());
+            sb.append("\n");
+
+            ArrayList<Node> childs = node.getChildreds();
+            if (childs.size() > 0) {
+                int nextLevel = level + 1;
+                for (int i = 0; i < childs.size(); i++) {
+                    sb.append(getNoteStr(childs.get(i), nextLevel));
+                }
+            }
+        }
+        return sb.toString();
+    }
+
     // 打印树
     public void printTree() {
-        printNode(mRoot);
+        printTreeNote(mRoot);
     }
 
     // 返回根节点

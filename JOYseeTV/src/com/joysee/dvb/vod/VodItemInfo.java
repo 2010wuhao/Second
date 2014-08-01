@@ -40,6 +40,7 @@ public class VodItemInfo {
     private String director;
     private String description;
     private String posterUrl;
+    private int errorNo;
     private String errorMsg;
 
     public String getSourceName() {
@@ -161,4 +162,14 @@ public class VodItemInfo {
     public void setPosterUrl(String posterUrl) {
         this.posterUrl = posterUrl;
     }
+
+    public int getErrorNo() {
+        return errorNo;
+    }
+
+    public void setErrorNo(int errorNo) {
+        this.errorNo = errorNo;
+    }
+    
+    
 }

@@ -47,6 +47,7 @@ import com.joysee.common.utils.JLog;
 import com.joysee.dvb.TvApplication;
 import com.joysee.dvb.bean.Program;
 import com.joysee.dvb.common.Constants;
+import com.joysee.dvb.data.ChannelProvider;
 import com.joysee.dvb.data.DvbSettings;
 import com.joysee.dvb.data.LocalInfoReader;
 import com.joysee.dvb.parser.ProgramParser;
@@ -55,7 +56,6 @@ import com.joysee.dvb.portal.appcache.AllAppsList;
 import com.joysee.dvb.portal.appcache.ApplicationInfo;
 import com.joysee.dvb.portal.appcache.IconCache;
 import com.joysee.dvb.update.UpdateClient;
-import com.xiaomi.market.sdk.XiaomiUpdateAgent;
 
 import java.lang.ref.WeakReference;
 import java.text.Collator;
@@ -152,19 +152,18 @@ public class PortalModle extends BroadcastReceiver {
         final long begin = JLog.methodBegin(TAG);
         ArrayList<Program> validPrograms = null;
         if (programs != null && programs.size() > 0) {
-            ArrayList<DvbService> channels = AbsDvbPlayer.getAllChannel();
-            if (channels != null && channels.size() > 0) {
-                HashMap<String, DvbService> channelnames = new HashMap<String, DvbService>();
-                for (DvbService channel : channels) {
-                    channelnames.put(channel.getChannelName(), channel);
-                }
+            int count = ChannelProvider.getChannelCountInDB(mTvApplication);
+            if (count > 0) {
                 validPrograms = new ArrayList<Program>();
                 DvbService c = null;
                 for (Program p : programs) {
-                    c = channelnames.get(p.channelName);
+                    c = ChannelProvider.getChannelByTVId(mTvApplication, p.tvId);
                     if (c != null) {
+                        String oldName = p.channelName;
                         p.logicNumber = c.getLogicChNumber();
                         p.serviceId = c.getServiceId();
+                        p.channelName = c.getChannelName();
+                        JLog.d(TAG, "rename channelName from :  " + oldName + " to : " + p.channelName);
                         validPrograms.add(p);
                     } else {
                         JLog.d(TAG, "drop program :  " + p.programName + "-" + p.channelName);
@@ -179,7 +178,7 @@ public class PortalModle extends BroadcastReceiver {
     public void getAppVersionOnServerSync(Context context) {
         if (TvApplication.sDestPlatform == TvApplication.DestPlatform.MITV_QCOM ||
                 TvApplication.sDestPlatform == TvApplication.DestPlatform.MITV_2) {
-            XiaomiUpdateAgent.update(context);
+            // TODO
         } else {
             UpdateClient client = new UpdateClient(context) {
                 @Override

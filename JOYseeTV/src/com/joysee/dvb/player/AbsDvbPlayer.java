@@ -50,6 +50,10 @@ public abstract class AbsDvbPlayer {
     public interface OnBeginWithChannelListeneer {
         void onBeginWithChannel(DvbService channel);
     }
+    
+    public interface OnInitCompleteListener {
+        public void onInitComplete(AbsDvbPlayer player, int result);
+    }
 
     static final String TAG = JLog.makeTag(AbsDvbPlayer.class);
     
@@ -75,6 +79,7 @@ public abstract class AbsDvbPlayer {
         mDvbPlayer = JDVBPlayer.getInstance();
     }
 
+    private OnInitCompleteListener mOnInitCompleteLis;
     private OnBeginWithChannelListeneer mOnBeginWithChannelLis;
     protected static final int SWITCH_CHANNEL_DELAY = 200;
 
@@ -170,8 +175,31 @@ public abstract class AbsDvbPlayer {
     }
     protected static boolean isChannelHandlerWorking = false;
     protected static MessageQueue mDVBMessageQueue;
-    protected static final int MSG_SWITCH_CHANNEL = 1;
-    protected static final int MSG_STOP = 2;
+    protected static final int MSG_INIT = 0;
+    protected static final int MSG_PREPARE = 1;
+    protected static final int MSG_SWITCH_CHANNEL = 2;
+    protected static final int MSG_STOP = 3;
+    
+    private static final String getChannelHandleMsgName(int msg) {
+        String ret = "";
+        switch (msg) {
+            case MSG_INIT:
+                ret = MSG_INIT + " - MSG_INIT";
+                break;
+            case MSG_PREPARE:
+                ret = MSG_PREPARE + " - MSG_PREPARE";
+                break;
+            case MSG_SWITCH_CHANNEL:
+                ret = MSG_SWITCH_CHANNEL + " - MSG_SWITCH_CHANNEL";
+                break;
+            case MSG_STOP:
+                ret = MSG_STOP + " - MSG_STOP";
+                break;
+            default:
+                break;
+        }
+        return ret;
+    }
 
     public static void cleanCacheData() {
         final long begin = JLog.methodBegin(TAG);
@@ -206,23 +234,40 @@ public abstract class AbsDvbPlayer {
         public void handleMessage(android.os.Message msg) {
             final long begin = SystemClock.uptimeMillis();
             long interval = 0;
+            String msgName = getChannelHandleMsgName(msg.what);
+            JLog.d(TAG, "mChannelHandler " + msgName + " begin tunerId = " + msg.arg1);
             switch (msg.what) {
+                case MSG_INIT:
+                    try {
+                        Thread.sleep(3000L);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    final int result = init();
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (mOnInitCompleteLis != null) {
+                                mOnInitCompleteLis.onInitComplete(AbsDvbPlayer.this, result);
+                            }
+                        }
+                    });
+                    break;
+                case MSG_PREPARE:
+                    mDvbPlayer.prepare(msg.arg1);
+                    break;
                 case MSG_SWITCH_CHANNEL:
-                    JLog.d(TAG, "mChannelHandler MSG_SWITCH_CHANNEL begin tunerId = " + msg.arg1);
                     mDvbPlayer.setChannel(msg.arg1, (DvbService) msg.obj);
                     onBeginWithChannel((DvbService) msg.obj, msg.arg1);
-                    interval = SystemClock.uptimeMillis() - begin;
-                    JLog.d(TAG, "mChannelHandler MSG_SWITCH_CHANNEL tunerId = " + msg.arg1 + " end, takes " + interval + " ms");
                     break;
                 case MSG_STOP:
-                    JLog.d(TAG, "mChannelHandler MSG_STOP begin tunerId = " + msg.arg1);
                     mDvbPlayer.stop(msg.arg1);
-                    interval = SystemClock.uptimeMillis() - begin;
-                    JLog.d(TAG, "mChannelHandler MSG_STOP tunerId = " + msg.arg1 + " end, takes " + interval + " ms");
                     break;
                 default:
                     break;
             }
+            interval = SystemClock.uptimeMillis() - begin;
+            JLog.d(TAG, "mChannelHandler " + msgName + " tunerId = " + msg.arg1 + " end, takes " + interval + " ms");
         };
 
         public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
@@ -235,7 +280,6 @@ public abstract class AbsDvbPlayer {
 
     public void addOnMonitorListener(JDVBPlayer.OnMonitorListener lis) {
         mDvbPlayer.addOnMonitorListener(lis);
-//        DVBPlayManager.addOnMonitorListener(lis);
     }
 
     private void beginWithChannel(DvbService channel) {
@@ -268,6 +312,10 @@ public abstract class AbsDvbPlayer {
         }
         JLog.methodEnd(TAG, begin);
     }
+    
+    public int getCurrentState() {
+        return mDvbPlayer.getCurrentState();
+    }
 
     public abstract int get3DMode();
 
@@ -282,6 +330,10 @@ public abstract class AbsDvbPlayer {
             }
         }
         return c;
+    }
+    
+    public void setOnInitCompleteLis(OnInitCompleteListener lis) {
+        this.mOnInitCompleteLis = lis;
     }
 
     public void setOnBeginWithChannelLis(OnBeginWithChannelListeneer lis) {
@@ -379,11 +431,10 @@ public abstract class AbsDvbPlayer {
         return videoAspectRation;
     }
 
-    public int init(DVBSurfaceViewParent surfaceLayout) {
+    public int init() {
         final long begin = JLog.methodBegin(TAG);
         JLog.e(TAG, "init", new RuntimeException());
-        int ret = mDvbPlayer.init();//mDvbPlayManager.init();
-        mSurfaceLayout = surfaceLayout;
+        int ret = mDvbPlayer.init();
         if (mVideoAspectRationEnable) {
             mCurVideoAspectRations.put(JDVBPlayer.TUNER_0,
                     System.getInt(mContext.getContentResolver(), System.VIDEO_ASPECTRATIO_TUNER_0,
@@ -397,6 +448,17 @@ public abstract class AbsDvbPlayer {
         }
         JLog.methodEnd(TAG, begin);
         return ret;
+    }
+    
+    public void setSurfaceParent(DVBSurfaceViewParent surfaceLayout) {
+        JLog.d(TAG, "setSurfaceParent parent = " + surfaceLayout);
+        mSurfaceLayout = surfaceLayout;
+    }
+    
+    public void initAsyn() {
+        JLog.e(TAG, "initAsyn", new RuntimeException());
+        Message msg = Message.obtain(mChannelHandler, MSG_INIT);
+        msg.sendToTarget();
     }
 
     public abstract void initSurface(SurfaceHolder.Callback callback);
@@ -418,8 +480,11 @@ public abstract class AbsDvbPlayer {
 
     public void prepare(int tunerId) {
         JLog.e(TAG, "prepare", new RuntimeException());
-        mDvbPlayer.prepare(tunerId);
         onPlayBegin(tunerId);
+        Message msg = Message.obtain();
+        msg.what = MSG_PREPARE;
+        msg.arg1 = tunerId;
+        mChannelHandler.sendMessage(msg);
     }
     
     public boolean isPlaying() {

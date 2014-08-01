@@ -98,7 +98,7 @@ public class EPGUpdateService extends Service {
                     mCurrentStatus.running = true;
                     mCurrentStatus.nextUpdateBeginTime = 0;
                     mCurrentStatus.currentChannel = 0;
-                    DvbPlayerFactory.getPlayer(EPGUpdateService.this).init(null);
+                    DvbPlayerFactory.getPlayer(EPGUpdateService.this).init();
                     ArrayList<DvbService> channels = AbsDvbPlayer.getAllChannel();
                     if (channels != null && channels.size() > 0) {
                         syncLocalChannel2DB(channels);

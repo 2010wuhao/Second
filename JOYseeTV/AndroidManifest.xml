@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.joysee.dvb"
-    android:versionCode="107003"
-    android:versionName="1.0.7" >
+    android:versionCode="107009"
+    android:versionName="1.0.7.009 D" >
 
     <uses-feature android:name="android.hardware.usb.host" />
 
@@ -30,9 +30,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" />
     <uses-permission android:name="android.permission.HARDWARE_TEST" />
-    <!-- xiaomi update sdk -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="com.xiaomi.market.sdk.UPDATE" />
 
     <uses-feature
         android:name="android.hardware.usb.host"
@@ -60,11 +57,6 @@
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
 
                 <data android:scheme="file" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.xiaomi.market.sdk.DownloadCompleteReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
 
@@ -125,7 +117,7 @@
         
         <provider
             android:name="com.joysee.dvb.vod.VodProvider"
-            android:authorities="com.joysee.dvb.db.SMProvider"
+            android:authorities="com.joysee.dvb.db.VodProvider"
             android:multiprocess="true" />
 
         <service android:name=".service.EPGUpdateService" >
@@ -157,12 +149,12 @@
         <activity
             android:name="com.joysee.dvb.vod.VodDetaileActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.DVB" >
+            android:theme="@style/Theme.bg.DVB" >
         </activity>
         <activity
             android:name="com.joysee.dvb.vod.VodPlayActivity"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.DVB" >
+            android:theme="@style/Theme.bg.DVB" >
         </activity>
     </application>
 

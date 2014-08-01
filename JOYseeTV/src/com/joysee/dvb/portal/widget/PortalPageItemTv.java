@@ -85,7 +85,8 @@ public class PortalPageItemTv extends PortalPageViewItem {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        updateHistory();
+        //初始化改为异步，此处无法正常调用
+//        updateHistory();
     }
 
     @Override

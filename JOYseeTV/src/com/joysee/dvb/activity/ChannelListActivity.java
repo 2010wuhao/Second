@@ -49,7 +49,7 @@ public class ChannelListActivity extends Activity {
         setContentView(R.layout.channlelist_main);
 
         mDvbPlayer = DvbPlayerFactory.getPlayer(this);
-        mDvbPlayer.init(null);
+        mDvbPlayer.init();
         AbsDvbPlayer.initChannel(false);
 
         setupView();

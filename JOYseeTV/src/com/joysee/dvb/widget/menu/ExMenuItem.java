@@ -58,7 +58,7 @@ public class ExMenuItem extends ExMenuSub {
         this(context, nameId, context.getString(nameId), isCheckBox, iconNormal, iconSelected);
     }
 
-    private ExMenuItem(Context context, int id, String name, boolean isCheckBox, int iconNormal, int iconSelected) {
+    public ExMenuItem(Context context, int id, String name, boolean isCheckBox, int iconNormal, int iconSelected) {
         super(context, id, name);
         this.isCheckBox = isCheckBox;
         this.mIconNormal = iconNormal;

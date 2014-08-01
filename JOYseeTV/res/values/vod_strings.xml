@@ -8,8 +8,25 @@
     <string name="vod_play">播放</string>
     <string name="vod_select_episode">选集</string>
     <string name="vod_related_video">相关视频</string>
-    <string name="vod_menu_one">one</string>
-    <string name="vod_menu_two">two</string>
+    <string name="vod_menu_clear">清晰度</string>
+    <string name="vod_menu_change_source">切换源</string>
+    <string name="vod_replay">重播</string>
+    <string name="vod_continue_play">续播</string>
+    <string name="vod_clear_smooth">流畅</string>
+    <string name="vod_clear_sd">标清</string>
+    <string name="vod_clear_hd">高清</string>
+    <string name="vod_clear_ud">超清</string>
+    <string name="vod_clear_bd">蓝光</string>
+    <string name="vod_menu_title">菜单</string>
+    <string name="vod_msg_getdetail_failed">获取祥情失败</string>
+    <string name="vod_msg_http_request_time_out">请求超时</string>
+    <string name="vod_msg_get_source_failed">获取资源失败</string>
+    <string name="vod_msg_no_value_play_info">没有有效播放信息</string>
+    <string name="vod_msg_no_value_play_url">没有有效播放地址</string>
+    <string name="vod_msg_getting_source">正在从云端获取数据</string>
+    <string name="vod_msg_source_from_and_count">播放来源: %1$s，共有接入点: %2$d 个 </string>
+    <string name="vod_msg_unkown">未知</string>
+    <string name="vod_msg_last_play_to">上次观看到：%1$s</string>
 
     <string-array name="vod_clear_level">
         <item>流畅</item>

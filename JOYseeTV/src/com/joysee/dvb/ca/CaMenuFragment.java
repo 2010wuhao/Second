@@ -68,8 +68,8 @@ public class CaMenuFragment extends Fragment implements OnItemClickListener {
         public static final int PIN_INVALID = 4;
         /** 开始时间小于结束时间 */
         public static final int TIME_ERROR = 5;
-        /** 密码长度错误 */
-        public static final int PASSWORD_LENGTH_ERROR = 6;
+        /** 密码为空错误 */
+        public static final int PASSWORD_NULL_ERROR = 6;
         /** 两次输入不一致 */
         public static final int EQUALS_ERROR = 7;
     }
@@ -155,10 +155,10 @@ public class CaMenuFragment extends Fragment implements OnItemClickListener {
             JLog.d(TAG, " isRightPassWord password = " + mPasswordStr);
         }
         if (mPasswordStr != null) {
-            if (mPasswordStr.length() < 6) {
-                mHindTv.setText(getString(R.string.ca_password_length_error_text));
-                right = false;
-            } else {
+//            if (mPasswordStr.length() < 6) {
+//                mHindTv.setText(getString(R.string.ca_password_null_error_text));
+//                right = false;
+//            } else {
                 int operateCode = 0;
                 try {
                     mDvbPlayer.changeCAcardPassword(mPasswordStr, mPasswordStr);
@@ -173,7 +173,7 @@ public class CaMenuFragment extends Fragment implements OnItemClickListener {
                 if (operateCode == CardOperateCode.OK) {
                     right = true;
                 }
-            }
+//            }
         }
         return right;
     }

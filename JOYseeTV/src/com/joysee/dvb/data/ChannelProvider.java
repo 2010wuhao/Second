@@ -212,6 +212,51 @@ public class ChannelProvider {
         }
         return num;
     }
+    
+    public static DvbService getChannelByTVId(Context context, int tvId) {
+        DvbService channel = null;
+        String[] projection = new String[] {
+                ChannelColumn.LOGIC_CHNUM, ChannelColumn.TVID
+        };
+        String selection = ChannelColumn.TVID + "=?";
+        String[] args = new String[] {
+                tvId + ""
+        };
+
+        Cursor cursor = context.getContentResolver().query(
+                DvbProvider.CONTENT_URI_CHANNEL,
+                projection,
+                selection,
+                args,
+                null);
+        JLog.d(TAG, "getChannelByTVId cursor count = " + (cursor != null ? cursor.getCount() : "cursor is null.."));
+
+        try {
+            if (cursor != null) {
+                final int channelNumIndex = cursor.getColumnIndexOrThrow(ChannelColumn.LOGIC_CHNUM);
+                final int tvIdIndex = cursor.getColumnIndexOrThrow(ChannelColumn.TVID);
+                
+                while (cursor.moveToNext()) {
+                    channel = JDVBPlayer.getInstance().getChannelByNum(
+                            cursor.getInt(channelNumIndex), DvbService.ALL);
+                    // TODO channeltype
+                    if (channel != null) {
+                        channel.setTvId(cursor.getInt(tvIdIndex));
+                        JLog.d(TAG, "getChannelByTVId channelnum = " + channel.getLogicChNumber()
+                                + " chennelType = " + channel.getChannelType() + "-"
+                                + channel.getChannelName());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JLog.d(TAG, "getChannelByTVId catch Exception", e);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return channel;
+    }
 
     public static ArrayList<DvbService> getChannelHistory(Context context, int size) {
         ArrayList<DvbService> channels = null;

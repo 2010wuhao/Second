@@ -46,6 +46,7 @@ public class DvbSettingsDefValues {
         mDefaultValues.put(System.PORTAL_USE_ANIMATION, 1 + "");
         mDefaultValues.put(System.DEBUG_LOG, 1 + "");
         mDefaultValues.put(System.DEBUG_MODE, 0 + "");
+        mDefaultValues.put(System.VOD_ENABLE, 0 + "");
 
     }
 

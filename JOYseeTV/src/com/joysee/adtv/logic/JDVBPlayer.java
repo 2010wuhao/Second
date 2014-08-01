@@ -110,6 +110,10 @@ public abstract class JDVBPlayer {
     public interface OnTaskInfoListener {
         void onTaskInfo(TaskInfo task);
     }
+    
+    public interface OnDTVDeathNotifier {
+        void onServiceDied();
+    }
 
     /**
      * 播放器类型 ： </Br> 1. {@link PlayerType#DTV} :适配DTVService结构的播放器</Br> 2.
@@ -130,15 +134,17 @@ public abstract class JDVBPlayer {
     static JDVBPlayer mDvbPlayer;
     OnSearchInfoListener mOnSearchInfoListener;
     OnTaskInfoListener mOnTaskInfoListener;
+    OnDTVDeathNotifier mOnDTVDeathNotifier;
     
     public static boolean mStrictMode = false;
 
     public static final int DVBPLAYER_ERROR = 0;
     public static final int DVBPLAYER_IDLE = 1 << 0;
-    public static final int DVBPLAYER_INITIALIZED = 1 << 1;
-    public static final int DVBPLAYER_PREPARED = 1 << 2;
-    public static final int DVBPLAYER_STARTED = 1 << 3;
-    public static final int DVBPLAYER_STOPPED = 1 << 4;
+    public static final int DVBPLAYER_INITIALIZING = 1 << 1;
+    public static final int DVBPLAYER_INITIALIZED = 1 << 2;
+    public static final int DVBPLAYER_PREPARED = 1 << 3;
+    public static final int DVBPLAYER_STARTED = 1 << 4;
+    public static final int DVBPLAYER_STOPPED = 1 << 5;
 
     /**
      * Tuner Index 0
@@ -644,8 +650,12 @@ public abstract class JDVBPlayer {
     public void setOnTaskInfoListener(OnTaskInfoListener lis) {
         this.mOnTaskInfoListener = lis;
     }
+    
+    public void setOnDTVDeathNotifier(OnDTVDeathNotifier lis) {
+        this.mOnDTVDeathNotifier = lis;
+    }
 
-    String dvbPlayerState2String(int state) {
+    public static String dvbPlayerState2String(int state) {
         String ret = null;
         switch (state) {
             case DVBPLAYER_ERROR:
@@ -1040,6 +1050,8 @@ public abstract class JDVBPlayer {
     public static void setStrictMode(boolean mode) {
         mStrictMode = mode;
     }
+    
+    public abstract int getCurrentState();
 
     public static String getMonitorCallbackName(int type) {
         StringBuilder builder = new StringBuilder();

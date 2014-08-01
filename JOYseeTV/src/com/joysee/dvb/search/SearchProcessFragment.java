@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.joysee.adtv.logic.JDVBPlayer;
 import com.joysee.adtv.logic.bean.DvbService;
@@ -257,17 +259,22 @@ public class SearchProcessFragment extends BaseFragment {
     private boolean mIsSearchEndCallback;
     private StyleDialog mCancelDialog;
     private StyleDialog mSearchOverDialog;
-    private Runnable mBeginRunnable;
     private ScrollRunnable mScrollRunnable;
-
     private Transponder mTransponder;
     private FragmentImpl mFragmentImpl;
     private PowerManager.WakeLock mWakeLock;
+    private boolean isPause;
 
     private WeakHandler<SearchProcessFragment> mWeakHandler = new WeakHandler<SearchProcessFragment>(this) {
 
         @SuppressWarnings("unchecked")
         protected void weakReferenceMessage(android.os.Message msg) {
+            if (isPause) {
+                if (TvApplication.DEBUG_LOG) {
+                    JLog.d(TAG, "handler OnSearchInfoListener callback, but Fragment is onPause");
+                }
+                return;
+            }
             switch (msg.what) {
                 case MSG_SEARCH_RESULT:
                     ArrayList<DvbService> services = (ArrayList<DvbService>) msg.obj;
@@ -373,14 +380,6 @@ public class SearchProcessFragment extends BaseFragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        startSearch();
-        mIsSearching = true;
-    }
-
-    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mFragmentImpl = (FragmentImpl) activity;
@@ -392,6 +391,7 @@ public class SearchProcessFragment extends BaseFragment {
         mRootView = (RelativeLayout) inflater.inflate(R.layout.search_process_fragment, null);
         performData();
         performLayout();
+        startSearch();
         return mRootView;
     }
 
@@ -405,22 +405,30 @@ public class SearchProcessFragment extends BaseFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        isPause = false;
+        addSearchListener();
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
+        isPause = true;
         clearDialog();
-        stopSearch();
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
         screenKeepWake(false);
         removeSearchListener();
+
+        float begin = SystemClock.currentThreadTimeMillis();
+        stopSearch();
+        float timeout = SystemClock.currentThreadTimeMillis() - begin;
+        if (TvApplication.DEBUG_MODE && timeout >= 350) {
+            if (getActivity() != null) {
+                Toast.makeText(getActivity(), "停止搜索超时 ms=" + timeout, Toast.LENGTH_SHORT).show();
+            }
+            JLog.d(TAG, "stop search time out, ms=" + timeout);
+        }
     }
 
     private void performData() {

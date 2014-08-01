@@ -21,7 +21,7 @@
     <string name="ca_card_num_text">本机卡号：%1$s</string>
     <string name="ca_please_input_password">输入电视智能卡密码：</string>
     <string name="ca_password_error_text">输入密码错误</string>
-    <string name="ca_password_length_error_text">密码长度应为6位</string>
+    <string name="ca_password_null_error_text">密码不能为空</string>
     <string name="ca_card_not_finded">智能卡不存在或是无效卡</string>
     <string name="ca_operate_msg_ok">修改成功</string>
     <string name="ca_operate_msg_time_error">开始时间小于结束时间</string>

@@ -44,6 +44,9 @@ public class PlaybackController extends BaseController {
 
     private Context mContext;
     public AbsDvbPlayer mDvbPlayer;
+    
+    
+    public static final int FLAG_SET_CHANNEL_QUIET = 1;
 
     public PlaybackController(Context context) {
         mContext = context;
@@ -125,8 +128,13 @@ public class PlaybackController extends BaseController {
         return mDvbPlayer.getVideoAspectRation(JDVBPlayer.TUNER_0);
     }
 
-    public int init(DVBSurfaceViewParent surfaceLayout) {
-        return mDvbPlayer.init(surfaceLayout);
+    public int init() {
+        return mDvbPlayer.init();
+    }
+    
+    public void setSurfaceParent(DVBSurfaceViewParent surfaceLayout) {
+        JLog.d(TAG, "setSurfaceParent parent = " + surfaceLayout);
+        mDvbPlayer.setSurfaceParent(surfaceLayout);
     }
 
     public void initChannel(boolean force) {
@@ -179,23 +187,33 @@ public class PlaybackController extends BaseController {
     }
 
     public void setChannel(int tunerId, DvbService channel) {
+        setChannel(tunerId, channel, 0);
+    }
+
+    public void setChannel(int tunerId, DvbService channel, int flag) {
         if (DvbService.isChannelValid(channel)) {
-            JLog.d(TAG, "setChannel : " + channel.getChannelName() + "-" + channel.getChannelType());
+            JLog.d(TAG, "setChannel flag : " + flag + "  " + channel.getChannelName() + "-" + channel.getChannelType());
             if (channel.getChannelType() == DvbService.BC) {
                 dispatchMessage(DvbMessage.obtain(DvbMessage.START_PLAY_BC));
             } else {
                 dispatchMessage(DvbMessage.obtain(DvbMessage.START_PLAY_TV));
             }
-            showMiniEpg(channel);
+            if ((flag & FLAG_SET_CHANNEL_QUIET) == 0) {
+                showMiniEpg(channel);
+            }
             mDvbPlayer.setChannel(tunerId, channel);
         } else {
         }
     }
 
     public void setChannelByNum(int tunerId, int num) {
+        setChannelByNum(tunerId, num, 0);
+    }
+
+    public void setChannelByNum(int tunerId, int num, int flag) {
         DvbService channel = getChannelByNum(num);
         if (channel != null) {
-            setChannel(tunerId, channel);
+            setChannel(tunerId, channel, flag);
         }
     }
     
